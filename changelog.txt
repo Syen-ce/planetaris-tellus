@@ -1,0 +1,17 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2026-03-02
+  Features:
+    - Added planet Tellus
+    - Added Bioassembler and incubator
+    - Added corroded versions of roboports and pipes
+    - Added wasps
+    - Added 2 new science packs
+    - Added robowasp port and logiscal robowasps
+    - Added three long handed inserters and long handed stack inserters
+    - Added space preservation mechanic
+    - Added root system
+    - Added 3 tips and tricks
+    - Added 5 new achievements
+
+
