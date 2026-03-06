@@ -66,4 +66,5 @@ Is completely safe to play in an existing save.
 # Credits
 
 *   The foundry members
+*   [Taladar99](https://mods.factorio.com/user/Talandar99) for the custom Tellus icon for the Visible planets mod
 *   [Hurricane](https://mods.factorio.com/user/Hurricane046) - Incubator graphics
