@@ -41,5 +41,6 @@ planetaris_menu_simulations.tellus_mycelia = make_simulation(60 * 12, "tellus", 
 planetaris_menu_simulations.tellus_chloroplast_agriculture = make_simulation(60 * 12, "tellus", "menu-simulation-tellus-chloroplast-agriculture.zip", [[]])
 planetaris_menu_simulations.tellus_air_cleaning = make_simulation(60 * 12, "tellus", "menu-simulation-tellus-mycelia-air-cleaning.zip", [[]])
 planetaris_menu_simulations.tellus_mycelia_nutrients = make_simulation(60 * 12, "tellus", "menu-simulation-tellus-mycelia-nutrients.zip", [[]])
+planetaris_menu_simulations.tellus_full_factory = make_simulation(60 * 12, "tellus", "menu-simulation-tellus-full-factory.zip", [[]])
 
 return planetaris_menu_simulations
