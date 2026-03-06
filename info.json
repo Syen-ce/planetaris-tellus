@@ -10,6 +10,7 @@
     "quality",
     "PlanetsLib >= 1.1.38",
     "condensing-agricultural-tower",
+    "colorful_biochamber >= 1.1.4",
     "?visible-planets >= 1.2.11"
   ],
   "description": "Tellus, a planet full of life, mycelia and chlorophyll, infected by dangerous parasites and clouds of pollen corrode materials. Create and plant living machinery and try to keep it alive",

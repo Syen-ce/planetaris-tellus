@@ -46,4 +46,5 @@ local main_menu_simulations = data.raw["utility-constants"]["default"].main_menu
 main_menu_simulations.tellus_biofactory = planetaris_menu_simulations.tellus_biofactory
 main_menu_simulations.tellus_mycelia = planetaris_menu_simulations.tellus_mycelia
 main_menu_simulations.tellus_chloroplast_agriculture = planetaris_menu_simulations.tellus_chloroplast_agriculture
-
+main_menu_simulations.tellus_air_cleaning = planetaris_menu_simulations.tellus_air_cleaning
+main_menu_simulations.tellus_mycelia_nutrients = planetaris_menu_simulations.tellus_mycelia_nutrients

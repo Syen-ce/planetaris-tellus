@@ -1,6 +1,6 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.0
-Date: 2026-03-02
+Date: 2026-03-06
   Features:
     - Added planet Tellus
     - Added Bioassembler and incubator
@@ -13,5 +13,11 @@ Date: 2026-03-02
     - Added root system
     - Added 3 tips and tricks
     - Added 5 new achievements
+    - Added 5 menu simulations
+  Compatibility:
+    - Krastorio 2 SO, full compatibility
+    - Celestial weather, full compatibility
+    - Multi-Surface Promethium Plate Recipe
+    - Maraxis, adapt space connections
 
 

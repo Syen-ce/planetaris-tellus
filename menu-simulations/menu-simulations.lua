@@ -12,7 +12,7 @@ local make_simulation = function(duration, planet, filename, script)
     init =
     [[
       local sim_planet = game.surfaces["]] .. planet .. [["]
-      local logo = sim_planet.find_entities_filtered{name = "planetaris-logo-16tiles", limit = 1}[1]
+      local logo = sim_planet.find_entities_filtered{name = "planetaris-logo-red", limit = 1}[1]
       logo.destructible = false
       local center = {logo.position.x, logo.position.y+9.75}
       game.simulation.camera_surface_index = sim_planet.index
@@ -39,5 +39,7 @@ local timeline_tools =
 planetaris_menu_simulations.tellus_biofactory = make_simulation(60 * 12, "tellus", "menu-simulation-tellus-biofactory.zip", [[]])
 planetaris_menu_simulations.tellus_mycelia = make_simulation(60 * 12, "tellus", "menu-simulation-tellus-mycelia.zip", [[]])
 planetaris_menu_simulations.tellus_chloroplast_agriculture = make_simulation(60 * 12, "tellus", "menu-simulation-tellus-chloroplast-agriculture.zip", [[]])
+planetaris_menu_simulations.tellus_air_cleaning = make_simulation(60 * 12, "tellus", "menu-simulation-tellus-mycelia-air-cleaning.zip", [[]])
+planetaris_menu_simulations.tellus_mycelia_nutrients = make_simulation(60 * 12, "tellus", "menu-simulation-tellus-mycelia-nutrients.zip", [[]])
 
 return planetaris_menu_simulations
