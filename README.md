@@ -1,5 +1,5 @@
 [![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/invite/Mu7zkD7THf)
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)]((https://ko-fi.com/syen_ce))
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)]((https://ko-fi.com/syen_ce)
 
 # Welcome to Arig
 
