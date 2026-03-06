@@ -42,7 +42,15 @@ Harvest and process tellus plants to start your factory. Chloroplasts to get fru
 
 <img style="width:auto;" alt="tellus-agriculture" src="https://github.com/user-attachments/assets/7a9a1671-5066-42a0-be2d-e2350cede0ba" />
 
-### And more!
+# Features
+*   1 new planet, Tellus
+*   3 new machines
+*   A better assembling machine
+*   2 new science packs
+*   +10 new technologies
+*   5 new achievements
+
+**And more!**
 
 <img style="width:auto;" alt="tellus-factory-big" src="https://github.com/user-attachments/assets/c0b263cc-3077-4f87-ae17-51f4f74ef1d5" />
 
