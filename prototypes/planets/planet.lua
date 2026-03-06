@@ -13,7 +13,7 @@ PlanetsLib:extend({
                 name = "star",
             },
             distance = 17.5,
-            orientation = 0.52,
+            orientation = 0.42,
         },
         subgroup = "planets",
         label_orientation = 0.55,
@@ -201,37 +201,34 @@ PlanetsLib:extend({
     },
 })
 
-if data.raw["planet"]["arig"] then
-  data:extend({
-      {
-          type = "space-connection",
-          name = "arig-tellus",
-          subgroup = "planet-connections",
-          from = "arig",
-          to = "tellus", 
-          length = 15000,
-          icon_size = 64,
-          order = "d-c",
-          asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.gleba_aquilo),
-      },
-  })
+if mods["planetaris-arig"] or mods["planetaris-hyarion"] then
+  data.raw["planet"]["tellus"].orientation = 0.52
 end
 
-if data.raw["planet"]["hyarion"] then
-  data:extend({
-          {
+data:extend({
+      {
           type = "space-connection",
-          name = "hyarion-tellus",
+          name = "fulgora-tellus",
           subgroup = "planet-connections",
-          from = "hyarion",
+          from = "fulgora",
           to = "tellus", 
-          length = 15000,
+          length = 30000,
           icon_size = 64,
-          order = "d-c",
+          order = "d-b-a",
           asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.gleba_aquilo),
       },
-  })
-end
+      {
+          type = "space-connection",
+          name = "nauvis-tellus",
+          subgroup = "planet-connections",
+          from = "nauvis",
+          to = "tellus", 
+          length = 30000,
+          icon_size = 64,
+          order = "d-b-c",
+          asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.gleba_aquilo),
+      },
+})
 
 if data.raw["planet"]["maraxsis"] then
   data:extend({

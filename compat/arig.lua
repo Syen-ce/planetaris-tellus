@@ -1,6 +1,7 @@
 if not mods["planetaris-arig"] then return end
 
 local space_age_item_sounds = require("__space-age__.prototypes.item_sounds")
+local asteroid_util = require("__space-age__.prototypes.planet.asteroid-spawn-definitions")
 
 -- Update tech
 
@@ -134,3 +135,23 @@ data.extend({
   },
 
 })
+
+-- Space connection
+
+  data:extend({
+      {
+          type = "space-connection",
+          name = "arig-tellus",
+          subgroup = "planet-connections",
+          from = "arig",
+          to = "tellus", 
+          length = 15000,
+          icon_size = 64,
+          order = "d-c",
+          asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.gleba_aquilo),
+      }
+  })
+
+if data.raw["space-connection"]["nauvis-tellus"] then
+  data.raw["space-connection"]["nauvis-tellus"] = nil
+end

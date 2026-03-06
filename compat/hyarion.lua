@@ -4,6 +4,7 @@ local planetaris_simulations = require("__planetaris-tellus__.prototypes.factori
 local simulations = require("__space-age__.prototypes.factoriopedia-simulations")
 local space_age_item_sounds = require("__space-age__.prototypes.item_sounds")
 local plant_flags = {"placeable-neutral", "placeable-off-grid", "breaths-air"}
+local asteroid_util = require("__space-age__.prototypes.planet.asteroid-spawn-definitions")
 
 local pointy_crystal = {
       {
@@ -491,3 +492,23 @@ data.extend({
   },
 
 })
+
+-- Space connection
+
+data:extend({
+      {
+          type = "space-connection",
+          name = "hyarion-tellus",
+          subgroup = "planet-connections",
+          from = "hyarion",
+          to = "tellus", 
+          length = 15000,
+          icon_size = 64,
+          order = "d-c",
+          asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.gleba_aquilo),
+      },
+})
+
+if data.raw["space-connection"]["fulgora-tellus"] then
+  data.raw["space-connection"]["fulgora-tellus"] = nil
+end

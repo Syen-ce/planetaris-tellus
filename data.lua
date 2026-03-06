@@ -33,6 +33,7 @@ require("prototypes.tips-and-tricks")
 require("compat.arig")
 require("compat.hyarion")
 require("compat.msppr")
+require("compat.visible-planets")
 
 
 lib.add_to_blacklist("nutrients")

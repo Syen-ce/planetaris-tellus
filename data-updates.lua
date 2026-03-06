@@ -1,8 +1,6 @@
 --------------------- Compat
 
 require("PlanetarisLib")
-require("compat.celestial-weather")
-require("compat.maraxsis")
 
 
 table.insert(data.raw.item.landfill.place_as_tile.tile_condition, "wetland-tellus-light-dead-skin")

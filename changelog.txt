@@ -18,6 +18,7 @@ Date: 2026-03-06
     - Krastorio 2 SO, full compatibility
     - Celestial weather, full compatibility
     - Multi-Surface Promethium Plate Recipe
-    - Maraxis, adapt space connections
+    - Maraxsis, adapt space connections
+    - Visible planets in space, custom planet image (by taladar)
 
 

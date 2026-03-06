@@ -1,5 +1,7 @@
 if not mods["maraxsis"] then return end
 
+local asteroid_util = require("__space-age__.prototypes.planet.asteroid-spawn-definitions")
+
 -- remove space connections
 if data.raw["space-connection"]["vulcanus-maraxsis"] then
     data.raw["space-connection"]["vulcanus-maraxsis"] = nil
