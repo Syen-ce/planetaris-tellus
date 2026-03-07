@@ -205,9 +205,9 @@ PlanetarisLib.add_entity_surface_condition("kr-huge-storage-tank", "planetaris-p
 
 -- K2SO items to crafting
 
-PlanetarisLib.add_or_replace_ingredient("planetaris-bioassembler-seed", "electronic-circuit", {type = "item", name = "kr-automation-core", amount = 2})
-PlanetarisLib.add_or_replace_ingredient("planetaris-incubator", "", {type = "item", name = "kr-glass", amount = 10})
-PlanetarisLib.add_or_replace_ingredient("planetaris-air-purifier", "steel-plate", {type = "item", name = "kr-steel-gear-wheel", amount = 10})
+PlanetarisLib.add_or_replace_recipe_ingredient("planetaris-bioassembler-seed", "electronic-circuit", {type = "item", name = "kr-automation-core", amount = 2})
+PlanetarisLib.add_or_replace_recipe_ingredient("planetaris-incubator", "", {type = "item", name = "kr-glass", amount = 10})
+PlanetarisLib.add_or_replace_recipe_ingredient("planetaris-air-purifier", "steel-plate", {type = "item", name = "kr-steel-gear-wheel", amount = 10})
 
 -- add plants to greenhouse
 
