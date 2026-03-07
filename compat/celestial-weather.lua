@@ -90,18 +90,18 @@ tellus_effects = {}
 
   -- Fog
 
-  local tellus_fog = table.deepcopy(fog)
-  tellus_fog.color1 = {0.929, 0.812, 0.553, 1.0}
-  tellus_fog.color2 = {1, 0.929, 0.722, 1.0}
-  tellus_fog.tick_factor = 0.0003
-  tellus_fog.detail_noise_texture.filename = "__celestial-weather__/graphics/entity/dense-clouds.png"
+  -- local tellus_fog = table.deepcopy(fog)
+  -- tellus_fog.color1 = {0.929, 0.812, 0.553, 0.5}
+  -- tellus_fog.color2 = {1, 0.929, 0.722, 0.5}
+  -- tellus_fog.tick_factor = 0.0003
+  -- tellus_fog.detail_noise_texture.filename = "__celestial-weather__/graphics/entity/dense-clouds.png"
 
 -- implement
 if #tellus_effects > 0 then
     data.raw["planet"]["tellus"].ticks_between_player_effects = 1
     data.raw["planet"]["tellus"].player_effects =  tellus_effects
     data.raw["planet"]["tellus"].surface_render_parameters = data.raw["planet"]["tellus"]["surface_render_parameters"] or {}
-    data.raw["planet"]["tellus"].surface_render_parameters["fog"] = tellus_fog
+    -- data.raw["planet"]["tellus"].surface_render_parameters["fog"] = tellus_fog
   end
 
 end

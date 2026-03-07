@@ -12,6 +12,13 @@ data.extend({
 		setting_type = "startup",
 		default_value = true,
 		order = "a-b-a",
+	},
+	{
+		type = "bool-setting",
+		name = "tellus-no-enemies",
+		setting_type = "startup",
+		default_value = false,
+		order = "a-b-b",
 	}
 })
 

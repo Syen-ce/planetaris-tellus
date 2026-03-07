@@ -27,6 +27,12 @@ table.insert(data.raw["simple-entity"]["small-demolisher-corpse"].minable.result
 table.insert(data.raw["simple-entity"]["medium-demolisher-corpse"].minable.results, {type = "item", name = "planetaris-carbolyte-pod", amount_min = 1, amount_max = 2})
 table.insert(data.raw["simple-entity"]["big-demolisher-corpse"].minable.results, {type = "item", name = "planetaris-carbolyte-pod", amount_min = 2, amount_max = 3})
 
+if settings.startup["tellus-no-enemies"].value == true then
+    table.insert(data.raw["simple-entity"]["vulcanus-chimney-faded"].minable.results, {type = "item", name = "planetaris-carbolyte-pod", amount_min = 1, amount_max = 2})
+    table.insert(data.raw["simple-entity"]["vulcanus-chimney-short"].minable.results, {type = "item", name = "planetaris-carbolyte-pod", amount_min = 1, amount_max = 2})
+    table.insert(data.raw["simple-entity"]["vulcanus-chimney"].minable.results, {type = "item", name = "planetaris-carbolyte-pod", amount_min = 1, amount_max = 2})
+end
+
 -- Add Pollen to machines
 data.raw["assembling-machine"]["biochamber"].energy_source.emissions_per_minute = { pollution = -1, pollen = -1 }
 

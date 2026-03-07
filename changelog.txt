@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 2026-03-07
+  Features:
+    - Added new setting when playing with no enemies to make carbolyte pods appear in vulcanus chimneys
+  Changes:
+    - Made celestial weather fog less dense
+---------------------------------------------------------------------------------------------------
 Version: 1.0.0
 Date: 2026-03-06
   Features:
