@@ -6,7 +6,7 @@
 
 # Welcome to Tellus
 
-Tellus is a planet full of life, mycelia and chlorophyll, infected by dangerous parasites and clouds of pollen corrode materials. Automate very risky new materials and make sure your base dont get destroyed from the inside.Create and plant living machinery and try to keep it alive. You can visit tellus after completing gleba.
+Tellus is a planet full of life, mycelia and chlorophyll, infected by dangerous parasites and clouds of pollen corrode materials. Automate very risky new materials and make sure your base dont get destroyed from the inside. Create and plant living machinery and try to keep it alive. You can visit tellus after completing gleba.
 
 Tellus can be played on its own but is recommended to play with the rest of the [Planetaris](https://mods.factorio.com/mod/planetaris-unbounded) mods.
 
@@ -18,7 +18,7 @@ Tellus can be played on its own but is recommended to play with the rest of the 
 
 ### Living machinery
 
-Collect magnesium and create your fist living machine, Bioassemblers! Plant them, whatch them grow and produce with them, they consume chlorophyll from roots and with time will die, revive them by feeding nutriets before they decompose.
+Collect magnesium and create your fist living machine, Bioassemblers! Plant them, whatch them grow and produce with them, they consume chlorophyll from roots and with time will die, revive them by feeding nutrients before they decompose.
 
 <img style="width:auto;" src="https://github.com/user-attachments/assets/8ec128fa-deb7-4b3e-b610-f16df29bc332" />
 
