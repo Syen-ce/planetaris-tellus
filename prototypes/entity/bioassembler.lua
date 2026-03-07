@@ -257,6 +257,37 @@ end
           production_type = "input-output",
         },
       },
+      fluid_boxes =
+    {
+      {
+        production_type = "input",
+        pipe_covers = planetaris_root_cover_pictures(),
+        volume = 1000,
+        pipe_connections =
+        {
+          {
+            flow_direction="input",
+            direction = defines.direction.north,
+            connection_category = "root",
+            position = {0, -1}
+          }
+        }
+      },
+      {
+        production_type = "output",
+        pipe_covers = planetaris_root_cover_pictures(),
+        volume = 100,
+        pipe_connections =
+        {
+          {
+            flow_direction = "output",
+            direction = defines.direction.south,
+            connection_category = "root",
+            position = { 0, 1}
+          }
+        }
+      }
+    },
       energy_usage = "5MW",
       module_slots = 4,
       allowed_effects = {"speed", "consumption", "pollution", "productivity"},

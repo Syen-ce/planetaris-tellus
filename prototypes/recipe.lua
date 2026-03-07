@@ -33,6 +33,7 @@ data:extend({
       }
     },
     enabled = false,
+    auto_recycle = false,
     allow_productivity = true,
     reset_freshness_on_craft = true,
     energy_required = 4,
@@ -72,6 +73,7 @@ data:extend({
     enabled = false,
     allow_productivity = true,
     reset_freshness_on_craft = true,
+    auto_recycle = false,
     energy_required = 4,
     ingredients =
     {
@@ -95,6 +97,7 @@ data:extend({
     name = "planetaris-magnesium-sheet",
     category = "smelting",
     enabled = false,
+    auto_recycle = false,
     ingredients = {{type = "item", name = "planetaris-magnesium-dust", amount = 1}},
     energy_required = 2,
     results =
@@ -123,6 +126,7 @@ data:extend({
     subgroup = "tellus-basic-processes",
     order = "a[natural]-b[magnesium]-a[magnesium-bacteria]-b",
     enabled = false,
+    auto_recycle = false,
     allow_productivity = true,
     reset_freshness_on_craft = true,
     energy_required = 4,
@@ -160,6 +164,7 @@ data:extend({
       }
     },
     enabled = false,
+    auto_recycle = false,
       ingredients =
       {
         {type = "item", name = "planetaris-magnesium-sheet", amount = 10},
@@ -182,6 +187,7 @@ data:extend({
     order = "a[natural]-a[basic]-c[water]",
     energy_required = 2,
     enabled = false,
+    auto_recycle = false,
     emissions_multiplier = 5,
     ingredients = {
       {type = "fluid", name = "planetaris-infected-water", amount = 50},
@@ -298,6 +304,7 @@ data:extend({
       }
     },
     enabled = false,
+    auto_recycle = false,
     allow_productivity = false,
     energy_required = 1,
     ingredients = {{type = "item", name = "planetaris-chloroplast-fruit", amount = 1}},
@@ -328,6 +335,7 @@ data:extend({
       }
     },
     enabled = false,
+    auto_recycle = false,
     energy_required = 1,
     ingredients = {{type = "item", name = "planetaris-mushroom-cap", amount = 1}},
     results =
@@ -351,6 +359,7 @@ data:extend({
     category = "planetaris-bioassembling-or-organic-or-hand-crafting",
     subgroup = "tellus-basic-processes",
     enabled = false,
+    auto_recycle = false,
     allow_productivity = true,
     order = "a[natural]-e[nutrients]-a",
     energy_required = 4,
@@ -369,6 +378,7 @@ data:extend({
     category = "planetaris-bioassembling-or-organic-or-hand-crafting",
     subgroup = "tellus-basic-processes",
     enabled = false,
+    auto_recycle = false,
     allow_productivity = true,
     order = "a[natural]-e[nutrients]-b",
     energy_required = 4,
@@ -397,6 +407,7 @@ data:extend({
       }
     },
     enabled = false,
+    auto_recycle = false,
     energy_required = 8,
     ingredients = {
       {type = "fluid", name = "water", amount = 10},
@@ -429,6 +440,7 @@ data:extend({
       }
     },
     enabled = false,
+    auto_recycle = false,
     energy_required = 8,
     ingredients = {
       {type = "fluid", name = "water", amount = 10},
@@ -461,6 +473,7 @@ data:extend({
       }
     },
     enabled = false,
+    auto_recycle = false,
     energy_required = 4,
     ingredients = {
       {type = "fluid", name = "planetaris-seed-compound", amount = 15},
@@ -494,6 +507,7 @@ data:extend({
       }
     },
     enabled = false,
+    auto_recycle = false,
     energy_required = 8,
     emissions_multiplier = 5,
     ingredients = {
@@ -533,6 +547,7 @@ data:extend({
       }
     },
     enabled = false,
+    auto_recycle = false,
     energy_required = 2,
     ingredients = {
       {type = "fluid", name = "water", amount = 10},
@@ -559,9 +574,9 @@ data:extend({
     category = "planetaris-bioassembling",
     subgroup = "tellus-basic-processes",
     order = "a[natural]-c[Chlorophyll]-c[mash]-b",
-    auto_recycle = false,
     energy_required = 2,
     enabled = false,
+    auto_recycle = false,
     ingredients =
     {
       {type = "item", name = "planetaris-chloroplast-mash", amount = 60}
@@ -1082,6 +1097,7 @@ data:extend({
       }
     },
     enabled = false,
+    auto_recycle = false,
     ingredients = {
       {type = "item", name = "planetaris-wasp-egg", amount = 1},
       {type = "item",  name = "planetaris-magnesium-dust", amount = 5},
@@ -1114,6 +1130,7 @@ data:extend({
       }
     },
     enabled = false,
+    auto_recycle = false,
     ingredients = {
       {type = "item",  name = "wood", amount = 1},
       {type = "item",  name = "planetaris-magnesium-dust", amount = 1},
@@ -1249,6 +1266,7 @@ data:extend({
     category = "planetaris-bioassembling",
     energy_required = 4,
     enabled = false,
+    auto_recycle = false,
     ingredients = {
       {type = "item",  name = "planetaris-carbolyte-pod", amount = 1},
       {type = "item",  name = "landfill", amount = 5},
@@ -1281,6 +1299,7 @@ data:extend({
       }
     },
     enabled = false,
+    auto_recycle = false,
     ingredients = {
       {type = "item",  name = "planetaris-carbolyte-crust", amount = 1},
     },
@@ -1313,6 +1332,7 @@ data:extend({
       }
     },
     enabled = false,
+    auto_recycle = false,
     ingredients = {
       {type = "item",  name = "planetaris-carbolyte-crust", amount = 1},
     },
@@ -1336,6 +1356,7 @@ data:extend({
     category = "planetaris-bioassembling",
     energy_required = 4,
     enabled = false,
+    auto_recycle = false,
     ingredients = {
       {type = "item",  name = "planetaris-holmiumnite-pod", amount = 1},
       {type = "item",  name = "landfill", amount = 5},
@@ -1365,6 +1386,7 @@ data:extend({
       }
     },
     enabled = false,
+    auto_recycle = false,
     ingredients = {
       {type = "item",   name = "holmium-ore", amount = 20},
       {type = "item",   name = "stone",       amount = 50},
@@ -1397,6 +1419,7 @@ data:extend({
       }
     },
     enabled = false,
+    auto_recycle = false,
     ingredients = {
       {type = "item",  name = "planetaris-holmiumnite-bulb", amount = 1},
       {type = "fluid",  name = "water", amount = 10},
@@ -1428,6 +1451,7 @@ data:extend({
       }
     },
     enabled = false,
+    auto_recycle = false,
     ingredients = {
       {type = "item",  name = "planetaris-fulgoran-bacteria", amount = 10},
     },
@@ -1491,6 +1515,7 @@ data:extend({
       }
     },
     enabled = false,
+    auto_recycle = false,
     emissions_multiplier = 5,
     ingredients = {
       {type = "item",  name = "planetaris-polimer-skin", amount = 5},
@@ -1625,6 +1650,7 @@ data:extend({
       }
     },
     enabled = false,
+    auto_recycle = false,
     energy_required = 8,
     ingredients = {
       {type = "item",  name = "planetaris-parasite-nest",      amount = 1},

@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 2026-03-07  
+  Changes:
+    - Added fluid boxes to dead assembler and incubator
+  Locale:
+    - Added spanish locale
+    - Fixed some english locale errors
+  Bugfixes:
+    - Fixed some recipes being able to be recycled
+---------------------------------------------------------------------------------------------------
 Version: 1.0.1
 Date: 2026-03-07
   Features:

@@ -1,6 +1,6 @@
 {
   "name": "planetaris-tellus",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "title": "○🌐Planetaris: Tellus",
   "author": "Syen",
   "factorio_version": "2.0",
@@ -11,9 +11,10 @@
     "PlanetsLib >= 1.1.38",
     "condensing-agricultural-tower",
     "colorful_biochamber >= 1.1.4",
-    "?visible-planets >= 1.2.11"
+    "?visible-planets >= 1.2.11",
+    "?celestial-weather"
   ],
-  "description": "Tellus, a planet full of life, mycelia and chlorophyll, infected by dangerous parasites and clouds of pollen corrode materials. Create and plant living machinery and try to keep it alive",
+  "description": "Tellus, a planet full of life, mycelia and chlorophyll, infected by dangerous parasites and clouds of pollen corrode materials. Create and plant living machinery and try to keep them alive",
   "quality_required": true,
   "rail_bridges_required": true,
   "space_travel_required": true,
