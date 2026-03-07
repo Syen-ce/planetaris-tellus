@@ -8,7 +8,7 @@ Date: 2026-03-07
     - Fixed some english locale errors
   Bugfixes:
     - Fixed some recipes being able to be recycled
-    - Fixed starup error with K2SO
+    - Fixed startup error with K2SO
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.1
 Date: 2026-03-07
