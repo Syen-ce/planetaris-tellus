@@ -320,9 +320,9 @@ function replacement.replace_all_existing()
         end
     end
     
-    if total_entities > 0 or total_ghosts > 0 then
-        game.print("Applied graphical variants to " .. total_entities .. " entities and " .. total_ghosts .. " ghosts on '" .. SURFACE_NAME .. "'")
-    end
+    --if total_entities > 0 or total_ghosts > 0 then
+    --    game.print("Applied graphical variants to " .. total_entities .. " entities and " .. total_ghosts .. " ghosts on '" .. SURFACE_NAME .. "'")
+    --end
 end
 
 return replacement

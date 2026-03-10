@@ -880,6 +880,13 @@ data.extend({
         water_tile = true
       }
     },
+    surface_conditions =
+    {
+      {
+        property = "gravity",
+        min = 1,
+      }
+    },
     pictures = {
       {
               filename = "__planetaris-tellus__/graphics/entity/plant/bioassembler/bioassembler-plant.png",
@@ -919,6 +926,13 @@ data.extend({
         object = true,
         player = true,
         water_tile = true
+      }
+    },
+    surface_conditions =
+    {
+      {
+        property = "gravity",
+        min = 1,
       }
     },
     growth_ticks = 600, -- 25 seconds to full growth

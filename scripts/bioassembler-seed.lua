@@ -6,10 +6,12 @@ local function on_built(event)
   init_storage()
   local entity = event.created_entity or event.entity
   
-  -- Check if a ghost was placed by construction bots
+  if not entity or not entity.valid then return end
   
-  if entity and entity.valid and entity.name == "planetaris-bioassembler-plant-ghost" then
-    -- Replace the ghost
+  local name = entity.name
+  
+  if name == "planetaris-bioassembler-plant-ghost" then
+    -- Replace the ghost with plant
     local surface = entity.surface
     local position = entity.position
     local force = entity.force
@@ -25,15 +27,13 @@ local function on_built(event)
     if plant and plant.valid then
       table.insert(storage.growing_plants, {
         entity = plant,
-        unit_number = plant.unit_number,
         created_tick = game.tick
       })
     end
-  -- Check if a real plant was placed directly
-  elseif entity and entity.valid and entity.name == "planetaris-bioassembler-plant" then
+  -- Check if a real plant was placed directly by player
+  elseif name == "planetaris-bioassembler-plant" then
     table.insert(storage.growing_plants, {
       entity = entity,
-      unit_number = entity.unit_number,
       created_tick = game.tick
     })
   end
@@ -42,44 +42,45 @@ end
 -- Check fully grown plants
 local function check_growth(event)
   init_storage()
-  if #storage.growing_plants == 0 then return end
+  
+  local plants = storage.growing_plants
+  if #plants == 0 then return end
   
   local growth_ticks = 600
+  local current_tick = game.tick
   
-  for i = #storage.growing_plants, 1, -1 do
-    local plant_data = storage.growing_plants[i]
+  -- Process in reverse to safely remove items
+  for i = #plants, 1, -1 do
+    local plant_data = plants[i]
+    local entity = plant_data.entity
     
-    if not plant_data.entity.valid then
-      table.remove(storage.growing_plants, i)
+    if not entity.valid then
+      table.remove(plants, i)
     else
-      local age = game.tick - plant_data.created_tick
+      local age = current_tick - plant_data.created_tick
       
       if age >= growth_ticks then
-        local surface = plant_data.entity.surface
-        local position = plant_data.entity.position
-        local force = plant_data.entity.force
+        local surface = entity.surface
+        local position = entity.position
         
-        plant_data.entity.destroy()
+        entity.destroy()
         
-        local machine = surface.create_entity{
+        surface.create_entity{
           name = "planetaris-bioassembler",
           position = position,
           force = "player"
         }
         
-        if machine then
-          surface.create_entity{
-            name = "planetaris-bioassembler-explosion",
-            position = position
-          }
-        end
+        surface.create_entity{
+          name = "planetaris-bioassembler-explosion",
+          position = position
+        }
         
-        table.remove(storage.growing_plants, i)
+        table.remove(plants, i)
       end
     end
   end
 end
-
 return {
   init_storage = init_storage,
   on_built = on_built,
