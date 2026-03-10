@@ -1,4 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.3
+Date: 2026-03-07  
+  Optimizations:
+    - Improve general performance
+    - Optimized graphics
+  Locale:
+    - Added russian locale by PinnedFox
+  Bugfixes:
+    - Fixed bioassembler able to be planted in space
+    - The message displaying how many entities have been swaped on tellus dont appear anymore
+---------------------------------------------------------------------------------------------------
 Version: 1.0.2
 Date: 2026-03-07  
   Changes:

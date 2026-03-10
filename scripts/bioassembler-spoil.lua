@@ -115,17 +115,17 @@ local function rebuild_assembler(corpse, data)
         if data.control_behavior.logistic_condition then
           control.logistic_condition = data.control_behavior.logistic_condition
         end
-
+        
         if data.control_behavior.circuit_set_recipe ~= nil then
           control.circuit_set_recipe = data.control_behavior.circuit_set_recipe 
         end
 
         if data.control_behavior.circuit_read_contents ~= nil then
-          control.circuit_read_contents = data.control_behavior.circuit_read_contents 
-        end
-        
-        if data.control_behavior.circuit_read_contents ~= nil and data.control_behavior.include_in_crafting then
-          control.include_in_crafting = data.control_behavior.include_in_crafting
+          control.circuit_read_contents = data.control_behavior.circuit_read_contents
+
+          if data.control_behavior.circuit_read_contents == true and data.control_behavior.include_in_crafting ~= nil then
+            control.include_in_crafting = data.control_behavior.include_in_crafting
+          end
         end
         
         if data.control_behavior.circuit_read_ingredients ~= nil then
@@ -136,16 +136,16 @@ local function rebuild_assembler(corpse, data)
           control.circuit_read_recipe_finished = data.control_behavior.circuit_read_recipe_finished
         end
 
-        if data.control_behavior.circuit_read_recipe_finished ~= nil and data.control_behavior.circuit_recipe_finished_signal then
+        if data.control_behavior.circuit_read_recipe_finished == true and data.control_behavior.circuit_recipe_finished_signal then
           control.circuit_recipe_finished_signal = data.control_behavior.circuit_recipe_finished_signal
         end
 
         if data.control_behavior.circuit_read_working ~= nil then
-          control.circuit_read_working =  data.control_behavior.circuit_read_working
+          control.circuit_read_working = data.control_behavior.circuit_read_working
         end
 
-        if data.control_behavior.circuit_read_working ~= nil and data.control_behavior.circuit_working_signal then
-          control.circuit_working_signal =  data.control_behavior.circuit_working_signal
+        if data.control_behavior.circuit_read_working == true and data.control_behavior.circuit_working_signal then
+          control.circuit_working_signal = data.control_behavior.circuit_working_signal
         end
       end
     end
@@ -250,7 +250,7 @@ local function on_entity_died(event)
     if control then
       control_behavior = {}
       
-      if control.circuit_enable_disable then
+      if control.circuit_enable_disable ~= nil then
         control_behavior.circuit_enable_disable = control.circuit_enable_disable
       end
       
@@ -258,7 +258,7 @@ local function on_entity_died(event)
         control_behavior.circuit_condition = control.circuit_condition
       end
       
-      if control.connect_to_logistic_network then
+      if control.connect_to_logistic_network ~= nil then
         control_behavior.connect_to_logistic_network = control.connect_to_logistic_network
       end
       
@@ -266,16 +266,16 @@ local function on_entity_died(event)
         control_behavior.logistic_condition = control.logistic_condition
       end
       
-      if control.circuit_set_recipe then
+      if control.circuit_set_recipe ~= nil then
         control_behavior.circuit_set_recipe = control.circuit_set_recipe
       end
 
       if control.circuit_read_contents ~= nil then
         control_behavior.circuit_read_contents = control.circuit_read_contents
-      end
 
-      if control.circuit_read_contents ~= nil and control.include_in_crafting then
-        control_behavior.include_in_crafting = control.include_in_crafting
+        if control.circuit_read_contents == true and control.include_in_crafting ~= nil then
+          control_behavior.include_in_crafting = control.include_in_crafting
+        end
       end
       
       if control.circuit_read_ingredients ~= nil then
@@ -286,7 +286,7 @@ local function on_entity_died(event)
         control_behavior.circuit_read_recipe_finished = control.circuit_read_recipe_finished
       end
 
-      if control.circuit_read_recipe_finished ~= nil and control.circuit_recipe_finished_signal then
+      if control.circuit_read_recipe_finished == true and control.circuit_recipe_finished_signal then
         control_behavior.circuit_recipe_finished_signal = control.circuit_recipe_finished_signal
       end
 
@@ -294,13 +294,13 @@ local function on_entity_died(event)
         control_behavior.circuit_read_working = control.circuit_read_working
       end
 
-      if control.circuit_read_working ~= nil and control.circuit_working_signal then
+      if control.circuit_read_working == true and control.circuit_working_signal then
         control_behavior.circuit_working_signal = control.circuit_working_signal
       end
       
       success, value = pcall(function() return control.circuit_read_resources end)
       if success and value ~= nil then
-        game.print("Found circuit_read_resources: " .. tostring(value))
+        --game.print("Found circuit_read_resources: " .. tostring(value))
         control_behavior.circuit_read_resources = value
       end
     end
@@ -342,7 +342,8 @@ local function on_entity_died(event)
       rendering = nil,
       last_products_finished = 0,
       control_behavior = control_behavior,
-      circuit_connections = circuit_connections
+      circuit_connections = circuit_connections,
+      entity = corpse  -- Cache reference
     }
 
     -- Code from cerys - transfer modules to corpse
@@ -372,45 +373,53 @@ end
 -- When finished recipe rebuild
 local function revive_bioassembler(event)
   init_storage()
+  
+  if not next(storage.corpse_data) then return end
+  
   for unit_number, corpse_data in pairs(storage.corpse_data) do
-    local found = false
-    for _, surface in pairs(game.surfaces) do
-      local entities = surface.find_entities_filtered{
-        name = {
-          "planetaris-bioassembler-dead",
-          "planetaris-incubator-dead"
+    if not corpse_data.entity or not corpse_data.entity.valid then
+      local found = false
+      for _, surface in pairs(game.surfaces) do
+        local entities = surface.find_entities_filtered{
+          name = {
+            "planetaris-bioassembler-dead",
+            "planetaris-incubator-dead"
+          }
         }
-      }
-      
-      for _, entity in pairs(entities) do
-        if entity.valid and entity.unit_number == unit_number then
-          found = true
-          
-          local products_finished = entity.products_finished or 0
-          
-          if not corpse_data.last_products_finished then
-            corpse_data.last_products_finished = products_finished
+        
+        for _, entity in pairs(entities) do
+          if entity.unit_number == unit_number then
+            corpse_data.entity = entity  -- Cache the entity reference
+            found = true
+            break
           end
-          
-          if products_finished > corpse_data.last_products_finished then
-            if entity.valid then
-              rebuild_assembler(entity, corpse_data)
-            end
-          else
-            corpse_data.last_products_finished = products_finished
-          end
-          
-          break
         end
+        if found then break end
       end
-      if found then break end
+      
+      -- Clean up if still not found
+      if not found then
+        if corpse_data.rendering and corpse_data.rendering.valid then
+          corpse_data.rendering.destroy()
+        end
+        storage.corpse_data[unit_number] = nil
+      end
     end
     
-    if not found then
-      if corpse_data.rendering and corpse_data.rendering.valid then
-        corpse_data.rendering.destroy()
+    -- Check crafting progress (entity is now cached)
+    if corpse_data.entity and corpse_data.entity.valid then
+      local entity = corpse_data.entity
+      local products_finished = entity.products_finished or 0
+      
+      if not corpse_data.last_products_finished then
+        corpse_data.last_products_finished = products_finished
       end
-      storage.corpse_data[unit_number] = nil
+      
+      if products_finished > corpse_data.last_products_finished then
+        rebuild_assembler(entity, corpse_data)
+      else
+        corpse_data.last_products_finished = products_finished
+      end
     end
   end
 end

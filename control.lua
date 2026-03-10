@@ -76,6 +76,6 @@ script.on_nth_tick(60, function(event)
   preservation_tech.process_preservation(event)
 end)
 
-script.on_nth_tick(10, function(event)
+-- script.on_nth_tick(10, function(event)
   -- pollen_corrosion.process_corrosion(event)
-end)
+-- end)
