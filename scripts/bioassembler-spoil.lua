@@ -68,12 +68,14 @@ local function rebuild_assembler(corpse, data)
   local position = corpse.position
   local direction = corpse.direction
   local force = corpse.force
+  local quality = corpse.quality
   
   local new_assembler = surface.create_entity{
     name = data.original_assembler,
     position = position,
     direction = direction,
-    force = force
+    force = force,
+    quality = quality
   }
   
   if new_assembler and new_assembler.valid then
@@ -273,12 +275,14 @@ local function on_entity_died(event)
   local position = entity.position
   local direction = entity.direction
   local force = entity.force
+  local quality = entity.quality
   
   local corpse = surface.create_entity{
     name = corpse_name,
     position = position,
     direction = direction,
-    force = force
+    force = force,
+    quality = quality
   }
   
   if corpse and corpse.valid then
