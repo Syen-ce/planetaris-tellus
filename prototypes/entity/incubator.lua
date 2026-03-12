@@ -14,7 +14,7 @@ data.extend({
     type = "assembling-machine",
     name = "planetaris-incubator",
     icon = "__planetaris-tellus__/graphics/icons/incubator.png",
-    flags = {"placeable-neutral", "placeable-player", "player-creation", "not-repairable"},
+    flags = {"placeable-neutral", "placeable-player", "player-creation", "not-repairable", "breaths-air"},
     subgroup = "tellus-production",
     order = "a-b",
     minable = {mining_time = 1, result = "planetaris-incubator", count = 1, transfer_entity_health_to_products = false },
@@ -166,7 +166,7 @@ data.extend({
     open_sound = sounds.machine_open,
     close_sound = sounds.machine_close,
     module_slots = 4,
-    allowed_effects = {"speed", "consumption", "pollution"},
+    allowed_effects = {"speed", "consumption", "pollution", "productivity", "quality"},
     impact_category = "metal",
     working_sound =
     {
@@ -183,7 +183,7 @@ data.extend({
       name = "planetaris-incubator-dead",
       icon = "__planetaris-tellus__/graphics/icons/incubator-dead.png",
       icon_size = 64,
-      flags = {"placeable-neutral", "player-creation", "not-repairable"},
+      flags = {"placeable-neutral", "player-creation", "not-repairable", "breaths-air"},
       minable = {mining_time = 0.5, result = "planetaris-compost", count = 10},
       max_health = 100,
       corpse = "planetaris-incubator-remnant",
@@ -257,7 +257,7 @@ data.extend({
     },
       energy_usage = "5MW",
       module_slots = 4,
-      allowed_effects = {"speed", "consumption", "pollution"},
+      allowed_effects = {"speed", "consumption", "pollution", "productivity", "quality"},
       effect_receiver = { base_effect = { productivity = 0.5 }},
       graphics_set =
       {
@@ -307,8 +307,8 @@ data:extend({
         {type = "item", name = "nutrients", amount = 20},
       },
     results = {},
-		allow_quality = false,
-		allow_productivity = false,
+		allow_quality = true,
+		allow_productivity = true,
 		hide_from_signal_gui = true,
   },
 })

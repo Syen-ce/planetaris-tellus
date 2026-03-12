@@ -14,7 +14,7 @@ data.extend({
     type = "assembling-machine",
     name = "planetaris-bioassembler",
     icon = "__planetaris-tellus__/graphics/icons/bioassembler.png",
-    flags = {"placeable-neutral", "placeable-player", "player-creation", "not-repairable"},
+    flags = {"placeable-neutral", "placeable-player", "player-creation", "not-repairable", "breaths-air"},
     subgroup = "tellus-production",
     order = "a-a",
     minable = {mining_time = 0.2, result = "planetaris-bioassembler-seed", count = 1, transfer_entity_health_to_products = false },
@@ -171,7 +171,7 @@ data.extend({
     },
     energy_usage = "1MW",
     module_slots = 4,
-    allowed_effects = {"speed", "consumption", "pollution", "productivity"},
+    allowed_effects = {"speed", "consumption", "pollution", "productivity", "quality"},
     impact_category = "metal",
     open_sound = {filename = "__base__/sound/open-close/fluid-open.ogg", volume = 0.55},
     close_sound = {filename = "__base__/sound/open-close/fluid-close.ogg", volume = 0.54},
@@ -224,7 +224,7 @@ end
       name = "planetaris-bioassembler-dead",
       icon = "__planetaris-tellus__/graphics/icons/bioassembler-dead.png",
       icon_size = 64,
-      flags = {"placeable-neutral", "player-creation", "not-repairable"},
+      flags = {"placeable-neutral", "player-creation", "not-repairable", "breaths-air"},
       minable = {mining_time = 0.5, result = "planetaris-compost", count = 10, transfer_entity_health_to_products = false},
       max_health = 100,
       corpse = "planetaris-bioassembler-remnant",
@@ -297,7 +297,7 @@ end
     },
       energy_usage = "5MW",
       module_slots = 4,
-      allowed_effects = {"speed", "consumption", "pollution", "productivity"},
+      allowed_effects = {"speed", "consumption", "pollution", "productivity", "quality"},
       graphics_set =
       {
         animation =
@@ -346,13 +346,8 @@ data:extend({
         {type = "item", name = "nutrients", amount = 20},
       },
     results = {},
-		allow_quality = false,
-		allow_productivity = false,
+		allow_quality = true,
+		allow_productivity = true,
 		hide_from_signal_gui = true,
   },
 })
-
--- Create corpses for all three assembling machine tiers
---create_assembler_corpse("planetaris-bioassembler", 1)
---create_assembler_corpse("assembling-machine-2", 2)
---create_assembler_corpse("assembling-machine-3", 3)

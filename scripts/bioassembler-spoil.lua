@@ -95,6 +95,26 @@ local function rebuild_assembler(corpse, data)
       end
     end
     
+    -- Restore ingredients
+    if data.ingredients then
+      local input_inv = new_assembler.get_inventory(defines.inventory.assembling_machine_input)
+      if input_inv and input_inv.valid then
+        for _, ingredient in pairs(data.ingredients) do
+          input_inv.insert({ name = ingredient.name, count = ingredient.count, quality = ingredient.quality })
+        end
+      end
+    end
+    
+    -- Restore products
+    if data.products then
+      local output_inv = new_assembler.get_inventory(defines.inventory.assembling_machine_output)
+      if output_inv and output_inv.valid then
+        for _, product in pairs(data.products) do
+          output_inv.insert({ name = product.name, count = product.count, quality = product.quality })
+        end
+      end
+    end
+    
     -- Restore control behavior
     if data.control_behavior then
       local control = new_assembler.get_or_create_control_behavior()
@@ -210,9 +230,27 @@ local function on_entity_died(event)
   local entity = event.entity
   if not entity or not entity.valid then return end
   
+  -- Dropping modules on death
   if corpse_to_assembler[entity.name] then
     local corpse_data = storage.corpse_data[entity.unit_number]
     if corpse_data then
+      local module_inv = entity.get_inventory(defines.inventory.assembling_machine_modules)
+      if module_inv and module_inv.valid and not module_inv.is_empty() then
+        local contents = module_inv.get_contents()
+        for _, item_with_quality in pairs(contents) do
+          entity.surface.spill_item_stack{
+            position = entity.position,
+            stack = {
+              name = item_with_quality.name,
+              count = item_with_quality.count,
+              quality = item_with_quality.quality
+            },
+            enable_looted = true,
+            force = entity.force,
+            allow_belts = false
+          }
+        end
+      end
       
       if corpse_data.rendering and corpse_data.rendering.valid then
         corpse_data.rendering.destroy()
@@ -244,6 +282,38 @@ local function on_entity_died(event)
   }
   
   if corpse and corpse.valid then
+    -- Save ingredients
+    local ingredients = {}
+    local input_inv = entity.get_inventory(defines.inventory.assembling_machine_input)
+    if input_inv and input_inv.valid then
+      for i = 1, #input_inv do
+        local stack = input_inv[i]
+        if stack and stack.valid_for_read then
+          table.insert(ingredients, {
+            name = stack.name,
+            count = stack.count,
+            quality = stack.quality
+          })
+        end
+      end
+    end
+    
+    -- Save products
+    local products = {}
+    local output_inv = entity.get_inventory(defines.inventory.assembling_machine_output)
+    if output_inv and output_inv.valid then
+      for i = 1, #output_inv do
+        local stack = output_inv[i]
+        if stack and stack.valid_for_read then
+          table.insert(products, {
+            name = stack.name,
+            count = stack.count,
+            quality = stack.quality
+          })
+        end
+      end
+    end
+    
     -- Save control behavior
     local control_behavior = nil
     local control = entity.get_or_create_control_behavior()
@@ -343,7 +413,9 @@ local function on_entity_died(event)
       last_products_finished = 0,
       control_behavior = control_behavior,
       circuit_connections = circuit_connections,
-      entity = corpse  -- Cache reference
+      entity = corpse,
+      ingredients = ingredients,
+      products = products
     }
 
     -- Code from cerys - transfer modules to corpse
