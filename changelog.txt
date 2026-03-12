@@ -1,6 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.5
+Date: 2026-03-12
+  Features:
+    - Bioassemblers drop modules on death
+    - Bioassemblers save its ingredients and products and recover them after reviving
+  Bugfixes:
+    - Fixed locale error in compost bioflux
+    - Fixed error with air cleaning menu simulation displaying the player tool bar
+---------------------------------------------------------------------------------------------------
 Version: 1.0.4
-Date: 2026-03-07  
+Date: 2026-03-11
   Locale:
     - Fixed error with russian locale
 ---------------------------------------------------------------------------------------------------
