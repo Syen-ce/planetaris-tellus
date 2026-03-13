@@ -15,6 +15,7 @@ local function on_built(event)
     local surface = entity.surface
     local position = entity.position
     local force = entity.force
+    local quality = entity.quality
     
     entity.destroy()
     
@@ -27,16 +28,18 @@ local function on_built(event)
     if plant and plant.valid then
       table.insert(storage.growing_plants, {
         entity = plant,
-        created_tick = game.tick
+        created_tick = game.tick,
+        quality = quality,
       })
     end
-  -- Check if a real plant was placed directly by player
-  elseif name == "planetaris-bioassembler-plant" then
-    table.insert(storage.growing_plants, {
-      entity = entity,
-      created_tick = game.tick
-    })
-  end
+
+    elseif name == "planetaris-bioassembler-plant" then
+      table.insert(storage.growing_plants, {
+        entity = entity,
+        created_tick = game.tick,
+        quality = quality,
+      })
+    end
 end
 
 -- Check fully grown plants
@@ -53,6 +56,7 @@ local function check_growth(event)
   for i = #plants, 1, -1 do
     local plant_data = plants[i]
     local entity = plant_data.entity
+    local quality = plant_data.quality
     
     if not entity.valid then
       table.remove(plants, i)
@@ -68,7 +72,8 @@ local function check_growth(event)
         surface.create_entity{
           name = "planetaris-bioassembler",
           position = position,
-          force = "player"
+          force = "player",
+          quality = quality
         }
         
         surface.create_entity{
