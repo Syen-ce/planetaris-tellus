@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.8
+Date: 2026-03-20
+  Balancing:
+    - Pathological science packs now reset freshness on craft
+    - Reduced spoiling time to pathological science pack (60 minutes -> 45 minutes)
+  Bugfixes:
+    - Fixed glebian parasite reproduction only producing 1 parasite instead of 2
+    - Fixed recycling rocket silo producing magnesium and roots
+---------------------------------------------------------------------------------------------------
 Version: 1.0.7
 Date: 2026-03-13
   Bugfixes:
