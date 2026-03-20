@@ -309,6 +309,7 @@ data:extend({
   {
     type = "technology",
     name = "tellus-transport-belt-capacity-3",
+    localised_name = {"technology-name.transport-belt-capacity"},
     localised_description = {"technology-description.belt-capacity"},
     icons = util.technology_icon_constant_stack_size("__space-age__/graphics/technology/transport-belt-capacity.png"),
     effects =
