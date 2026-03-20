@@ -968,7 +968,7 @@ data:extend({
     durability_description_key = "description.science-pack-remaining-amount-key",
     factoriopedia_durability_description_key = "description.factoriopedia-science-pack-remaining-amount-key",
     durability_description_value = "description.science-pack-remaining-amount-value",
-    spoil_ticks = 1 * hour,
+    spoil_ticks = 30 * minute,
     spoil_to_trigger_result =
     {
       items_per_trigger = 1,

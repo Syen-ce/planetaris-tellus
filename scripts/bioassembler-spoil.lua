@@ -1,11 +1,5 @@
 local NUTRIENTS_REQUIRED = 20
 
-local TEXT_OFFSET = {
-  destroyed = {x = 0, y = -2},
-  progress = {x = 0, y = -1},
-  rebuilt = {x = 0, y = -2}
-}
-
 -- Mapping of assemblers to corpse variants
 local assembler_to_corpse = {
   ["planetaris-bioassembler"] = "planetaris-bioassembler-dead",
@@ -17,47 +11,8 @@ local corpse_to_assembler = {
   ["planetaris-incubator-dead"] = "planetaris-incubator",
 }
 
--- Helper function to count table entries
-local function table_size(t)
-  local count = 0
-  for _ in pairs(t) do count = count + 1 end
-  return count
-end
-
 local function init_storage()
   storage.corpse_data = storage.corpse_data or {}
-end
-
--- Update rendering alt-mode settings
-local function update_corpse_rendering(entity, corpse_data)
-  local show_text = false
-  for _, player in pairs(game.players) do
-    if player.game_view_settings.show_entity_info then
-      show_text = true
-      break
-    end
-  end
-  
-  if corpse_data.rendering and corpse_data.rendering.valid then
-    corpse_data.rendering.destroy()
-    corpse_data.rendering = nil
-  end
-  
-  if show_text then
-    corpse_data.rendering = rendering.draw_text{
-      text = "[item=nutrients] Revival in progress...",
-      surface = entity.surface,
-      target = {
-        entity = entity,
-        offset = {TEXT_OFFSET.progress.x, TEXT_OFFSET.progress.y}
-      },
-      color = {r = 1, g = 1, b = 1},
-      scale = 1,
-      font = "default-game",
-      alignment = "center",
-      use_rich_text = true
-    }
-  end
 end
 
 -- Rebuild
@@ -206,20 +161,6 @@ local function rebuild_assembler(corpse, data)
         }
       end
     end
-
-    -- if data.recipe then
-    --   for _, player in pairs(game.players) do
-    --     if player.physical_surface == surface then
-    --       player.create_local_flying_text{
-    --         text = {"assembler-reconstruction.recipe-restored", data.recipe},
-    --         position = {x = position.x, y = position.y + 0.5},
-    --         color = {r = 0.5, g = 1, b = 1},
-    --         time_to_live = 60,
-    --         speed = 1
-    --       }
-    --     end
-    --   end
-    -- end
     
     storage.corpse_data[corpse.unit_number] = nil
     corpse.destroy()
@@ -482,7 +423,7 @@ local function revive_bioassembler(event)
       end
     end
     
-    -- Check crafting progress (entity is now cached)
+    -- Check crafting progress
     if corpse_data.entity and corpse_data.entity.valid then
       local entity = corpse_data.entity
       local products_finished = entity.products_finished or 0
@@ -517,34 +458,8 @@ local function on_pre_player_mined_item(event)
   end
 end
 
--- alt-mode toggle
-local function on_player_toggled_alt_mode(event)
-  init_storage()
-  local player = game.get_player(event.player_index)
-  if not player then return end
-  
-  for unit_number, corpse_data in pairs(storage.corpse_data) do
-    for _, surface in pairs(game.surfaces) do
-      local entities = surface.find_entities_filtered{
-        name = {
-          "planetaris-bioassembler-dead",
-          "planetaris-incubator-dead"
-        }
-      }
-      
-      for _, entity in pairs(entities) do
-        if entity.unit_number == unit_number then
-          update_corpse_rendering(entity, corpse_data)
-          break
-        end
-      end
-    end
-  end
-end
-
 return {
   on_entity_died = on_entity_died,
   on_pre_player_mined_item = on_pre_player_mined_item,
-  --on_player_toggled_alt_mode = on_player_toggled_alt_mode,
   revive_bioassembler = revive_bioassembler
 }

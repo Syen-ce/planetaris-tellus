@@ -924,7 +924,7 @@ data:extend({
     },
     results =
     {
-      {type = "item", name = "planetaris-quarantined-glebian-parasite", amount = 1},
+      {type = "item", name = "planetaris-quarantined-glebian-parasite", amount = 2},
     },
     crafting_machine_tint =
     {
@@ -1032,7 +1032,7 @@ data:extend({
     },
     results =
     {
-      {type = "item", name = "planetaris-glebian-parasite", amount = 1},
+      {type = "item", name = "planetaris-glebian-parasite", amount = 2},
     },
     crafting_machine_tint =
     {
@@ -1651,6 +1651,8 @@ data:extend({
     },
     enabled = false,
     auto_recycle = false,
+    result_is_always_fresh = true,
+    reset_freshness_on_craft = true,
     energy_required = 8,
     ingredients = {
       {type = "item",  name = "planetaris-parasite-nest",      amount = 1},
@@ -1810,6 +1812,7 @@ data:extend({
     name = "planetaris-tellus-rocket-silo",
     icon = "__planetaris-tellus__/graphics/icons/tellus-rocket-silo.png",
     enabled = false,
+    auto_recycle = false,
     ingredients =
     {
       {type = "item", name = "planetaris-magnesium-sheet", amount = 500},
