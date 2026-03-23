@@ -401,9 +401,10 @@ data.extend({
       }
     },
     enabled = false,
+    allow_productivity = true,
     ingredients = {
       {type = "fluid",  name = "planetaris-aluminium", amount = 50},
-      {type = "item",   name = "planetaris-unstable-shard", amount = 10},
+      {type = "item",   name = "planetaris-unstable-shard", amount = 8},
     },
     results =
     {
@@ -432,13 +433,14 @@ data.extend({
       }
     },
     enabled = false,
+    allow_productivity = true,
     ingredients = {
       {type = "item",   name = "planetaris-unstable-crystal", amount = 1},
       {type = "item",  name = "planetaris-charged-fluorite", amount = 1},
     },
     results =
     {
-      {type = "item", name = "planetaris-unstable-crystalizer", amount = 1, probability = 0.02},
+      {type = "item", name = "planetaris-unstable-crystalizer", amount = 1, probability = 0.030},
       {type = "item", name = "planetaris-unstable-bacteria", amount = 1},
     },
     crafting_machine_tint =

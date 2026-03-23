@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.9
+Date: 2026-03-23
+  Balancing:
+    - Reduced refraction light items in the unstable-crystalizer recipe
+    - Now unstable crystalizer and unstable crystal manipulation recipes are affected by productivity
+  Graphics:
+    - Made magnesium dust more blue to not be too similar to titanium dust in Pelagos
+---------------------------------------------------------------------------------------------------
 Version: 1.0.8
 Date: 2026-03-20
   Balancing:
