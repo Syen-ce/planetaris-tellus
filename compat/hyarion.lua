@@ -112,7 +112,7 @@ data.extend({
     {
       {
         type = "unlock-recipe",
-        recipe = "planetaris-unstable-crystalizer"
+        recipe = "planetaris-unstable-crystallizer"
       },
       {
         type = "unlock-recipe",
@@ -150,7 +150,7 @@ data.extend({
 
   {
     type = "item",
-    name = "planetaris-unstable-crystalizer",
+    name = "planetaris-unstable-crystallizer",
     icon = "__planetaris-tellus__/graphics/icons/unstable-seed.png",
     pictures =
     {
@@ -389,7 +389,7 @@ data.extend({
 -- Recipes
 {
     type = "recipe",
-    name = "planetaris-unstable-crystalizer",
+    name = "planetaris-unstable-crystallizer",
     category = "particle-manipulation",
     energy_required = 4,
     surface_conditions =
@@ -408,7 +408,7 @@ data.extend({
     },
     results =
     {
-      {type = "item", name = "planetaris-unstable-crystalizer", amount = 1},
+      {type = "item", name = "planetaris-unstable-crystallizer", amount = 1},
     },
     crafting_machine_tint =
     {
@@ -440,7 +440,7 @@ data.extend({
     },
     results =
     {
-      {type = "item", name = "planetaris-unstable-crystalizer", amount = 1, probability = 0.030},
+      {type = "item", name = "planetaris-unstable-crystallizer", amount = 1, probability = 0.030},
       {type = "item", name = "planetaris-unstable-bacteria", amount = 1},
     },
     crafting_machine_tint =

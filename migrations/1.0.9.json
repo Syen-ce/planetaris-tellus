@@ -1,0 +1,10 @@
+{
+  "recipe":
+  [
+    ["planetaris-unstable-crystalizer", "planetaris-unstable-crystallizer"]
+  ],
+  "item":
+  [
+    ["planetaris-unstable-crystalizer", "planetaris-unstable-crystallizer"]
+  ]
+}
