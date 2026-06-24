@@ -1034,7 +1034,9 @@ data:extend({
     {
       primary = {r = 0.45, g = 0.98, b = 0.008, a = 1.000},
       secondary = {r = 0.635, g = 0.8, b = 0.294, a = 1.000},
-    }
+    },
+    reset_freshness_on_craft = true
+
   },
   {
     type = "recipe",
@@ -1069,7 +1071,8 @@ data:extend({
     {
       primary = {r = 0.45, g = 0.98, b = 0.008, a = 1.000},
       secondary = {r = 0.635, g = 0.8, b = 0.294, a = 1.000},
-    }
+    },
+    reset_freshness_on_craft = true
   },
 
   -------------------- NEST

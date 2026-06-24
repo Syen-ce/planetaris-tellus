@@ -37,6 +37,7 @@ spoilable_subgroups = {}
 
 require("compat.arig")
 require("compat.hyarion")
+require("compat.k2so")
 require("compat.msppr")
 require("compat.preserving-groups")
 require("compat.maraxsis")

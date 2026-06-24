@@ -1181,4 +1181,16 @@ behemoth_wasp_premature.order="t-g"
 behemoth_wasp_premature.icon = "__planetaris-tellus__/graphics/icons/premature-wasp.png"
 behemoth_wasp_premature.healing_per_tick = -big_wasp_premature.max_health/50/60
 
-data.extend({big_wasp_premature, behemoth_wasp_premature, medium_wasp_premature})
+local big_strafer_premature = table.deepcopy(data.raw["spider-unit"]["big-strafer-pentapod"])
+big_strafer_premature.name = "big-strafer-pentapod-premature"
+big_strafer_premature.order="t-h"
+big_strafer_premature.icon = "__planetaris-tellus__/graphics/icons/big-strafer-premature.png"
+big_strafer_premature.healing_per_tick = -big_strafer_premature.max_health/50/60
+
+local behemoth_biter_premature = table.deepcopy(data.raw.unit["behemoth-biter"])
+behemoth_biter_premature.name = "behemoth-biter-premature"
+behemoth_biter_premature.order="t-i"
+behemoth_biter_premature.icon = "__planetaris-tellus__/graphics/icons/behemoth-biter-premature.png"
+behemoth_biter_premature.healing_per_tick = -behemoth_biter_premature.max_health/50/60
+
+data.extend({big_wasp_premature, behemoth_wasp_premature, medium_wasp_premature, big_strafer_premature,behemoth_biter_premature})
