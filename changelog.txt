@@ -1,4 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.7
+Date: 2026-06-24
+  Changes:
+    - Added premature biters and premature strafer pentapods to spoilable items by Mazzelfassel
+  Compatibility:
+    - K2SO, fixed research cards missing recycler recipes by Mazzelfassel
+  Locale:
+    - Added Chinese locale by Esphas
+  Bugfixes:
+    - Fixed parasites not resetting from crafts 
+---------------------------------------------------------------------------------------------------
 Version: 1.1.6
 Date: 2026-05-09
   Features:
