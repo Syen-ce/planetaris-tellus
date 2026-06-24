@@ -20,6 +20,13 @@ data.extend({
 		default_value = false,
 		order = "a-b-c",
 	},
+	{
+		type = "bool-setting",
+		name = "tellus-hard-disable-refresh",
+		setting_type = "startup",
+		default_value = false,
+		order = "a-c-a",
+	},
     {
 		type = "bool-setting",
 		name = "tellus-packs-for-aquilo",

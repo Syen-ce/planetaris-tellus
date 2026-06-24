@@ -99,6 +99,11 @@ if settings.startup["tellus-easy-longer-spoiling"].value == true then
 
 end
 
+if settings.startup["tellus-hard-disable-refresh"].value == true then
+    data.raw.recipe["planetaris-nauvian-parasite-reproduction"].reset_freshness_on_craft = false
+    data.raw.recipe["planetaris-nauvian-parasite-reproduction"].reset_freshness_on_craft = false
+end
+
 if settings.startup["tellus-easy-spoiling-enemies"].value == true then
 
     local one_medium_premature_wasp = {

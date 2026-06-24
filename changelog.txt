@@ -1,7 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.7
 Date: 2026-06-24
-  Changes:
+  Features:
+    - Added Hard mode setting, Parasites do not reset freshness on craft
     - Added premature biters and premature strafer pentapods to spoilable items by Mazzelfassel
   Compatibility:
     - K2SO, fixed research cards missing recycler recipes by Mazzelfassel
