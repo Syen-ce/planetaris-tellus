@@ -61,7 +61,7 @@ data:extend({
     research_trigger =
     {
       type = "mine-entity",
-      entity = "planetaris-magnesium-stromatolite"
+      entities = {"planetaris-magnesium-stromatolite"}
     }
   },
 
@@ -86,7 +86,7 @@ data:extend({
     research_trigger =
     {
       type = "mine-entity",
-      entity = "chloroplast"
+      entities = {"chloroplast"}
     }
   },
 
@@ -115,7 +115,7 @@ data:extend({
     research_trigger =
     {
       type = "mine-entity",
-      entity = "myceliae"
+      entities = {"myceliae"}
     }
   },
 
@@ -152,7 +152,7 @@ data:extend({
     research_trigger =
     {
       type = "mine-entity",
-      entity = "mushell"
+      entities = {"mushell"}
     }
   },
 

@@ -390,7 +390,7 @@ data.extend({
 {
     type = "recipe",
     name = "planetaris-unstable-crystallizer",
-    category = "particle-manipulation",
+    categories = {"particle-manipulation"},
     energy_required = 4,
     surface_conditions =
     {
@@ -420,7 +420,7 @@ data.extend({
     type = "recipe",
     name = "planetaris-unstable-crystal-manipulation",
     icon = "__planetaris-tellus__/graphics/icons/unstable-crystal-manipulation.png",
-    category = "particle-manipulation",
+    categories = {"particle-manipulation"},
     subgroup = "tellus-other-planet-agriculture",
     order = "d[hyarion]-b[crystal]-b",
     energy_required = 2,
@@ -440,7 +440,7 @@ data.extend({
     },
     results =
     {
-      {type = "item", name = "planetaris-unstable-crystallizer", amount = 1, probability = 0.030},
+      {type = "item", name = "planetaris-unstable-crystallizer", amount = 1, independent_probability = 0.030},
       {type = "item", name = "planetaris-unstable-bacteria", amount = 3},
     },
     crafting_machine_tint =
@@ -500,7 +500,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-preservation-unit",
-    category = "space-manufacturing",
+    categories = {"space-manufacturing"},
     enabled = false,
     surface_conditions =
     {

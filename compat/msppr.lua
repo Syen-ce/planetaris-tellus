@@ -22,7 +22,7 @@ data:extend({
         type = "recipe",
         name = "msppr-tellus",
         subgroup = "science-pack",
-        category = "planetaris-pathologics",
+        categories = {"planetaris-pathologics"},
         surface_conditions =
         {
             {

@@ -22,9 +22,6 @@ PlanetarisLib.add_science_pack("lab", "planetaris-pathological-science-pack")
 PlanetarisLib.add_science_pack("biolab", "planetaris-bioengineering-science-pack")
 PlanetarisLib.add_science_pack("biolab", "planetaris-pathological-science-pack")
 
--- New category to Biochamber
-table.insert(data.raw["assembling-machine"]["biochamber"].crafting_categories, "planetaris-bioassembling-or-organic-or-hand-crafting")
-
 -- Add carbolite to demolishers
 table.insert(data.raw["simple-entity"]["small-demolisher-corpse"].minable.results, {type = "item", name = "planetaris-carbolyte-pod", amount_min = 0, amount_max = 2})
 table.insert(data.raw["simple-entity"]["medium-demolisher-corpse"].minable.results, {type = "item", name = "planetaris-carbolyte-pod", amount_min = 1, amount_max = 2})
@@ -41,12 +38,8 @@ data.raw["assembling-machine"]["biochamber"].energy_source.emissions_per_minute 
 
 -- Add new recipe category
 
-table.insert(data.raw["assembling-machine"]["assembling-machine-1"].crafting_categories, "planetaris-bioassembling-or-assembling")
-table.insert(data.raw["assembling-machine"]["assembling-machine-2"].crafting_categories, "planetaris-bioassembling-or-assembling")
-table.insert(data.raw["assembling-machine"]["assembling-machine-3"].crafting_categories, "planetaris-bioassembling-or-assembling")
-
-table.insert(data.raw.character.character.crafting_categories, "planetaris-bioassembling-or-organic-or-hand-crafting")
-table.insert(data.raw["god-controller"].default.crafting_categories, "planetaris-bioassembling-or-organic-or-hand-crafting")
+table.insert(data.raw["god-controller"].default.crafting_categories, "planetaris-bioassembling")
+table.insert(data.raw["god-controller"].default.crafting_categories, "planetaris-pathologics")
 
 -- Add rocket fuel productivity
 PlanetarisLib.add_tech_effect("rocket-fuel-productivity", {type = "change-recipe-productivity", recipe = "planetaris-rocket-fuel-from-mash", change = 0.1})
@@ -100,8 +93,8 @@ if settings.startup["tellus-easy-longer-spoiling"].value == true then
 end
 
 if settings.startup["tellus-hard-disable-refresh"].value == true then
-    data.raw.recipe["planetaris-nauvian-parasite-reproduction"].reset_freshness_on_craft = false
-    data.raw.recipe["planetaris-nauvian-parasite-reproduction"].reset_freshness_on_craft = false
+    data.raw.recipe["planetaris-nauvian-parasite-reproduction"].results[1].reset_freshness_on_craft = false
+    data.raw.recipe["planetaris-glebian-parasite-reproduction"].results[1].reset_freshness_on_craft = false
 end
 
 if settings.startup["tellus-easy-spoiling-enemies"].value == true then
@@ -316,3 +309,115 @@ if data.raw["item"]["planetaris-glebian-parasite"] then
           }
     end 
 end
+
+
+
+
+
+
+data.raw.planet["tellus"].platform_surface_render_parameters = util.table.deepcopy(data.raw.planet["nauvis"].platform_surface_render_parameters)
+
+data.raw.planet["tellus"].platform_surface_render_parameters.platform_backdrop =
+{
+  atmosphere_color = {
+    255,
+    255,
+    255,
+    12,
+  },
+  atmosphere_ray_light_color_1 = {
+    123,
+    44,
+    34,
+    102,
+  },
+  atmosphere_ray_light_color_2 = {
+    25,
+    21,
+    12,
+    40,
+  },
+  atmosphere_thickness = 0.195,
+  cloud_flow_intensity = 0.5,
+  cloud_flow_seconds = 32,
+  cloud_normal_intensity = 0.5,
+  cloud_panning_rate = 1,
+  cloud_vertical_offset = 0,
+  cloudiness = 0.22,
+  emission_scalar = 0,
+  emission_scales_with_shadow = false,
+  light_color = {
+    221,
+    214,
+    207,
+    131,
+  },
+  light_direction = {
+    -2,
+    0,
+    2,
+  },
+  light_intensity_contrast = 0.21,
+  light_radius = 8,
+  planet_axis = {
+    -30,
+    20,
+  },
+  planet_axis_deviation_amplitude = {
+    0,
+    0,
+  },
+  planet_axis_deviation_seconds = {
+    609.2,
+    712.7,
+  },
+  radius = 400,
+  rotation_seconds = 200,
+  specular_color = {
+    223,
+    188,
+    188,
+    255,
+  },
+  specular_intensity = 0.4,
+  surface_normal_intensity = 0.37,
+  position = {-400, 270},
+  parallax_strength = {0.95, 0.95},
+  planet_surface =
+  {
+    filename = "__planetaris-tellus__/graphics/space/tellus.png",
+    width = 2048,
+    height = 1024
+  },
+  planet_normal = nil,
+  --planet_emission =
+  --{
+  --  filename = "__planetaris-tellus__/graphics/space/tellus-emission.png",
+  --  width = 2048,
+  --  height = 1024
+  --},
+  planet_reflectivity =
+  {
+    filename = "__planetaris-tellus__/graphics/space/tellus-reflectivity.png",
+    width = 2048,
+    height = 1024
+  },
+  global_cloud =
+  {
+    filename = "__planetaris-tellus__/graphics/space/tellus-cloud.png",
+    width = 2048,
+    height = 1024
+  },
+  global_cloud_normal =
+  {
+    filename = "__planetaris-tellus__/graphics/space/tellus-cloud-normal.png",
+    width = 2048,
+    height = 1024
+  },
+  global_cloud_flow =
+  {
+    filename = "__planetaris-tellus__/graphics/space/tellus-cloud-flow.png",
+    width = 2048,
+    height = 1024
+  }
+}

@@ -79,8 +79,8 @@ local function rebuild_assembler(corpse, data)
     end
 
         -- Transfer modules
-    local module_inv_new = new_assembler.get_inventory(defines.inventory.assembling_machine_modules)
-    local module_inv_corpse = corpse.get_inventory(defines.inventory.assembling_machine_modules)
+    local module_inv_new = new_assembler.get_inventory(defines.inventory.crafter_modules)
+    local module_inv_corpse = corpse.get_inventory(defines.inventory.crafter_modules)
     if module_inv_new and module_inv_new.valid and module_inv_corpse and module_inv_corpse.valid then
       for _, m in pairs(module_inv_corpse.get_contents()) do
         module_inv_new.insert({ name = m.name, count = m.count, quality = m.quality })
@@ -89,7 +89,7 @@ local function rebuild_assembler(corpse, data)
 
         -- Restore ingredients
     if data.ingredients then
-      local input_inv = new_assembler.get_inventory(defines.inventory.assembling_machine_input)
+      local input_inv = new_assembler.get_inventory(defines.inventory.crafter_input)
       if input_inv and input_inv.valid then
         for _, ingredient in pairs(data.ingredients) do
           input_inv.insert({ name = ingredient.name, count = ingredient.count, quality = ingredient.quality })
@@ -99,7 +99,7 @@ local function rebuild_assembler(corpse, data)
 
         -- Restore products
     if data.products then
-      local output_inv = new_assembler.get_inventory(defines.inventory.assembling_machine_output)
+      local output_inv = new_assembler.get_inventory(defines.inventory.crafter_output)
       if output_inv and output_inv.valid then
         for _, product in pairs(data.products) do
           output_inv.insert({ name = product.name, count = product.count, quality = product.quality })
@@ -255,7 +255,7 @@ local function on_entity_died(event)
   if corpse_to_assembler[entity.name] then
     local corpse_data = storage.corpse_data[entity.unit_number]
     if corpse_data then
-      local module_inv = entity.get_inventory(defines.inventory.assembling_machine_modules)
+      local module_inv = entity.get_inventory(defines.inventory.crafter_modules)
       if module_inv and module_inv.valid and not module_inv.is_empty() then
         for _, item_with_quality in pairs(module_inv.get_contents()) do
           entity.surface.spill_item_stack{
@@ -295,7 +295,7 @@ local function on_entity_died(event)
   if corpse and corpse.valid then
     local ingredients, products = {}, {}
 
-    local input_inv = entity.get_inventory(defines.inventory.assembling_machine_input)
+    local input_inv = entity.get_inventory(defines.inventory.crafter_input)
     if input_inv and input_inv.valid then
       for i = 1, #input_inv do
         local stack = input_inv[i]
@@ -305,7 +305,7 @@ local function on_entity_died(event)
       end
     end
 
-    local output_inv = entity.get_inventory(defines.inventory.assembling_machine_output)
+    local output_inv = entity.get_inventory(defines.inventory.crafter_output)
     if output_inv and output_inv.valid then
       for i = 1, #output_inv do
         local stack = output_inv[i]
@@ -380,8 +380,8 @@ local function on_entity_died(event)
       mirroring = entity.mirroring,
     }
 
-    local module_inv = entity.get_inventory(defines.inventory.assembling_machine_modules)
-    local module_inv_corpse = corpse.get_inventory(defines.inventory.assembling_machine_modules)
+    local module_inv = entity.get_inventory(defines.inventory.crafter_modules)
+    local module_inv_corpse = corpse.get_inventory(defines.inventory.crafter_modules)
     if module_inv and module_inv.valid and module_inv_corpse and module_inv_corpse.valid then
       for _, c in pairs(module_inv.get_contents()) do
         module_inv_corpse.insert({ name = c.name, count = c.count, quality = c.quality })

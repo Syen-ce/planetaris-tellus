@@ -5,7 +5,6 @@ require ("__base__.prototypes.entity.spawner-animation")
 
 require ("__planetaris-tellus__/prototypes/entity/wasp-animations")
 
-local biter_ai_settings = require ("__base__.prototypes.entity.biter-ai-settings")
 local enemy_autoplace = require ("__base__.prototypes.entity.enemy-autoplace-utils")
 local sounds = require ("__base__.prototypes.entity.sounds")
 local planetaris_sounds = require ("__planetaris-tellus__/prototypes/entity/sounds")
@@ -27,6 +26,24 @@ local big_biter_tint2 = {0.15, 0.55, 0.5, 0.7}
 local behemoth_biter_scale = 1.2
 local behemoth_biter_tint1 = {0.2, 0.25, 0.2, 1}
 local behemoth_biter_tint2 = {0.45, 0.82, 0.1, 0.7}
+
+
+local biter_ai_settings = function(size_in_group)
+  return
+  {
+    destroy_when_commands_fail = true,
+    allow_try_return_to_spawner = true,
+    size_in_group = size_in_group
+  }
+end
+
+local biter_steering = function(a, b)
+  return
+  {
+    move = { radius = a},
+    stay = { radius = b}
+  }
+end
 
 local make_unit_melee_ammo_type = function(damage_value)
   return
@@ -55,7 +72,6 @@ local hit_effects = require ("__base__.prototypes.entity.hit-effects")
 local decorative_trigger_effects = require("__base__.prototypes.decorative.decorative-trigger-effects")
 local explosion_animations = require("__space-age__.prototypes.entity.explosion-animations")
 local gleba_enemy_animations = require("__space-age__.prototypes.entity.gleba-enemy-animations")
-local gleba_ai_settings = require ("__space-age__.prototypes.entity.gleba-ai-settings")
 local simulations = require("__space-age__.prototypes.factoriopedia-simulations")
 local particle_animations = require("__space-age__/prototypes/particle-animations")
 
@@ -590,7 +606,7 @@ data:extend(
     },
     -- also add to yumako areas
     autoplace = planetaris_enemy_autoplace.tellus_spawner_autoplace("tellus_spawner", "b[enemy]-c[spawner]-a[large]"),
-    loot = {{item = "planetaris-wasp-egg", probability = 1, count_min = 9, count_max = 9}}
+    loot = {{type = "item", name = "planetaris-wasp-egg", independent_probability = 1, amount_min = 9, amount_max = 9}}
   },
   {
     type = "unit-spawner",
@@ -771,7 +787,7 @@ data:extend(
     },
     -- also add to yumako areas
     autoplace = planetaris_enemy_autoplace.tellus_spawner_autoplace("tellus_spawner_small", "b[enemy]-c[spawner]-b[small]"),
-    loot = {{item = "planetaris-wasp-egg", probability = 1, count_min = 1, count_max = 3}}
+    loot = {{type = "item", name = "planetaris-wasp-egg", independent_probability = 1, amount_min = 1, amount_max = 3}}
   },
 
   {
@@ -904,7 +920,8 @@ data:extend(
     run_animation = Wasprunanimation(small_biter_scale),
     running_sound_animation_positions = {2,},
     walking_sound = planetaris_sounds.wasp_fly_small(0.4, 0.6),
-    ai_settings = biter_ai_settings,
+    ai_settings = biter_ai_settings(),
+    steering = biter_steering(1.5, 3),
     water_reflection = biter_water_reflection(small_biter_scale)
   },
   {
@@ -935,7 +952,7 @@ data:extend(
     has_belt_immunity = true,
     impact_category = "organic",
     healing_per_tick = 0.02,
-    collision_mask = {layers={train=true}},
+    collision_mask = {layers={player=true, train=true,}},
     collision_box = {{-0.3, -0.3}, {0.3, 0.3}},
     selection_box = {{-0.7, -1.5}, {0.7, 0.3}},
     damaged_trigger_effect = hit_effects.biter(),
@@ -967,7 +984,8 @@ data:extend(
     run_animation = Wasprunanimation(medium_biter_scale),
     running_sound_animation_positions = {2,},
     walking_sound = planetaris_sounds.wasp_fly_medium(0.5, 0.7),
-    ai_settings = biter_ai_settings,
+    ai_settings = biter_ai_settings(),
+    steering = biter_steering(2, 3.5),
     water_reflection = biter_water_reflection(medium_biter_scale)
   },
 
@@ -1005,7 +1023,7 @@ data:extend(
     has_belt_immunity = true,
     spawning_time_modifier = 3,
     healing_per_tick = 0.02,
-    collision_mask = {layers={train=true}},
+    collision_mask = {layers={player=true, train=true,}},
     collision_box = {{-0.4, -0.4}, {0.4, 0.4}},
     selection_box = {{-0.7, -1.5}, {0.7, 0.3}},
     damaged_trigger_effect = hit_effects.biter(),
@@ -1037,7 +1055,8 @@ data:extend(
     run_animation = Wasprunanimation(big_biter_scale),
     running_sound_animation_positions = {2,},
     walking_sound = planetaris_sounds.wasp_fly_big(0.6, 0.8),
-    ai_settings = biter_ai_settings,
+    ai_settings = biter_ai_settings(),
+    steering = biter_steering(2.5, 4),
     water_reflection = biter_water_reflection(big_biter_scale)
   },
 
@@ -1075,7 +1094,7 @@ data:extend(
     has_belt_immunity = true,
     spawning_time_modifier = 12,
     healing_per_tick = 0.05,
-    collision_mask = {layers={train=true}},
+    collision_mask = {layers={player=true, train=true,}},
     collision_box = {{-0.4, -0.4}, {0.4, 0.4}},
     selection_box = {{-0.7, -1.5}, {0.7, 0.3}},
     damaged_trigger_effect = hit_effects.biter(),
@@ -1107,7 +1126,8 @@ data:extend(
     run_animation = Wasprunanimation(behemoth_biter_scale),
     running_sound_animation_positions = {2,},
     walking_sound = planetaris_sounds.wasp_fly_behemoth(0.6, 0.8),
-    ai_settings = biter_ai_settings,
+    ai_settings = biter_ai_settings(),
+    steering = biter_steering(3, 4.5),
     water_reflection = biter_water_reflection(behemoth_biter_scale)
   },
   add_wasp_die_animation(small_biter_scale,

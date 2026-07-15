@@ -4,7 +4,7 @@ data:extend({
   -- {
   --   type = "recipe",
   --   name = "planetaris-hardwood",
-  --   category = "crafting",
+  --   categories = {"crafting"},
   --   enabled = false,
   --   ingredients = {{type = "item", name = "wood", amount = 5}},
   --   energy_required = 2,
@@ -23,7 +23,7 @@ data:extend({
     type = "recipe",
     name = "planetaris-compost",
     order = "a[natural]-a[basic]-b[compost]",
-    category = "planetaris-bioassembling-or-organic-or-hand-crafting",
+    categories = {"planetaris-bioassembling", "hand-crafting", "organic"},
     surface_conditions =
     {
       {
@@ -35,7 +35,6 @@ data:extend({
     enabled = false,
     auto_recycle = false,
     allow_productivity = true,
-    reset_freshness_on_craft = true,
     energy_required = 4,
     ingredients =
     {
@@ -44,7 +43,7 @@ data:extend({
     },
     results =
     {
-      {type = "item", name = "planetaris-compost", amount = 1}
+      {type = "item", name = "planetaris-compost", amount = 1, reset_freshness_on_craft = true}
     },
     crafting_machine_tint =
     {
@@ -61,7 +60,7 @@ data:extend({
         {icon="__planetaris-tellus__/graphics/icons/mycelia.png",  shift={12, 12}, scale=0.5},
       },
     order = "a[natural]-a[basic]-b[compost]-b",
-    category = "planetaris-bioassembling",
+    categories = {"planetaris-bioassembling"},
     surface_conditions =
     {
       {
@@ -72,7 +71,6 @@ data:extend({
     },
     enabled = false,
     allow_productivity = true,
-    reset_freshness_on_craft = true,
     auto_recycle = false,
     energy_required = 4,
     ingredients =
@@ -82,7 +80,7 @@ data:extend({
     },
     results =
     {
-      {type = "item", name = "planetaris-compost", amount = 3}
+      {type = "item", name = "planetaris-compost", amount = 3, reset_freshness_on_craft = true}
     },
     crafting_machine_tint =
     {
@@ -95,7 +93,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-magnesium-sheet",
-    category = "smelting",
+    categories = {"smelting"},
     enabled = false,
     auto_recycle = false,
     ingredients = {{type = "item", name = "planetaris-magnesium-dust", amount = 1}},
@@ -114,7 +112,7 @@ data:extend({
     type = "recipe",
     name = "planetaris-magnesium-bacteria-cultivation",
     icon = "__planetaris-tellus__/graphics/icons/magnesium-bacteria-cultivation.png",
-    category = "planetaris-bioassembling",
+    categories = {"planetaris-bioassembling"},
     surface_conditions =
     {
       {
@@ -128,7 +126,6 @@ data:extend({
     enabled = false,
     auto_recycle = false,
     allow_productivity = true,
-    reset_freshness_on_craft = true,
     energy_required = 4,
     ingredients =
     {
@@ -138,7 +135,7 @@ data:extend({
     },
     results =
     {
-      {type = "item", name = "planetaris-magnesium-bacteria", amount = 4}
+      {type = "item", name = "planetaris-magnesium-bacteria", amount = 4, reset_freshness_on_craft = true}
     },
     crafting_machine_tint =
     {
@@ -153,7 +150,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-bioassembler-seed",
-    category = "planetaris-bioassembling-or-assembling",
+    categories = {"planetaris-bioassembling", "crafting"},
     energy_required = 4,
     surface_conditions =
     {
@@ -183,7 +180,7 @@ data:extend({
         {icon="__planetaris-tellus__/graphics/icons/fluids/infected-water.png", draw_background=false},
         {icon="__planetaris-tellus__/graphics/icons/magnesium-bacteria.png",  shift={12, 12}, scale=0.5},
     },
-    category = "planetaris-bioassembling-or-organic",
+    categories = {"planetaris-bioassembling"},
     subgroup = "tellus-basic-processes",
     order = "a[natural]-a[basic]-c[water]",
     energy_required = 2,
@@ -212,7 +209,7 @@ data:extend({
     type = "recipe",
     name = "planetaris-tellus-condensing-agricultural-tower",
     localised_name = {"", {"entity-name.condensing-agricultural-tower"}, " (", {"space-location-name.tellus"}, ")"},
-    category = "advanced-crafting",
+    categories = {"advanced-crafting"},
     auto_recycle = false,
     enabled = false,
     energy_required = 5,
@@ -231,7 +228,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-air-purifier",
-    category = "advanced-crafting",
+    categories = {"advanced-crafting"},
     auto_recycle = false,
     enabled = false,
     energy_required = 5,
@@ -268,7 +265,7 @@ data:extend({
     type = "recipe",
     name = "planetaris-air-cleaning",
     icon= "__planetaris-tellus__/graphics/icons/air-cleaning.png",
-    category = "planetaris-air-cleaning",
+    categories = {"planetaris-air-cleaning"},
     subgroup = "tellus-basic-processes",
     order = "a[natural]-a[basic]-c[water]-b",
     auto_recycle = false,
@@ -294,7 +291,7 @@ data:extend({
     type = "recipe",
     name = "planetaris-chloroplast-processing",
     icon = "__planetaris-tellus__/graphics/icons/chloroplast-processing.png",
-    category = "planetaris-bioassembling-or-assembling",
+    categories = {"planetaris-bioassembling", "crafting"},
     subgroup = "tellus-basic-processes",
     order = "a[natural]-c[Chlorophyll]-b-b[fruit]",
     surface_conditions =
@@ -315,7 +312,7 @@ data:extend({
     },
     results =
     {
-      {type = "item", name = "planetaris-chloroplast-seed", amount = 1, probability = 0.02},
+      {type = "item", name = "planetaris-chloroplast-seed", amount = 1, independent_probability = 0.02},
       {type = "item", name = "planetaris-chloroplast-mash", amount = 2}
     },
     crafting_machine_tint =
@@ -328,7 +325,7 @@ data:extend({
     type = "recipe",
     name = "planetaris-mycelia-processing",
     icon = "__planetaris-tellus__/graphics/icons/mycelia-processing.png",
-    category = "planetaris-bioassembling-or-assembling",
+    categories = {"planetaris-bioassembling", "crafting"},
     subgroup = "tellus-basic-processes",
     order = "a[natural]-d[funji]-b-b[mushroom-cap]",
     surface_conditions =
@@ -348,7 +345,7 @@ data:extend({
     },
     results =
     {
-      {type = "item", name = "planetaris-myceliae-seed", amount = 1, probability = 0.02},
+      {type = "item", name = "planetaris-myceliae-seed", amount = 1, independent_probability = 0.02},
       {type = "item", name = "planetaris-mycelia", amount = 2}
     },
     crafting_machine_tint =
@@ -364,7 +361,7 @@ data:extend({
     type = "recipe",
     name = "planetaris-nutrients-from-chloroplast-mash",
     icon = "__planetaris-tellus__/graphics/icons/nutrients-from-chloroplast-mash.png",
-    category = "planetaris-bioassembling-or-organic-or-hand-crafting",
+    categories = {"planetaris-bioassembling", "organic", "hand-crafting"},
     subgroup = "tellus-basic-processes",
     enabled = false,
     auto_recycle = false,
@@ -386,7 +383,7 @@ data:extend({
     type = "recipe",
     name = "planetaris-nutrients-from-mycelia",
     icon = "__planetaris-tellus__/graphics/icons/nutrients-from-mycelia.png",
-    category = "planetaris-bioassembling-or-organic-or-hand-crafting",
+    categories = {"planetaris-bioassembling", "organic", "hand-crafting"},
     subgroup = "tellus-basic-processes",
     enabled = false,
     auto_recycle = false,
@@ -410,7 +407,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-mycelia-composite",
-    category = "planetaris-bioassembling",
+    categories = {"planetaris-bioassembling"},
     subgroup = "tellus-basic-processes",
     surface_conditions =
     {
@@ -445,7 +442,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-seed-compound",
-    category = "planetaris-bioassembling",
+    categories = {"planetaris-bioassembling"},
     surface_conditions =
     {
       {
@@ -479,7 +476,7 @@ data:extend({
     {
     type = "recipe",
     name = "planetaris-bioengineering-science-pack",
-    category = "planetaris-bioassembling",
+    categories = {"planetaris-bioassembling"},
     surface_conditions =
     {
       {
@@ -514,7 +511,7 @@ data:extend({
     {
     type = "recipe",
     name = "planetaris-bacteriochlorophyll",
-    category = "planetaris-bioassembling",
+    categories = {"planetaris-bioassembling"},
     surface_conditions =
     {
       {
@@ -553,7 +550,7 @@ data:extend({
         {icon="__planetaris-tellus__/graphics/icons/mycelia.png", draw_background=false},
         {icon="__base__/graphics/icons/plastic-bar.png",  shift={12, 12}, scale=0.5},
       },
-    category = "planetaris-bioassembling",
+    categories = {"planetaris-bioassembling"},
     subgroup = "tellus-basic-processes",
     order = "c[other]-a",
     surface_conditions =
@@ -590,7 +587,7 @@ data:extend({
     type = "recipe",
     name = "planetaris-chloroplast-lubricant",
     icon = "__planetaris-tellus__/graphics/icons/fluids/chloroplast-lubricant.png",
-    category = "planetaris-bioassembling",
+    categories = {"planetaris-bioassembling"},
     subgroup = "tellus-basic-processes",
     order = "a[natural]-c[Chlorophyll]-c[mash]-b",
     energy_required = 2,
@@ -624,7 +621,7 @@ data:extend({
     },
     localised_name = {"item-name.copper-bacteria"},
     localised_description = {"item-description.copper-description"},
-    category = "organic",
+    categories = {"organic"},
     subgroup = "tellus-basic-processes",
     order = "c[other]-c",
     auto_recycle = false,
@@ -657,7 +654,7 @@ data:extend({
         {icon="__planetaris-tellus__/graphics/icons/magnesium-bacteria.png", draw_background=false},
         {icon="__space-age__/graphics/icons/iron-bacteria.png",  shift={12, 12}, scale=0.5},
     },
-    category = "organic",
+    categories = {"organic"},
     subgroup = "tellus-basic-processes",
     order = "c[other]-d",
     auto_recycle = false,
@@ -685,7 +682,7 @@ data:extend({
     type = "recipe",
     name = "planetaris-rocket-fuel-from-mash",
     icon = "__planetaris-tellus__/graphics/icons/rocket-fuel-from-mash.png",
-    category = "organic",
+    categories = {"organic"},
     subgroup = "tellus-basic-processes",
     order = "c[other]-e",
     auto_recycle = false,
@@ -715,7 +712,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-tellurian-parasite",
-    category = "planetaris-pathologics",
+    categories = {"planetaris-pathologics"},
     energy_required = 2,
     surface_conditions =
     {
@@ -747,7 +744,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-nauvian-parasite",
-    category = "organic",
+    categories = {"organic"},
     surface_conditions =
     {
       {
@@ -782,7 +779,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-glebian-parasite",
-    category = "organic",
+    categories = {"organic"},
 
     surface_conditions =
     {
@@ -826,7 +823,7 @@ data:extend({
     {
     type = "recipe",
     name = "planetaris-quarantined-nauvian-parasite",
-    category = "advanced-crafting",
+    categories = {"advanced-crafting"},
     energy_required = 2,
     surface_conditions =
     {
@@ -861,7 +858,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-quarantined-glebian-parasite",
-    category = "advanced-crafting",
+    categories = {"advanced-crafting"},
     energy_required = 2,
     surface_conditions =
     {
@@ -899,7 +896,7 @@ data:extend({
     type = "recipe",
     name = "planetaris-dequarantined-nauvian-parasite",
     icon = "__planetaris-tellus__/graphics/icons/dequarantined-nauvian-parasite.png",
-    category = "advanced-crafting",
+    categories = {"advanced-crafting"},
     subgroup = "tellus-pathological-processes",
     order = "b[nauvis]-a[parasite]-b-b",
     energy_required = 2,
@@ -932,7 +929,7 @@ data:extend({
     type = "recipe",
     name = "planetaris-dequarantined-glebian-parasite",
     icon = "__planetaris-tellus__/graphics/icons/dequarantined-glebian-parasite.png",
-    category = "advanced-crafting",
+    categories = {"advanced-crafting"},
     subgroup = "tellus-pathological-processes",
     order = "b[nauvis]-a[parasite]-b-d",
     energy_required = 2,
@@ -970,7 +967,7 @@ data:extend({
         {icon="__space-age__/graphics/icons/bioflux.png", draw_background=false},
         {icon="__planetaris-tellus__/graphics/icons/compost.png",  shift={12, 12}, scale=0.5},
     },
-    category = "organic",
+    categories = {"organic"},
     subgroup = "agriculture-products",
     order = "a[organic-products]-g[bioflux]-b",
     surface_conditions =
@@ -1005,7 +1002,7 @@ data:extend({
     type = "recipe",
     name = "planetaris-nauvian-parasite-reproduction",
     icon = "__planetaris-tellus__/graphics/icons/nauvian-parasite-reproduction.png",
-    category = "planetaris-pathologics",
+    categories = {"planetaris-pathologics"},
     subgroup = "tellus-pathological-processes",
     order = "b[nauvis]-a[parasite]-d",
     energy_required = 2,
@@ -1028,21 +1025,20 @@ data:extend({
     },
     results =
     {
-      {type = "item", name = "planetaris-nauvian-parasite", amount = 2},
+      {type = "item", name = "planetaris-nauvian-parasite", amount = 2, reset_freshness_on_craft = true},
     },
     crafting_machine_tint =
     {
       primary = {r = 0.45, g = 0.98, b = 0.008, a = 1.000},
       secondary = {r = 0.635, g = 0.8, b = 0.294, a = 1.000},
     },
-    reset_freshness_on_craft = true
 
   },
   {
     type = "recipe",
     name = "planetaris-glebian-parasite-reproduction",
     icon = "__planetaris-tellus__/graphics/icons/glebian-parasite-reproduction.png",
-    category = "planetaris-pathologics",
+    categories = {"planetaris-pathologics"},
     subgroup = "tellus-pathological-processes",
     order = "c[gleba]-a[parasite]-d",
     energy_required = 2,
@@ -1065,21 +1061,20 @@ data:extend({
     },
     results =
     {
-      {type = "item", name = "planetaris-glebian-parasite", amount = 2},
+      {type = "item", name = "planetaris-glebian-parasite", amount = 2, reset_freshness_on_craft = true},
     },
     crafting_machine_tint =
     {
       primary = {r = 0.45, g = 0.98, b = 0.008, a = 1.000},
       secondary = {r = 0.635, g = 0.8, b = 0.294, a = 1.000},
     },
-    reset_freshness_on_craft = true
   },
 
   -------------------- NEST
     {
     type = "recipe",
     name = "planetaris-parasite-nest",
-    category = "planetaris-pathologics",
+    categories = {"planetaris-pathologics"},
     surface_conditions =
     {
       {
@@ -1092,7 +1087,6 @@ data:extend({
     enabled = false,
     emissions_multiplier = 5,
     allow_productivity = true,
-    reset_freshness_on_craft = true,
     hide_from_signal_gui = true,
     energy_required = 8,
     ingredients =
@@ -1106,7 +1100,7 @@ data:extend({
     },
     results =
     {
-      {type = "item", name = "planetaris-parasite-nest", amount = 2, ignored_by_stats = 1, ignored_by_productivity = 1}
+      {type = "item", name = "planetaris-parasite-nest", amount = 2, reset_freshness_on_craft = true, ignored_by_stats = 1, ignored_by_productivity = 1}
     },
     crafting_machine_tint =
     {
@@ -1121,7 +1115,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-pesticide",
-    category = "planetaris-bioassembling",
+    categories = {"planetaris-bioassembling"},
     energy_required = 8,
     surface_conditions =
     {
@@ -1155,7 +1149,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-root",
-    category = "organic-or-hand-crafting",
+    categories = {"organic", "hand-crafting"},
     energy_required = 1,
     surface_conditions =
     {
@@ -1185,7 +1179,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-root-pump",
-    category = "organic-or-hand-crafting",
+    categories = {"organic", "hand-crafting"},
     energy_required = 2,
     surface_conditions =
     {
@@ -1215,7 +1209,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-root-storage-tank",
-    category = "organic-or-hand-crafting",
+    categories = {"organic", "hand-crafting"},
     energy_required = 4,
     surface_conditions =
     {
@@ -1244,7 +1238,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-root-filler",
-    category = "organic-or-hand-crafting",
+    categories = {"organic", "hand-crafting"},
     energy_required = 2,
     surface_conditions =
     {
@@ -1274,7 +1268,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-root-to-ground",
-    category = "organic-or-hand-crafting",
+    categories = {"organic", "hand-crafting"},
     energy_required = 2,
     surface_conditions =
     {
@@ -1304,7 +1298,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-volcanic-soil",
-    category = "planetaris-bioassembling",
+    categories = {"planetaris-bioassembling"},
     energy_required = 4,
     enabled = false,
     auto_recycle = false,
@@ -1328,7 +1322,7 @@ data:extend({
     type = "recipe",
     name = "planetaris-carbolyte-melting",
     icon = "__planetaris-tellus__/graphics/icons/carbolyte-melt.png",
-    category = "metallurgy",
+    categories = {"metallurgy"},
     subgroup = "tellus-other-planet-agriculture",
     order = "a[vulcanus]-b[crust]-b",
     energy_required = 2,
@@ -1347,7 +1341,7 @@ data:extend({
     },
     results =
     {
-      {type = "item", name = "planetaris-carbolyte-pod", amount = 1, probability = 0.02},
+      {type = "item", name = "planetaris-carbolyte-pod", amount = 1, independent_probability = 0.02},
       {type = "item", name = "planetaris-carbolyte-bacteria", amount = 1},
       {type = "item", name = "stone", amount = 2},
     },
@@ -1361,7 +1355,7 @@ data:extend({
     type = "recipe",
     name = "planetaris-carbolyte-separation",
     icon = "__planetaris-tellus__/graphics/icons/carbolyte-separation.png",
-    category = "planetaris-bioassembling-or-organic",
+    categories = {"planetaris-bioassembling", "organic"},
     subgroup = "tellus-other-planet-agriculture",
     order = "a[vulcanus]-b[crust]-b",
     energy_required = 4,
@@ -1381,7 +1375,7 @@ data:extend({
     },
     results =
     {
-      {type = "item", name = "planetaris-carbolyte-pod", amount = 1, probability = 0.02},
+      {type = "item", name = "planetaris-carbolyte-pod", amount = 1, independent_probability = 0.02},
       {type = "item", name = "planetaris-carbolyte-bacteria", amount = 1},
       {type = "item", name = "stone", amount = 2},
     },
@@ -1396,7 +1390,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-dust-soil",
-    category = "planetaris-bioassembling",
+    categories = {"planetaris-bioassembling"},
     energy_required = 4,
     enabled = false,
     auto_recycle = false,
@@ -1419,7 +1413,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-holmiumnite-pod",
-    category = "electronics-with-fluid",
+    categories = {"electromagnetics"},
     energy_required = 4,
     surface_conditions =
     {
@@ -1450,7 +1444,7 @@ data:extend({
     type = "recipe",
     name = "planetaris-holmiumnite-electrolysis",
     icon = "__planetaris-tellus__/graphics/icons/homiumnite-electrolysis.png",
-    category = "electromagnetics",
+    categories = {"electromagnetics"},
     subgroup = "tellus-other-planet-agriculture",
     order = "b[fulgora]-b[bulb]-b",
     energy_required = 2,
@@ -1470,7 +1464,7 @@ data:extend({
     },
     results =
     {
-      {type = "item", name = "planetaris-holmiumnite-pod", amount = 1, probability = 0.02},
+      {type = "item", name = "planetaris-holmiumnite-pod", amount = 1, independent_probability = 0.02},
       {type = "item", name = "planetaris-fulgoran-bacteria", amount = 1},
     },
     crafting_machine_tint =
@@ -1482,7 +1476,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-holmium-bacteria",
-    category = "electromagnetics",
+    categories = {"electromagnetics"},
     subgroup = "tellus-other-planet-agriculture",
     order = "b[fulgora]-b-b",
     energy_required = 2,
@@ -1515,7 +1509,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-polimer-skin",
-    category = "planetaris-pathologics",
+    categories = {"planetaris-pathologics"},
     energy_required = 4,
     surface_conditions =
     {
@@ -1548,7 +1542,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-artificial-heart",
-    category = "planetaris-pathologics",
+    categories = {"planetaris-pathologics"},
     energy_required = 12,
     surface_conditions =
     {
@@ -1581,7 +1575,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-artificial-chlorophyll-soil",
-    category = "planetaris-bioassembling",
+    categories = {"planetaris-bioassembling"},
     surface_conditions =
     {
       {
@@ -1606,7 +1600,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-overgrowth-chlorophyll-soil",
-    category = "planetaris-bioassembling",
+    categories = {"planetaris-bioassembling"},
     surface_conditions =
     {
       {
@@ -1633,7 +1627,7 @@ data:extend({
     {
     type = "recipe",
     name = "planetaris-artificial-mycelia-soil",
-    category = "planetaris-bioassembling",
+    categories = {"planetaris-bioassembling"},
     surface_conditions =
     {
       {
@@ -1658,7 +1652,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-overgrowth-mycelia-soil",
-    category = "planetaris-bioassembling",
+    categories = {"planetaris-bioassembling"},
     surface_conditions =
     {
       {
@@ -1687,7 +1681,7 @@ data:extend({
     {
     type = "recipe",
     name = "planetaris-pathological-science-pack",
-    category = "planetaris-pathologics",
+    categories = {"planetaris-pathologics"},
     emissions_multiplier = 5,
     surface_conditions =
     {
@@ -1699,8 +1693,6 @@ data:extend({
     },
     enabled = false,
     auto_recycle = false,
-    result_is_always_fresh = true,
-    reset_freshness_on_craft = true,
     energy_required = 4,
     ingredients = {
       {type = "item",  name = "planetaris-parasite-nest",      amount = 1},
@@ -1710,7 +1702,7 @@ data:extend({
     },
     results =
     {
-      {type = "item",  name = "planetaris-pathological-science-pack", amount = 2},
+      {type = "item",  name = "planetaris-pathological-science-pack", amount = 2, result_is_always_fresh = true},
     },
     allow_productivity = true,
     crafting_machine_tint =
@@ -1747,7 +1739,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-wasp-egg",
-    category = "planetaris-bioassembling",
+    categories = {"planetaris-bioassembling"},
     surface_conditions =
     {
       {
@@ -1762,7 +1754,6 @@ data:extend({
     enabled = false,
     emissions_multiplier = 5,
     allow_productivity = true,
-    reset_freshness_on_craft = true,
     hide_from_signal_gui = true,
     energy_required = 15,
     ingredients =
@@ -1773,7 +1764,7 @@ data:extend({
     },
     results =
     {
-      {type = "item", name = "planetaris-wasp-egg", amount = 2, ignored_by_stats = 1, ignored_by_productivity = 1}
+      {type = "item", name = "planetaris-wasp-egg", amount = 2, reset_freshness_on_craft = true, ignored_by_stats = 1, ignored_by_productivity = 1}
     },
     crafting_machine_tint =
     {
@@ -1786,7 +1777,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-robowasp-port",
-    category = "electromagnetics",
+    categories = {"electromagnetics"},
     surface_conditions =
     {
       {
@@ -1808,7 +1799,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-logistic-robowasp",
-    category = "electromagnetics",
+    categories = {"electromagnetics"},
     surface_conditions =
     {
       {
@@ -1832,7 +1823,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-three-long-handed-inserter",
-    category = "electromagnetics",
+    categories = {"electromagnetics"},
     enabled = false,
     ingredients =
     {
@@ -1846,7 +1837,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-long-stack-inserter",
-    category = "electromagnetics",
+    categories = {"electromagnetics"},
     enabled = false,
     ingredients =
     {
@@ -1863,7 +1854,7 @@ data:extend({
   {
     type = "recipe",
     name = "planetaris-preservation-unit",
-    category = "electromagnetics",
+    categories = {"electromagnetics"},
     enabled = false,
     surface_conditions =
     {
@@ -1920,7 +1911,7 @@ data:extend({
       },
       hide_from_player_crafting = true,
       auto_recycle = false,
-      category = "rocket-building",
+      categories = {"rocket-building"},
       ingredients =
       {
         {type = "item", name = "planetaris-chlorophyll-barrel", amount = 5},

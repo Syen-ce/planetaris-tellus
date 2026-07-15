@@ -105,7 +105,7 @@ data.extend({
     localised_name={"item-name.planetaris-cactus-mash"},
     localised_description={"item-description.planetaris-cactus-mash"},
     icon = "__planetaris-tellus__/graphics/icons/cactus-mashing.png",
-    category = "compressing",
+    categories = {"compressing"},
     subgroup = "tellus-other-planet-agriculture",
     order = "c[arig]-b[mash]-b",
     energy_required = 2,
@@ -124,7 +124,7 @@ data.extend({
     },
     results =
     {
-      {type = "item", name = "planetaris-cactus-seeds", amount = 1, probability = 0.2},
+      {type = "item", name = "planetaris-cactus-seeds", amount = 1, independent_probability = 0.2},
       {type = "item", name = "planetaris-cactus-mash", amount = 2},
     },
     crafting_machine_tint =
@@ -141,7 +141,7 @@ data.extend({
         {icon="__planetaris-tellus__/graphics/icons/fluids/chlorophyll.png",  shift={12, 12}, scale=0.5},
       },
     icon = "__planetaris-tellus__/graphics/icons/chloroplast-processing.png",
-    category = "compressing",
+    categories = {"compressing"},
     subgroup = "tellus-basic-processes",
     order = "a[natural]-c[Chlorophyll]-b-b[fruit]-b",
     surface_conditions =
@@ -161,7 +161,7 @@ data.extend({
     },
     results =
     {
-      {type = "item", name = "planetaris-chloroplast-seed", amount = 1, probability = 0.02},
+      {type = "item", name = "planetaris-chloroplast-seed", amount = 1, independent_probability = 0.02},
       {type = "fluid", name = "planetaris-chlorophyll", amount = 25}
     },
     crafting_machine_tint =
