@@ -109,7 +109,7 @@ data.extend({
       rotate = false,
       orientation_to_variation = false
     },
-    crafting_categories = {"organic-or-hand-crafting", "planetaris-bioassembling", "planetaris-bioassembling-or-organic", "planetaris-bioassembling-or-assembling", "planetaris-bioassembling-or-organic-or-hand-crafting"},
+    crafting_categories = {"planetaris-bioassembling", "planetaris-bioassembling", "organic", "crafting", "hand-crafting"},
     crafting_speed = 2,
     effect_receiver = { base_effect = { productivity = 0.75 }},
     production_health_effect =
@@ -343,7 +343,7 @@ data:extend({
     name = "planetaris-revive-bioassembler",
     icon = "__planetaris-tellus__/graphics/icons/bioassembler-revive.png",
     icon_size = 64,
-    category = "planetaris-reviving",
+    categories = {"planetaris-reviving"},
     enabled = false,
     hide_from_player_crafting = true,
     energy_required = 1,

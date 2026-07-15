@@ -115,7 +115,7 @@ for _, spoilable_item in pairs(preservation_whitelist) do
           localised_name = {"", spoilable_item.localised_name or {"item-name."..spoilable_item.name}, " ", {"preservation-name.preservation"}},
           subgroup = "tellus-preserved-recipe",
           order = "a",
-          category = "preserving",
+          categories = {"preserving"},
           surface_conditions =
           {
             {
@@ -127,7 +127,6 @@ for _, spoilable_item in pairs(preservation_whitelist) do
           hidden_in_factoriopedia = settings.startup["hide-preserved-recipes"].value,
           auto_recycle = false,
           allow_productivity = false,
-          reset_freshness_on_craft = false,
           hide_from_player_crafting = true,
           energy_required = 1,
           ingredients =
@@ -136,7 +135,7 @@ for _, spoilable_item in pairs(preservation_whitelist) do
           },
           results =
           {
-            {type = "item", name = preserved_item.name, amount = 1}
+            {type = "item", name = preserved_item.name, amount = 1, reset_freshness_on_craft = false}
           },
           show_amount_in_title = false
         },
@@ -147,7 +146,7 @@ for _, spoilable_item in pairs(preservation_whitelist) do
           icons = spoilable_item.icons or {{icon=spoilable_item.icon}},
           subgroup = "tellus-depreserved-recipe",
           order = "a",
-          category = "preserving",
+          categories = {"preserving"},
           surface_conditions =
           {
             {
@@ -159,7 +158,6 @@ for _, spoilable_item in pairs(preservation_whitelist) do
           hidden_in_factoriopedia = settings.startup["hide-preserved-recipes"].value,
           auto_recycle = false,
           allow_productivity = false,
-          reset_freshness_on_craft = false,
           hide_from_player_crafting = true,
           energy_required = 1,
           ingredients =
@@ -168,7 +166,7 @@ for _, spoilable_item in pairs(preservation_whitelist) do
           },
           results =
           {
-            {type = "item", name = spoilable_item.name, amount = 1}
+            {type = "item", name = spoilable_item.name, amount = 1, reset_freshness_on_craft = false}
           },
           show_amount_in_title = false
         },

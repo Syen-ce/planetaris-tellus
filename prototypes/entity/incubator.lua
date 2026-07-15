@@ -303,7 +303,7 @@ data:extend({
     name = "planetaris-revive-incubator",
     icon = "__planetaris-tellus__/graphics/icons/incubator-revive.png",
     icon_size = 64,
-    category = "planetaris-reviving",
+    categories = {"planetaris-reviving"},
     enabled = false,
     hide_from_player_crafting = true,
     energy_required = 5,

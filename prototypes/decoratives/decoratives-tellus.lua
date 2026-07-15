@@ -290,112 +290,112 @@ data.extend({
       pictures =
         {
           {
-            filename = "__space-age__/graphics/entity/stromatolite/copper/stromatolite-01-effect-map.png",
+            filename = "__planetaris-tellus__/graphics/entity/stromatolite/magnesium/stromatolite-01-effect-map.png",
             width = 96,
             height = 92,
             shift = {0.304688, -0.3},
           scale = 0.8
           },
           {
-            filename = "__space-age__/graphics/entity/stromatolite/copper/stromatolite-02-effect-map.png",
+            filename = "__planetaris-tellus__/graphics/entity/stromatolite/magnesium/stromatolite-02-effect-map.png",
             width = 78,
             height = 92,
             shift = {0.0, 0.3},
           scale = 0.8
           },
           {
-            filename = "__space-age__/graphics/entity/stromatolite/copper/stromatolite-03-effect-map.png",
+            filename = "__planetaris-tellus__/graphics/entity/stromatolite/magnesium/stromatolite-03-effect-map.png",
             width = 70,
             height = 91,
             shift = {0.151562, 0.1},
           scale = 0.8
           },
           {
-            filename = "__space-age__/graphics/entity/stromatolite/copper/stromatolite-04-effect-map.png",
+            filename = "__planetaris-tellus__/graphics/entity/stromatolite/magnesium/stromatolite-04-effect-map.png",
             width = 88,
             height = 94,
             shift = {0.390625, 0.3},
           scale = 0.8
           },
           {
-            filename = "__space-age__/graphics/entity/stromatolite/copper/stromatolite-05-effect-map.png",
+            filename = "__planetaris-tellus__/graphics/entity/stromatolite/magnesium/stromatolite-05-effect-map.png",
             width = 77,
             height = 92,
             shift = {0.328125, 0.0703125},
           scale = 0.8
           },
           {
-            filename = "__space-age__/graphics/entity/stromatolite/copper/stromatolite-06-effect-map.png",
+            filename = "__planetaris-tellus__/graphics/entity/stromatolite/magnesium/stromatolite-06-effect-map.png",
             width = 77,
             height = 92,
             shift = {0.16875, 0.1},
           scale = 0.8
           },
           {
-            filename = "__space-age__/graphics/entity/stromatolite/copper/stromatolite-07-effect-map.png",
+            filename = "__planetaris-tellus__/graphics/entity/stromatolite/magnesium/stromatolite-07-effect-map.png",
             width = 94,
             height = 93,
             shift = {0.3, 0.0},
           scale = 0.8
           },
           {
-            filename = "__space-age__/graphics/entity/stromatolite/copper/stromatolite-08-effect-map.png",
+            filename = "__planetaris-tellus__/graphics/entity/stromatolite/magnesium/stromatolite-08-effect-map.png",
             width = 63,
             height = 93,
             shift = {0.0, 0.2},
           scale = 0.8
           },
           {
-            filename = "__space-age__/graphics/entity/stromatolite/copper/stromatolite-09-effect-map.png",
+            filename = "__planetaris-tellus__/graphics/entity/stromatolite/magnesium/stromatolite-09-effect-map.png",
             width = 79,
             height = 93,
             shift = {0.1, 0.2},
           scale = 0.8
           },
           {
-            filename = "__space-age__/graphics/entity/stromatolite/copper/stromatolite-10-effect-map.png",
+            filename = "__planetaris-tellus__/graphics/entity/stromatolite/magnesium/stromatolite-10-effect-map.png",
             width = 93,
             height = 93,
             shift = {0.325, -0.1},
             scale = 0.8
           },
           {
-            filename = "__space-age__/graphics/entity/stromatolite/copper/stromatolite-11-effect-map.png",
+            filename = "__planetaris-tellus__/graphics/entity/stromatolite/magnesium/stromatolite-11-effect-map.png",
             width = 95,
             height = 93,
             shift = {0.453125, 0.2},
           scale = 0.8
           },
           {
-            filename = "__space-age__/graphics/entity/stromatolite/copper/stromatolite-12-effect-map.png",
+            filename = "__planetaris-tellus__/graphics/entity/stromatolite/magnesium/stromatolite-12-effect-map.png",
             width = 92,
             height = 92,
             shift = {0.3, 0.1},
           scale = 0.8
           },
           {
-            filename = "__space-age__/graphics/entity/stromatolite/copper/stromatolite-13-effect-map.png",
+            filename = "__planetaris-tellus__/graphics/entity/stromatolite/magnesium/stromatolite-13-effect-map.png",
             width = 76,
             height = 93,
             shift = {0.0703125, 0.3},
           scale = 0.8
           },
           {
-            filename = "__space-age__/graphics/entity/stromatolite/copper/stromatolite-14-effect-map.png",
+            filename = "__planetaris-tellus__/graphics/entity/stromatolite/magnesium/stromatolite-14-effect-map.png",
             width = 63,
             height = 93,
             shift = {0.160938, 0.2},
           scale = 0.8
           },
           {
-            filename = "__space-age__/graphics/entity/stromatolite/copper/stromatolite-15-effect-map.png",
+            filename = "__planetaris-tellus__/graphics/entity/stromatolite/magnesium/stromatolite-15-effect-map.png",
             width = 101,
             height = 92,
             shift = {0.242188, -0.1},
           scale = 0.8
           },
           {
-            filename = "__space-age__/graphics/entity/stromatolite/copper/stromatolite-16-effect-map.png",
+            filename = "__planetaris-tellus__/graphics/entity/stromatolite/magnesium/stromatolite-16-effect-map.png",
             width = 88,
             height = 92,
             shift = {0.1, -0.1},

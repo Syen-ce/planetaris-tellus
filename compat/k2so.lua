@@ -39,7 +39,7 @@ data.extend({
 	{
 		type = "recipe",
 		name = "kr-bioengineering-research-data",
-        category = "planetaris-bioassembling",
+        categories = {"planetaris-bioassembling"},
         surface_conditions =
         {
             {
@@ -142,7 +142,7 @@ data.extend({
     {
     type = "recipe",
     name = "kr-pathological-research-data",
-    category = "planetaris-pathologics",
+    categories = {"planetaris-pathologics"},
     emissions_multiplier = 5,
     surface_conditions =
     {
@@ -218,7 +218,7 @@ data:extend({
 		subgroup = "raw-resource",
 		order = "p-a",
 		enabled = false,
-		category = "kr-growing",
+		categories = {"kr-growing"},
 		energy_required = 300,
 		emissions_multiplier = 6,
 		surface_conditions ={{ property = "planetaris-pollen-corrosion", min = 50, max = 100 }},
@@ -228,10 +228,9 @@ data:extend({
 			{ type = "item", name = "planetaris-chloroplast-seed", amount = 6 },
 		},
 		results = {
-			{ type = "item", name = "planetaris-chloroplast-fruit", amount = 300 },
+			{ type = "item", name = "planetaris-chloroplast-fruit", amount = 300, result_is_always_fresh = true},
 		},
 		auto_recycle = false,
-		result_is_always_fresh = true,
 		main_product = "planetaris-chloroplast-fruit",
 	},
     {
@@ -242,7 +241,7 @@ data:extend({
 		subgroup = "raw-resource",
 		order = "p-b",
 		enabled = false,
-		category = "kr-growing",
+		categories = {"kr-growing"},
 		energy_required = 300,
 		emissions_multiplier = 6,
 		surface_conditions ={{ property = "planetaris-pollen-corrosion", min = 50, max = 100 }},
@@ -252,10 +251,9 @@ data:extend({
 			{ type = "item", name = "planetaris-myceliae-seed", amount = 6 },
 		},
 		results = {
-			{ type = "item", name = "planetaris-mushroom-cap", amount = 300 },
+			{ type = "item", name = "planetaris-mushroom-cap", amount = 300, result_is_always_fresh = true },
 		},
 		auto_recycle = false,
-		result_is_always_fresh = true,
 		main_product = "planetaris-mushroom-cap",
 	},
     {
@@ -290,7 +288,7 @@ data:extend({
 		type = "recipe",
 		name = "kr-wasp-biomass",
 		enabled = false,
-		category = "kr-crushing",
+		categories = {"kr-crushing"},
 		energy_required = 1,
 		icons = {
 			{ icon = "__Krastorio2Assets__/icons/items/biomass.png", scale = 1, shift = { 8, 8 } },
@@ -312,7 +310,7 @@ data:extend({
       {
         type = "recipe",
         name = "kr-filter-rare-metal-ore-from-infected-water",
-        category = "kr-fluid-filtration",
+        categories = {"kr-fluid-filtration"},
         icons = {
             { icon = "__planetaris-tellus__/graphics/icons/fluids/infected-water.png" },
             {
@@ -330,8 +328,8 @@ data:extend({
         },
         results = {
             { type = "fluid", name = "water", amount = 20, ignored_by_productivity = 20},
-            { type = "item", name = "stone", probability = 0.30, amount = 1 },
-            { type = "item", name = "kr-rare-metal-ore", probability = 0.05, amount = 1 },
+            { type = "item", name = "stone", independent_probability = 0.30, amount = 1 },
+            { type = "item", name = "kr-rare-metal-ore", independent_probability = 0.05, amount = 1 },
         },
         allow_as_intermediate = false,
         always_show_made_in = true,

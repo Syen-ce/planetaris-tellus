@@ -551,7 +551,7 @@ data:extend({
             --[8] = { probability = 1.00, weights = {0.090, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.025, 0.125, 0.005, 0.010, 0.100, 0.100, 0.010, 0.020, 0.020} },
           }
         ),
-        transitions = {lava_to_out_of_map_transition},
+        transitions = data.raw.tile["water"].transitions,
         transitions_between_transitions = data.raw.tile["water"].transitions_between_transitions,
         walking_sound = tile_sounds.walking.semi_wet,
         landing_steps_sound = tile_sounds.landing.semi_wet,
@@ -1232,7 +1232,7 @@ data:extend({
       },
       transition = tile_graphics.generic_masked_tile_transitions1
     },
-    transitions = {lava_to_out_of_map_transition},
+    transitions = data.raw.tile["water"].transitions,
     transitions_between_transitions = data.raw.tile["water"].transitions_between_transitions,
     map_color={7, 132, 124},
     absorptions_per_second = tile_pollution.tellus_water,
@@ -1279,7 +1279,7 @@ data:extend({
       },
       transition = tile_graphics.generic_masked_tile_transitions1
     },
-    transitions = {lava_to_out_of_map_transition},
+    transitions = data.raw.tile["water"].transitions,
     transitions_between_transitions = data.raw.tile["water"].transitions_between_transitions,
     map_color={49, 132, 7},
     absorptions_per_second = tile_pollution.tellus_water,
@@ -1329,7 +1329,7 @@ data:extend({
       },
       transition = tile_graphics.generic_masked_tile_transitions1
     },
-    transitions = {lava_to_out_of_map_transition},
+    transitions = data.raw.tile["water"].transitions,
     transitions_between_transitions = data.raw.tile["water"].transitions_between_transitions,
     walking_sound = tile_sounds.walking.wetland,
     landing_steps_sound = tile_sounds.landing.wet,
@@ -1375,7 +1375,7 @@ data:extend({
       },
       transition = tile_graphics.generic_masked_tile_transitions1
     },
-    transitions = {lava_to_out_of_map_transition},
+    transitions = data.raw.tile["water"].transitions,
     transitions_between_transitions = data.raw.tile["water"].transitions_between_transitions,
     walking_sound = tile_sounds.walking.wetland,
     landing_steps_sound = tile_sounds.landing.semi_wet,
@@ -1423,7 +1423,7 @@ data:extend({
       },
       transition = tile_graphics.generic_masked_tile_transitions1
     },
-    transitions = {lava_to_out_of_map_transition},
+    transitions = data.raw.tile["water"].transitions,
     transitions_between_transitions = data.raw.tile["water"].transitions_between_transitions,
     walking_sound = tile_sounds.walking.slime,
     landing_steps_sound = tile_sounds.landing.semi_wet,
@@ -1469,7 +1469,7 @@ data:extend({
       },
       transition = tile_graphics.generic_masked_tile_transitions1
     },
-    transitions = {lava_to_out_of_map_transition},
+    transitions = data.raw.tile["water"].transitions,
     transitions_between_transitions = data.raw.tile["water"].transitions_between_transitions,
     walking_sound = tile_sounds.walking.slime,
     landing_steps_sound = tile_sounds.landing.semi_wet,
@@ -1515,7 +1515,7 @@ data:extend({
       },
       transition = tile_graphics.generic_masked_tile_transitions1
     },
-    transitions = {lava_to_out_of_map_transition},
+    transitions = data.raw.tile["water"].transitions,
     transitions_between_transitions = data.raw.tile["water"].transitions_between_transitions,
     walking_sound = tile_sounds.walking.wetland,
     landing_steps_sound = tile_sounds.landing.wet,
@@ -1557,7 +1557,7 @@ data:extend({
       },
       transition = tile_graphics.generic_masked_tile_transitions1
     },
-    transitions = {lava_to_out_of_map_transition},
+    transitions = data.raw.tile["water"].transitions,
     transitions_between_transitions = data.raw.tile["water"].transitions_between_transitions,
     walking_sound = tile_sounds.walking.wetland,
     landing_steps_sound = tile_sounds.landing.wet,
@@ -1598,7 +1598,7 @@ data:extend({
       },
       empty_transitions=true,
     },
-    transitions = {lava_to_out_of_map_transition},
+    transitions = data.raw.tile["water"].transitions,
     transitions_between_transitions = data.raw.tile["water"].transitions_between_transitions,
     walking_sound = sound_variations("__base__/sound/walking/shallow-water", 7, 1),
     landing_steps_sound = tile_sounds.landing.wet,
@@ -1644,7 +1644,7 @@ data:extend({
       },
       empty_transitions=true,
    },
-    transitions = {lava_to_out_of_map_transition},
+    transitions = data.raw.tile["water"].transitions,
     transitions_between_transitions = data.raw.tile["water"].transitions_between_transitions,
     walking_sound = sound_variations("__base__/sound/walking/shallow-water", 7, 1),
     landing_steps_sound = tile_sounds.landing.wet,

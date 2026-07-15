@@ -231,8 +231,6 @@ data.extend({
     fluid_wagon_connector_frame_count = 35,
     fluid_wagon_connector_alignment_tolerance = 2.0 / 32.0,
 
-    fluid_wagon_connector_graphics = require("__base__/prototypes/entity/pump-connector"),
-
     fluid_animation =
     {
       north =
