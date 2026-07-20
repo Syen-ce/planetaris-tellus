@@ -948,7 +948,7 @@ data:extend({
   -- SCIENCE
 
   {
-    type = "tool",
+    type = "item",
     name = "planetaris-bioengineering-science-pack",
     localised_description = {"item-description.planetaris-bioengineering-science-pack"},
     icon = "__planetaris-tellus__/graphics/icons/bioengineering-science-pack.png",
@@ -970,7 +970,7 @@ data:extend({
     random_tint_color = item_tints.bluish_science
   },
     {
-    type = "tool",
+    type = "item",
     name = "planetaris-pathological-science-pack",
     localised_description = {"item-description.planetaris-pathological-science-pack"},
     icon = "__planetaris-tellus__/graphics/icons/pathological-science-pack.png",

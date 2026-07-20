@@ -74,11 +74,11 @@ for _, spoilable_capsule in pairs(data.raw.capsule) do
   end
 end
 
-for _, spoilable_tool in pairs(data.raw.tool) do
-  if whitelist_subgroup[spoilable_tool.subgroup] and spoilable_tool.spoil_ticks ~= nil then
-    table.insert(preservation_whitelist, spoilable_tool)
-  end
-end
+--for _, spoilable_tool in pairs(data.raw.tool) do
+--  if whitelist_subgroup[spoilable_tool.subgroup] and spoilable_tool.spoil_ticks ~= nil then
+--    table.insert(preservation_whitelist, spoilable_tool)
+--  end
+--end
 
 for _, spoilable_item in pairs(preservation_whitelist) do
     if not p_blacklist[spoilable_item.name] then

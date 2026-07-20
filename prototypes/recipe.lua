@@ -487,6 +487,7 @@ data:extend({
     },
     enabled = false,
     auto_recycle = false,
+    order = "i-p-a",
     energy_required = 4,
     ingredients = {
       {type = "fluid", name = "planetaris-seed-compound", amount = 15},
@@ -1694,6 +1695,7 @@ data:extend({
     enabled = false,
     auto_recycle = false,
     energy_required = 4,
+    order = "i-p-b",
     ingredients = {
       {type = "item",  name = "planetaris-parasite-nest",      amount = 1},
       {type = "item",  name = "planetaris-carbolyte-bacteria", amount = 2},
