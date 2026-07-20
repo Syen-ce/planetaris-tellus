@@ -3,7 +3,7 @@ if not mods["Krastorio2-spaced-out"] then return end
 local data_util = require("__Krastorio2-spaced-out__/data-util")
 
 local function add_light(item)
-	local card = data.raw.tool[item]
+	local card = data.raw.item[item]
 	card.pictures = {
 		layers = {
 			{
@@ -69,8 +69,8 @@ data.extend({
 })
 
 --
-data_util.set_icon(data.raw.tool["planetaris-bioengineering-science-pack"], "__planetaris-tellus__/graphics/compat/k2so/icons/bioengineering-tech-card.png")
-data.raw.tool["planetaris-bioengineering-science-pack"].localised_name = { "item-name.kr-bioengineering-tech-card" }
+data_util.set_icon(data.raw.item["planetaris-bioengineering-science-pack"], "__planetaris-tellus__/graphics/compat/k2so/icons/bioengineering-tech-card.png")
+data.raw.item["planetaris-bioengineering-science-pack"].localised_name = { "item-name.kr-bioengineering-tech-card" }
 add_light("planetaris-bioengineering-science-pack")
 
 data_util.make_tech_card("planetaris-bioengineering-science-pack", {
@@ -174,8 +174,8 @@ data.extend({
 
 --
 
-data_util.set_icon(data.raw.tool["planetaris-pathological-science-pack"], "__planetaris-tellus__/graphics/compat/k2so/icons/pathological-tech-card.png")
-data.raw.tool["planetaris-pathological-science-pack"].localised_name = { "item-name.kr-pathological-tech-card" }
+data_util.set_icon(data.raw.item["planetaris-pathological-science-pack"], "__planetaris-tellus__/graphics/compat/k2so/icons/pathological-tech-card.png")
+data.raw.item["planetaris-pathological-science-pack"].localised_name = { "item-name.kr-pathological-tech-card" }
 add_light("planetaris-pathological-science-pack")
 
 data_util.make_tech_card("planetaris-pathological-science-pack", {
