@@ -49,6 +49,10 @@ local planetaris_menu_simulations = require("__planetaris-tellus__/menu-simulati
 if not data.raw["utility-constants"]["default"].main_menu_simulations or replace_base_game_simulations then
   data.raw["utility-constants"]["default"].main_menu_simulations = {}
 end
+
+-- Add one to the max belt stack. Allows compatibility with that also have a bonus belt stack size technology
+data.raw["utility-constants"]["default"].max_belt_stack_size = data.raw["utility-constants"]["default"].max_belt_stack_size + 1
+
 local main_menu_simulations = data.raw["utility-constants"]["default"].main_menu_simulations
 main_menu_simulations.tellus_biofactory = planetaris_menu_simulations.tellus_biofactory
 main_menu_simulations.tellus_mycelia = planetaris_menu_simulations.tellus_mycelia
