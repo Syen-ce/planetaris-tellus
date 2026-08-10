@@ -170,7 +170,7 @@ data:extend({
         {type = "item", name = "planetaris-chloroplast-seed", amount = 1},
         {type = "item", name = "nutrients", amount = 5}
       },
-    results = {{type="item", name="planetaris-bioassembler-seed", amount=1}}
+    results = {{type="item", name="planetaris-bioassembler-seed", amount=2}}
   },
   -- WATER
   {

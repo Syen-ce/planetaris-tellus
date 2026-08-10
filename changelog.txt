@@ -1,4 +1,25 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.11
+Date: 2026-08-10
+  Changes:
+    - Now reviving recipes are instant
+    - Pathological science pack now spoils into 1  behemoth wasp instead of 3
+    - Pathological science pack spoilage trigger counts as 10 items
+    - Parasite nest spoilage trigger counts as 5 items
+    - Reduced time for space preservation recipes (1s -> 0.2s)
+    - Increased max energy for robowasps (2.5MJ -> 3 MJ), reduced energy_per_tick (0.045kJ -> 0.04kJ) and energy_per_move (5kJ -> 4kJ)
+    - Increase Health (650 -> 800), input flow limit (5MW -> 10MW) and charging energy (700kW -> 800kW) of the robowasp port
+  Balancing:
+    - Now bioassembler seed recipe outputs 2 seeds instead of 1
+    - Parasites spoils into 1 enemy instead of 2
+  Graphics:
+    - Made clearer the root to ground sprites
+  Locale:
+    - Changed bioassembler tips and tricks page to make more clear that reviving is part of the bioassembler process
+    - Changed roots tips and tricks page to make more clear the usage of root fillers
+  Bugfixes:
+    - Fixed belt stacking tech not working by EBTheHero
+---------------------------------------------------------------------------------------------------
 Version: 1.1.10
 Date: 2026-07-22
   Compatibility:

@@ -32,6 +32,7 @@ data.extend({
     },
     collision_box = {{-3.2, -3.2}, {3.2, 3.2}},
     selection_box = {{-3.5, -3.5}, {3.5, 3.5}},
+    use_mirroring = true,
     --damaged_trigger_effect = hit_effects.entity(),
     fast_replaceable_group = "incubator",
     next_upgrade = nil,
@@ -306,7 +307,7 @@ data:extend({
     categories = {"planetaris-reviving"},
     enabled = false,
     hide_from_player_crafting = true,
-    energy_required = 5,
+    energy_required = 0.1,
     overload_multiplier = 1,
     ingredients =
       {
