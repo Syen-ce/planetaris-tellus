@@ -873,7 +873,7 @@ data.extend({
     flags = {"placeable-player", "player-creation"},
     fast_replaceable_group = "roboport",
     minable = {mining_time = 0.1, result = "planetaris-robowasp-port"},
-    max_health = 650,
+    max_health = 800,
     corpse = "roboport-remnants",
     dying_explosion = "roboport-explosion",
     collision_box = {{-1.7, -1.7}, {1.7, 1.7}},
@@ -895,13 +895,13 @@ data.extend({
     {
       type = "electric",
       usage_priority = "secondary-input",
-      input_flow_limit = "5MW",
+      input_flow_limit = "10MW",
       buffer_capacity = "150MJ"
     },
     recharge_minimum = "40MJ",
     energy_usage = "75kW",
     -- per one charge slot
-    charging_energy = "700kW",
+    charging_energy = "800kW",
     logistics_radius = 25 + 19,
     construction_radius = 55 + 19,
     charge_approach_distance = 5,

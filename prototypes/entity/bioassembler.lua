@@ -38,6 +38,7 @@ data.extend({
     },
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
+    use_mirroring = true,
     --damaged_trigger_effect = hit_effects.entity(),
     fast_replaceable_group = "bioassembler",
     dying_explosion = "planetaris-bioassembler-explosion",
@@ -346,7 +347,7 @@ data:extend({
     categories = {"planetaris-reviving"},
     enabled = false,
     hide_from_player_crafting = true,
-    energy_required = 1,
+    energy_required = 0.1,
     overload_multiplier = 1,
       ingredients =
       {

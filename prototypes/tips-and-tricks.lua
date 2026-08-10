@@ -164,17 +164,20 @@ data:extend ({
     simulation = {
         init_update_count = 200,
         planet = "tellus",
+        mods = {"planetaris_tellus"},
         mute_wind_sounds = true,
         hide_health_bars = false,
         init =
         [[
         game.simulation.camera_position = {0, 1.5}
         game.simulation.camera_alt_info = true
-        game.forces.player.recipes["planetaris-chloroplast-processing"].enabled = true
+        game.forces.player.technologies["planetaris-chloroplast"].researched = true
+        game.forces.player.technologies["planetaris-bioassembler"].researched = true
+
 
         game.surfaces[1].create_entities_from_blueprint_string
         {
-        string = "0eNq9mttyozgQQP9Fz3gKXYFU7ZdMTbmwLSeqwsBKYna8Kf/7CjKxcxFJd1dm8xJsw9GN7taxeWS7brKjd31kd4/M7Yc+sLvvjyy4+77t5vf69mTZHTu2IW6ib/swDj5udraL7FIw1x/sL3bHLz8KZvvoorNPgOXFedtPp5316YTiGeT6o+vTR5vRjZYVbBxCumro57YSSZpvumBndrepym86tfD31Hbp9HRlZ+9tf2j9mRVXyjbYGF1/H150deza3sbWu7DZP3SDH8aHc9fNTVm/T/1q7+3SoWhP6Z02Tn5+XRbsNBzm69u46WwaLrtcincDEUWmGT8M8aOhmDoNJQOTa7DN0XVdOuMjZrNMz8F5u386QWVaUNcWwrQLsV3OfE9tnqd8ZcIzZH0l2y71wLv9xvbW35836Way/tjuM6ur+CcNFWw3HY/Wb4P7d1mV61+mCwY0OFPhB1eRVtnkV7kmwao8rCHBVB423/QEml6hcRJNrNBokSZXaJJEK1doikTjKzRNoemVnMINidas0EiRoFcigZNCQa+EAifFgl65e8UtFnK1LpMzr0QFycSCv+a7Plgfszm+XifPUZFqQ7ruqcw+199ivfh1c2vB2gN7mf76wZ/auSjuh9PYpio4pD6yv9hcyKdgt9dGop9sbjgCN12KI6dLIvklkq+QfInkayRfIPkGyddIfoXkKyS/RvIrJL9B8g2OL5HpQiHTheRIfo3kI+NXI+NL3uLX/hq9DWHTDe0hl++0WAWnTfp5fLKGcYq5nZpU781i/2BDbghvQxihFt6ehp92O/VPedEeti7pw3N6zPVLg/vFb7eG/LJ+Hdsu2Ne14uMKcfSTi0s9mGYZ1Bkfeql72TEb8JoL/mrE2TUfpri26MjkJOSbGf7s5kUmJyGQfGRyEhrHV8jkJBSSj0xOokLykclJGCQfubkQDZKP3FyIGslHbi4kR/KRmwtZIvnI+JXI+FXI+JXI+FUNeC//QWRxkftaJavkOze0IdjT7pMvhbLpNB278YPMP/phn3J1Kins+eTtO1HIdZWTjUlAZlkLgjGJrzKmUxseYMZUXKG3Dqd5cN38ReNXOpeWZOeCTbgiOxeMr8nOBeMbsnPB+BXZuWD8muxcMH5Ddi4Q35Rk54LxOdm5YHxBdi4YX5KdC8ZXeOcSBOcymuJc4o87lzEU5yr/B+fqp+hd6m24CRYvCYZlKrxhlRTDMjXZsErQrdqQDQvEr0qyYcH4nGxYML4gGxaML8mGBeMrsmHB+JpsWDC+IRsWjF+RDQvGr8mGBeM3ZMMC8WvsrzHI+K2x7oKM3xoZvxIZvzUyfiUyfmsFdq8bmb8l15+o18uy+HWaVGuyl8LmBpsbkLmnrsiaB+PXZM2D8Ruy5oH4TUnWPBifkzUPxhdkzYPxJVnzYHxF1jwYX5M1D8Y3ZM2D8Suy5sH4NV7zSoLmNQ1F88o/rnmLOQEe/BK/B68E/MEvXnLUE3M4tkA9sLbOToXwn7SUc1X9rgpdmEL/KJajuf/zsVmOxXI8z9ftk+X/788SZ57rBL89Blqwn6m4Lr3RRjSqaXQtSq0Uv1z+A+BC2+s=",
+        string = "0eNq9mmtv4joQhv+LP5tV4ksulfaXVBUKYKilkOTYzp7lVPz3Y8MWupDQmVHVfmpuz7x+nYkzQ97Yqh3N4GwX2NMbs+u+8+zp+Y15u+uaNu3rmr1hT2zb+LAIrun80LuwWJk2sCNnttuY3+wpP75wZrpggzVnwGnjsOzG/cq4eAJ/B9lua7t4aLF+NT4wzobex8v6LgWLqOqH5uzAnhZ5+UPHCP+MTRtPj1e2Zme6TeMOjF8oS29CsN3Op6ud2fe/zHKMx9pgnNksbTD7eGjbtN5wdt591vdHzdA2nQmNsz7qaXvXxx1xoFs32qRt3Y/JGZ1xtu836YImLFrTnIRfx3488rsRC8KI1TeMuBuDs1Grvw4vzwjjk5fxmd+DM94v2r7ZxCN348uzvyZ0Y51Znw8rzsJhSIx+DMOY7qi7OAofR1Hi6EscP658aE5X3sfIzzGKmXmaABf8UQ5NRLhJgI/jmMCXZLyC4CskXuDU12Q8SH26JVB8iZOf52Q+TL9A8hVSvyTzYfoVkq+R+jWZD9OPTd4Cqb8k82H6selbIvXXZD5Iv8Dmb4XTL3IyH6Yfm781Ur8k82H6kfkrMqR+TebD9CPzVyAXX1GS+TD9yPwVyOVX1GQ+SL+8yV/beePC1MubeLDy5mIKjUxdgVx6JTJ1BXJplPK+QBhsfEm9J18WLYkuEGbLnNdD26ZQxq2jsGZnTjVaLB7iniaMzpxfnm6rgslK4PqQ+BDH9X2so2zbTs72dUgSZJaeC/GQHe/WScEFiZbP0EoSLZuhVRSaqGdoNYlWTdNURqKVM7ScRCtmaIJE0zM0SaKpGZoi0eQMjZQLYiYXFCkXxEwuKFIuiJlcUKRcyGdyQU3mwsr2jfdmv/rkOTXZvIj/2+FBG2lw/dp4Hx/G7P3k5fXh3fVu37STvQj4snkVqG8FVn/3f97bOXyqE3SnKjWH9kMT14I+CmI/Werwjd4sL8jgRjOlHbsuI0syjV2XkSWTlmDvr8VMdf/K8on5M3eMN2bztdOhCMMpvmo4+8a/wobDL9Dr/MZptW16NflSQ7AlB7Jk1QWokZje7M+vdPBOosZWG9X8DTopvSLzCxC/JvNB1hfIboGocf4UOZkP8qcQZD7Mnw89+zae6Ox6YTrjdof4WIhJs23WE+WHzD65UzlbjdutcUtv/zuVDZe/KQ3IjoLMkHOkyXzYHBVkPmyOStDjQxJ+h0Bmt8yRztdkPsj5MiPzQc6XyOyWAudPKch8mD+SzIf5o0hPD/n4RkU9PEpsckvkFBVkPmyKSjIfNkXYFFdIf2oyH+RPlZH5sB8zsSmucf5UgsyH+SPJfJg/2MW5QPqjyXyYPwWZD/MHm78l0p+KzIf5U5P5IH9qbP4iC5Q6J/NB/tSCzIf5g81fZIFSKzIf5o8m82H+FOCPfVQ+a8zlYx/bzXzrU5f4OAUlToWPoyhxavDHZur2rfUrvjY7tVomP7/JKMKKbxCWU4SpbxAmQPVf6jJh20d5JlHs2dryhbN/4/2ZWoHPmmsea1b9wp/jdZqnAaSNtI+niGnjtPPPVrw4eRCJ109POftlnD8p0IWotRKqllmR5/J4/B/kYgME",
         position = {6, -1}
         }
         ]]
@@ -194,10 +197,10 @@ data:extend ({
     simulation = {
         init_update_count = 200,
         planet = "tellus",
+        mods = {"planetaris_tellus"},
         mute_wind_sounds = true,
         init =
         [[
-        require("__core__/lualib/story")
         game.simulation.camera_position = {0, 1.5}
 
         for x = -12, -10, 1 do
@@ -208,35 +211,10 @@ data:extend ({
 
         game.surfaces[1].create_entities_from_blueprint_string
         {
-        string = "0eNq1meFy4jgMgN/Fv51OnNiOw6t0GCaAgcyGhLOdve12ePdzaEs5sHCs2e2PlpLkk2RLsqS8k3U36pNpe0cW76TdDL0li9d3Ytt933TTd31z1GRBdo11mTNNb0+Dcdlad46cKWn7rf5FFuxMA8+cuqbXrjGtzcww3N5fnJeU6N61rtUfAi//vK368bjWxgPpF8SOa+sa1w49oeQ02Pby0QvxmDqn5I0sMlZ59D9j03mEf6TTe91vG/NGJrXuyMWVrDu9cabdZLrXZv+W+UXQZtdsdEBQcSNo2xr/4OWiCoulZD3udtqsbPvbS2L59SegUDnLVMZUuq38il6P3Q9voNXG2/hIV9WL+MTzFzHLxoA48b202gvbtb2/mm0O2rqnIsVF5NcDK6uda/u9nW40+jj81KvRX+u85nq7ap0++kvOjPoc0EFedbgqcGpPwS29M3mmkVWSkeIqpPyDRqrZ+yrv5N/sK59tck2fZYFnOzsJDQBZjiYWAJElbUv9V7aFFbP3RcH7MlFmbgz7zh13uTbzOnchyTdu/+gRIREcEvGUDW2TQG88A4gSTcwBYoWyGNJPoWiQbuhQrMPAAh2JCgAyjL2QdgUGBmlWYk2tACDHAiUAFBhzIe3QgSEAYIUFcgAIhkZ2Go+nZzbLIK/GLB+gXIkODODMKxkWCOTSEgyOzLrBNHuduab/EbCd3ZKjJ0CJjhsgJZbouAGyYpkSN3kM9h034cJRfS0fBPiOk2G3s4fBaMCfVX5DuqsBQuCEo0SVESXr5MpBFc+RPAeRbsj2Zhj77ZMKed4a8ITjRfGIwgXSDyEeNlCAOOEctaA1tKCh4OYpoRNxfC4RYQixqtSzoUwwOqUmExFFUw6diEOKPIEVcUaRUofJCCulDKsjrDKBpSKshN6E5RHvFSIFFnFfIVNgkVwtqhRYJEsLlQKLOL+oU2AR75f53NENy6v/5biZ3bJkyWceyyWUTVVIAvZEAUo8iT1RgBpUYisvoEiW2HYeaDEktmcBGiqJbVmAnkoqJA9oSSW2nQf65QrbtEDzhgrbtEDjkKpImnYzljCYRZdfQPRV2GiBxp6VQM2OP+fT6TNKSj6+/XjD8pj6jqM96K7LrNZTIbnxBaX7GM4eh+10b+OyTjcX5a4vepZBy2TyRPrxRUPC4LPCBjYDMlmlkke3jwbMn6hXNWpcjfKEXdPZqCtsDt1gBv+FX8xjYw+37oDwB5XPe3/HP82ConxJyb9+fSetXxkVtKRiSV/9b+oTyfRx+kO9NLH0t04GTxt4faVJyU9v8kWekEXN61qoIhecs/P5P8K/jeY=",
+        string = "0eNqtmW2TmyoUgP8Ln7WjIAL7V3Z2MibBxKlRC9jb3J3894umm+R2OUs4036ySh5eHziHfSfbftaT6QZHXt5JtxsHS15e34ntDkPTL++G5qTJC2kb63JnmsFOo3H5VveOXDLSDXv9i7yUlyzwm6lvBu0a09ncjONjeXp5y4geXOc6fa1w/c95M8ynrTYemH1Axra1x9HofJpPE8nINFr/q3FY6vEkUX7jGTn7B/mN+wr2ndG76/eSLq36A0xv4KmbdIBHH3kBAMuA7uVt1/e+xGckiyArCBlgVREWT2DxCKu+sbTOu6HtBv813x21/Yqm6DoRH+U3VjvXDQe7lDP6NP7Um9l/6502er/pnD75T87MOiPXt9cF8bkXp9kedd/nVuu9r383zsuqLYuMnMb9UrZxea+btXG3dfkW6pgA59CN+cF48D7QwTptpcn76P2ajLY278dmH1wg4nHgHrh+YbjztFowu2leDPpUjUqaJPm7D3WJmKS26a0OjecyB4/7BNjRW/XscutaNwA9K8vsq93nC3oVXs8lxQI5AGRYYA0AKyxQAECOBQJ7QlljgQoACiRQFABQYoElAFRYIA0DaYEFMgCINUUAplCsKQIwhWJNEYApFGuKAEyhWFOg05NiTRGAKRRrigRMoVhTJGAKxZoiAVMY1hQJmMKwpkjAFIY1RQKmMKwpEjCFYU2RgCkMa4qEQmqsKRIwhWFNUYApDGuKAkxhWFMUYEpVPB1uygIIN5f4KBpvViUmeF62ICB4rkKV3K2y89a6Zi36mVr+DmY98cfc9B7hf9Hrgx72jTkHm8+eT5BkGTkzqgoDg7JAnhLJ33CodGuN5GP51u7Yj2b0L/z6PDX2+JhzIZKuqgYXjnWjaQ46d83wPdBV+hhcxNeOSJiUWLZfPWRxva/VdLtcD9oczn6G/Ni1zS5wiSDZfV0+tFaGV2lGtnPbarOx3b96HdyPf6EG3TeO2xIJ32RIdku21mF7UhBeJF9w3GuqnpkgXiZMEIukYJxiYMBRyRkGBmwOvMLAoGsdjoEBxyOvETAo3eLwZUr4xu5OpEGexDQOCPe4Sm1clXBK1cVzp9THRv28hHWKItFrvBRF6hiMoTZEcR+Cv7wh1imaiVjvUjSLJYB1imYqBks41VQRgyU4pmJxS60SYLHzVhQJsNi9ukiwSMUu1kWCRSqmpEg4aFRMSVEln9hKgOG4DNXAnw06lPw/+Mn9TtRP7aRloZIDfiGS0FJB6LeM/OOHaYmWX31+wjPfaP6WvfpTwD+L9Xl5dX32pZdY2yPuf2HLyE8fba918poqXtFKsaIuS3a5/AcKDhAy",
         position = {10, 2}
         }
 
-        local story_table =
-        {
-        {
-            {
-            name = "start",
-            action = function() game.speed = 1 end
-            },
-            {
-            condition = story_elapsed_check(17),
-            action = function() game.speed = 10 end
-            },
-            {
-            condition = story_elapsed_check(290),
-            action = function() game.speed = 1 end
-            },
-            {
-            name = "continue",
-            action = function() game.speed = 1 end
-            },
-            {
-            action = function() story_jump_to(storage.story, "continue") end
-            }
-        }
-        }
-        tip_story_init(story_table)
         ]]
         }
     },
