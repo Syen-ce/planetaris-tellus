@@ -67,7 +67,7 @@ data.extend({
     stack_size = 10,
     default_import_location = "tellus",
     weight = 10 * kg,
-    fuel_category = "chemical",
+    fuel_categories = {"chemical"},
     fuel_value = "1MJ",
     spoil_ticks = 15 * minute,
     spoil_result = "planetaris-arigian-bacteria",

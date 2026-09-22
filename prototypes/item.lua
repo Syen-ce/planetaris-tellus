@@ -59,7 +59,7 @@ data:extend({
     stack_size = 10,
     default_import_location = "tellus",
     weight = 10 * kg,
-    fuel_category = "chemical",
+    fuel_categories = {"chemical"},
     fuel_value = "4MJ"
   },
   
@@ -136,7 +136,7 @@ data:extend({
     stack_size = 10,
     default_import_location = "tellus",
     weight = 10 * kg,
-    fuel_category = "chemical",
+    fuel_categories = {"chemical"},
     fuel_value = "4MJ"
   },
   {
@@ -154,7 +154,7 @@ data:extend({
     inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
     pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
     drop_sound = space_age_item_sounds.agriculture_inventory_move,
-    fuel_category = "chemical",
+    fuel_categories = {"chemical"},
     fuel_value = "2MJ",
     stack_size = 50,
     default_import_location = "tellus",
@@ -172,7 +172,7 @@ data:extend({
     inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
     pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
     drop_sound = space_age_item_sounds.agriculture_inventory_move,
-    fuel_category = "chemical",
+    fuel_categories = {"chemical"},
     fuel_value = "1MJ",
     stack_size = 100,
     default_import_location = "tellus",
@@ -203,7 +203,7 @@ data:extend({
     stack_size = 10,
     default_import_location = "tellus",
     weight = 10 * kg,
-    fuel_category = "chemical",
+    fuel_categories = {"chemical"},
     fuel_value = "4MJ"
   },
   {
@@ -222,7 +222,7 @@ data:extend({
     inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
     pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
     drop_sound = space_age_item_sounds.agriculture_inventory_move,
-    fuel_category = "chemical",
+    fuel_categories = {"chemical"},
     fuel_value = "2MJ",
     stack_size = 50,
     default_import_location = "tellus",
@@ -239,7 +239,7 @@ data:extend({
     inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
     pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
     drop_sound = space_age_item_sounds.agriculture_inventory_move,
-    fuel_category = "chemical",
+    fuel_categories = {"chemical"},
     fuel_value = "2MJ",
     stack_size = 50,
     default_import_location = "tellus",
@@ -273,7 +273,7 @@ data:extend({
     inventory_move_sound = space_age_item_sounds.agriculture_inventory_move,
     pick_sound = space_age_item_sounds.agriculture_inventory_pickup,
     drop_sound = space_age_item_sounds.agriculture_inventory_move,
-    fuel_category = "chemical",
+    fuel_categories = {"chemical"},
     fuel_value = "2MJ",
     stack_size = 100,
     default_import_location = "tellus",
@@ -430,7 +430,7 @@ data:extend({
       { size = 64, filename = "__planetaris-tellus__/graphics/icons/wasp-egg-2.png", scale = 0.5, mipmap_count = 4 },
       { size = 64, filename = "__planetaris-tellus__/graphics/icons/wasp-egg-3.png", scale = 0.5, mipmap_count = 4 },
     },
-    fuel_category = "chemical",
+    fuel_categories = {"chemical"},
     fuel_value = "5MJ",
     subgroup = "agriculture-products",
     order = "c[eggs]-c[wasp-egg]",
@@ -841,7 +841,7 @@ data:extend({
     stack_size = 10,
     default_import_location = "tellus",
     weight = 10 * kg,
-    fuel_category = "chemical",
+    fuel_categories = {"chemical"},
     fuel_value = "4MJ"
   },
     {
@@ -897,7 +897,7 @@ data:extend({
     stack_size = 10,
     default_import_location = "tellus",
     weight = 10 * kg,
-    fuel_category = "chemical",
+    fuel_categories = {"chemical"},
     fuel_value = "1MJ"
   },
   {
