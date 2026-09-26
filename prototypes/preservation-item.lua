@@ -95,7 +95,7 @@ for _, spoilable_item in pairs(preservation_whitelist) do
       if preserved_item.place_as_tile then preserved_item.place_as_tile = nil end
       preserved_item.pictures = nil
       preserved_item.spoil_ticks = math.min(4294967295, preserved_item.spoil_ticks * 1.5)
-      preserved_item.fuel_category = nil
+      preserved_item.fuel_categories = nil
       preserved_item.fuel_value = nil
       preserved_item.fuel_acceleration_multiplier = nil
       preserved_item.fuel_top_speed_multiplier = nil

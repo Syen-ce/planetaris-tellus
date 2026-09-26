@@ -168,7 +168,7 @@ data.extend({
     stack_size = 10,
     default_import_location = "tellus",
     weight = 10 * kg,
-    fuel_category = "chemical",
+    fuel_categories = {"chemical"},
     spoil_ticks = 60 * minute,
     spoil_to_trigger_result =
     {
