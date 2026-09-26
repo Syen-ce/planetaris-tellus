@@ -516,7 +516,7 @@ data:extend({
             {
               type = "create-entity",
               entity_name = "behemoth-wasp-premature",
-              repeat_count = 2,
+              repeat_count = 1,
               affects_target = true,
               show_in_tooltip = true,
               as_enemy = true,
@@ -575,7 +575,7 @@ data:extend({
             {
               type = "create-entity",
               entity_name = "behemoth-biter-premature",
-              repeat_count = 2,
+              repeat_count = 1,
               affects_target = true,
               show_in_tooltip = true,
               as_enemy = true,
@@ -634,7 +634,7 @@ data:extend({
             {
               type = "create-entity",
               entity_name = "big-strafer-pentapod-premature",
-              repeat_count = 2,
+              repeat_count = 1,
               affects_target = true,
               show_in_tooltip = true,
               as_enemy = true,
@@ -682,7 +682,7 @@ data:extend({
     spoil_ticks = 10 * minute,
     spoil_to_trigger_result =
     {
-      items_per_trigger = 1,
+      items_per_trigger = 5,
       trigger =
       {
         type = "direct",
@@ -990,7 +990,7 @@ data:extend({
     spoil_ticks = 30 * minute,
     spoil_to_trigger_result =
     {
-      items_per_trigger = 1,
+      items_per_trigger = 10,
       trigger =
       {
         type = "direct",
@@ -1002,7 +1002,7 @@ data:extend({
             {
               type = "create-entity",
               entity_name = "behemoth-wasp-premature",
-              repeat_count = 3,
+              repeat_count = 1,
               affects_target = true,
               show_in_tooltip = true,
               as_enemy = true,

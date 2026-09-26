@@ -306,7 +306,7 @@ data:extend({
     category = "planetaris-reviving",
     enabled = false,
     hide_from_player_crafting = true,
-    energy_required = 5,
+    energy_required = 0.1,
     overload_multiplier = 1,
     ingredients =
       {

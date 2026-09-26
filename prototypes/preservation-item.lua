@@ -129,7 +129,7 @@ for _, spoilable_item in pairs(preservation_whitelist) do
           allow_productivity = false,
           reset_freshness_on_craft = false,
           hide_from_player_crafting = true,
-          energy_required = 1,
+          energy_required = 0.2,
           ingredients =
           {
             {type = "item", name = spoilable_item.name, amount = 1},
@@ -161,7 +161,7 @@ for _, spoilable_item in pairs(preservation_whitelist) do
           allow_productivity = false,
           reset_freshness_on_craft = false,
           hide_from_player_crafting = true,
-          energy_required = 1,
+          energy_required = 0.2,
           ingredients =
           {
             {type = "item", name = preserved_item.name, amount = 1},

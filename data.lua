@@ -43,6 +43,8 @@ require("compat.preserving-groups")
 require("compat.maraxsis")
 require("compat.visible-planets")
 
+-- Add one to the max belt stack. Allows compatibility with that also have a bonus belt stack size technology
+data.raw["utility-constants"]["default"].max_belt_stack_size = data.raw["utility-constants"]["default"].max_belt_stack_size + 1
 
 local replace_base_game_simulations = false
 local planetaris_menu_simulations = require("__planetaris-tellus__/menu-simulations/menu-simulations")
