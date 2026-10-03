@@ -119,7 +119,8 @@ data.extend({
         recipe = "planetaris-unstable-crystal-manipulation"
       },
     },
-    prerequisites = {"planetaris-fulgora-pathological-research"},
+    -- planetaris-particle-manipulation unlocks the particle manipulator, the only machine for the unstable crystal manipulation
+    prerequisites = {"planetaris-fulgora-pathological-research", "planetaris-particle-manipulation"},
     unit =
     {
       count = 500,
