@@ -340,3 +340,7 @@ data:extend({
         },
     },
 })
+
+-- the wasp egg comes from planetaris-pesticide, and infected water is pumped once Tellus is discovered
+data_util.add_recipe_unlock("planetaris-pesticide", "kr-wasp-biomass")
+data_util.add_recipe_unlock("planet-discovery-tellus", "kr-filter-rare-metal-ore-from-infected-water")
