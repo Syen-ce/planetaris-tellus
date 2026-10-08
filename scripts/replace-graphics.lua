@@ -273,6 +273,10 @@ function replacement.on_player_pipette(event)
     if not proto or not proto.items_to_place_this or not proto.items_to_place_this[1] then return end
     
     local standard_item = proto.items_to_place_this[1].name
+
+    -- The variants are placeable_by the standard item, so the game has already put the whole stack of it in the
+    -- cursor. Clearing it here and setting 1 deleted the rest of the stack (issue #18).
+    if player.cursor_stack and player.cursor_stack.valid_for_read and player.cursor_stack.name == standard_item then return end
     
     -- Check if in map editor mode
     if player.controller_type == defines.controllers.editor or player.controller_type == defines.controllers.god then

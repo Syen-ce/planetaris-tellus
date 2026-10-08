@@ -728,7 +728,7 @@ tellus_pipe.subgroup = "pollen-corroded"
 tellus_pipe.factoriopedia_alternative = "pipe"
 tellus_pipe.hidden_in_factoriopedia = false
 tellus_pipe.placeable_by = {item = "pipe", count = 1}
-tellus_pipe.minable = {mining_time = 0.2}
+tellus_pipe.minable = {mining_time = 0.2, result = "pipe"}
 tellus_pipe.max_health = 50
 tellus_pipe.resistances =
     {
@@ -755,7 +755,7 @@ tellus_storage_tank.subgroup = "pollen-corroded"
 tellus_storage_tank.factoriopedia_alternative = "storage-tank"
 tellus_storage_tank.hidden_in_factoriopedia = false
 tellus_storage_tank.placeable_by = {item = "storage-tank", count = 1}
-tellus_storage_tank.minable = {mining_time = 0.2}
+tellus_storage_tank.minable = {mining_time = 0.2, result = "storage-tank"}
 tellus_storage_tank.max_health = 100
 tellus_storage_tank.resistances =
     {
