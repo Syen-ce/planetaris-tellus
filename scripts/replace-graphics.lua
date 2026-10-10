@@ -21,40 +21,59 @@ for standard, variant in pairs(REPLACEMENTS) do
     REVERSE_REPLACEMENTS[variant] = standard
 end
 
+-- Save circuit connections
+local function capture_wires(entity)
+    local saved = {}
+    for _, id in pairs({
+        defines.wire_connector_id.circuit_red,
+        defines.wire_connector_id.circuit_green,
+    }) do
+        local c = entity.get_wire_connector(id, false)
+        if c then
+            for _, conn in pairs(c.connections) do
+                saved[#saved + 1] = {id = id, target = conn.target}
+            end
+        end
+    end
+    return saved
+end
+
+local function restore_wires(new_entity, saved)
+    for _, w in pairs(saved) do
+        local c = new_entity.get_wire_connector(w.id, true)
+        if c and w.target.valid then
+            c.connect_to(w.target, false)
+        end
+    end
+end
+
 -- Replace an existing entity
 local function replace_entity(entity)
     if not entity or not entity.valid then return end
     if entity.surface.name ~= SURFACE_NAME then return end
-    
+
     local new_entity_name = REPLACEMENTS[entity.name]
     if not new_entity_name then return end
-    
-    -- Validate entity is still valid before replacement (multiplayer safety)
-    if not entity.valid then return end
-    
+
     local surface = entity.surface
-    local position = entity.position
-    local force = entity.force
-    local direction = entity.direction
     local last_user = entity.last_user
-    local quality = entity.quality
-    
-    entity.destroy({raise_destroy = false})
-    
-    -- Create with create_entity which is deterministic
+    local saved_wires = capture_wires(entity)
+
     local new_entity = surface.create_entity{
         name = new_entity_name,
-        position = position,
-        force = force,
-        direction = direction,
-        quality = quality,
-        raise_built = false
+        position = entity.position,
+        force = entity.force,
+        direction = entity.direction,
+        quality = entity.quality,
+        fast_replace = true,
+        spill = false,
+        raise_built = false,
     }
-    
-    if new_entity and last_user then
-        new_entity.last_user = last_user
-    end
-    
+    if not new_entity then return end
+
+    if last_user then new_entity.last_user = last_user end
+    restore_wires(new_entity, saved_wires)
+
     return new_entity
 end
 
@@ -273,6 +292,10 @@ function replacement.on_player_pipette(event)
     if not proto or not proto.items_to_place_this or not proto.items_to_place_this[1] then return end
     
     local standard_item = proto.items_to_place_this[1].name
+
+    -- The variants are placeable_by the standard item, so the game has already put the whole stack of it in the
+    -- cursor. Clearing it here and setting 1 deleted the rest of the stack
+    if player.cursor_stack and player.cursor_stack.valid_for_read and player.cursor_stack.name == standard_item then return end
     
     -- Check if in map editor mode
     if player.controller_type == defines.controllers.editor or player.controller_type == defines.controllers.god then
@@ -287,7 +310,7 @@ function replacement.on_player_pipette(event)
             player.cursor_stack.clear()
             player.cursor_stack.set_stack{name = standard_item, count = 1}
         end
-        -- If player doesn't have the item, do nothing (vanilla behavior)
+        -- If player doesn't have the item, do nothing
     end
 end
 
