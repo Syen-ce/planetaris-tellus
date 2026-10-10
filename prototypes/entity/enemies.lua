@@ -93,9 +93,6 @@ local function grey_overlay(tint, amount) -- fades to opaque grey. Full opacity 
   return lerp_color(tint, {127, 127, 127, 255}, amount)
 end
 
-data.raw["unit-spawner"]["biter-spawner"].captured_spawner_entity = "captive-biter-spawner"
-data.raw["unit-spawner"]["spitter-spawner"].captured_spawner_entity = "captive-biter-spawner"
-
 -- should be moved to shared util for include
 local default_ended_in_water_trigger_effect = function()
   return
@@ -325,7 +322,7 @@ data:extend(
     collision_mask = {layers={player=true, object=true, ground_tile=true, is_object=true, is_lower_object=true}}, -- can go in shallow water
     selection_box = {{-2.5, -2.5}, {2.5, 2.5}},
     hit_visualization_box = {{-1, -0.75}, {1, 0.75}},
-    absorptions_per_second = { spores = { absolute = 20, proportional = 0.01 } },
+    absorptions_per_second = { pollen = { absolute = 20, proportional = 0.01 } },
     corpse = "tellus-spawner-corpse",
     dying_explosion = "spitter-spawner-die",
     dying_trigger_effect =
@@ -647,7 +644,7 @@ data:extend(
     collision_mask = {layers={player=true, object=true, ground_tile=true, is_object=true, is_lower_object=true}}, -- can go in shallow water
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     hit_visualization_box = {{-0.5, -0.25}, {0.5, 0.25}},
-    --absorptions_per_second = { spores = { absolute = 4, proportional = 0.002 } }, -- can't use pollution if all possible units can't join attack groups
+    absorptions_per_second = { pollen = { absolute = 4, proportional = 0.002 } }, -- can't use pollution if all possible units can't join attack groups
     corpse = "tellus-spawner-corpse-small",
     dying_explosion = "spitter-spawner-die",
     dying_trigger_effect =
