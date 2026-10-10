@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.1.12
+Version: 1.1.13
 Date: 2026-09-26
   Bugfixes:
     - Fixed fuel_category changing to fuel_categories by F0Rt04ka
