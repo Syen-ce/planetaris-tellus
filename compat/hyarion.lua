@@ -119,7 +119,7 @@ data.extend({
         recipe = "planetaris-unstable-crystal-manipulation"
       },
     },
-    prerequisites = {"planetaris-fulgora-pathological-research"},
+    prerequisites = {"planetaris-fulgora-pathological-research", "planetaris-particle-manipulation"},
     unit =
     {
       count = 500,

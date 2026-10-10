@@ -316,3 +316,9 @@ if data.raw["item"]["planetaris-glebian-parasite"] then
           }
     end 
 end
+
+for _, v in pairs(data.raw["agricultural-tower"]) do
+    if v.energy_source and v.energy_source.emissions_per_minute then
+        v.energy_source.emissions_per_minute.pollen = 4
+    end
+end

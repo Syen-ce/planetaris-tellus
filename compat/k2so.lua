@@ -342,3 +342,6 @@ data:extend({
         },
     },
 })
+
+data_util.add_recipe_unlock("planetaris-pesticide", "kr-wasp-biomass")
+data_util.add_recipe_unlock("planet-discovery-tellus", "kr-filter-rare-metal-ore-from-infected-water")

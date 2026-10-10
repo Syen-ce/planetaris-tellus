@@ -667,6 +667,7 @@ tellus_roboport.factoriopedia_alternative = "tellus-roboport"
 -- tellus_roboport.localised_description = {"entity-description.tellus-roboport"}
 tellus_roboport.hidden_in_factoriopedia = false
 tellus_roboport.placeable_by = {item = "roboport", count = 1}
+tellus_roboport.emissions_per_second = {pollen = 0.06}
 tellus_roboport.base =
     {
       layers =
@@ -714,6 +715,7 @@ tellus_beacon.subgroup = "pollen-corroded"
 tellus_beacon.factoriopedia_alternative = "beacon"
 tellus_beacon.hidden_in_factoriopedia = true
 tellus_beacon.placeable_by = {item = "beacon", count = 1}
+tellus_beacon.emissions_per_second = {pollen = 0.06}
 tellus_beacon.graphics_set = beacon_animation
 tellus_beacon.energy_usage = "700kW"
 
@@ -729,6 +731,7 @@ tellus_pipe.factoriopedia_alternative = "pipe"
 tellus_pipe.hidden_in_factoriopedia = false
 tellus_pipe.placeable_by = {item = "pipe", count = 1}
 tellus_pipe.minable = {mining_time = 0.2}
+tellus_pipe.emissions_per_second = {pollen = 0.01}
 tellus_pipe.max_health = 50
 tellus_pipe.resistances =
     {
@@ -756,6 +759,7 @@ tellus_storage_tank.factoriopedia_alternative = "storage-tank"
 tellus_storage_tank.hidden_in_factoriopedia = false
 tellus_storage_tank.placeable_by = {item = "storage-tank", count = 1}
 tellus_storage_tank.minable = {mining_time = 0.2}
+tellus_storage_tank.emissions_per_second = {pollen = 0.03}
 tellus_storage_tank.max_health = 100
 tellus_storage_tank.resistances =
     {
@@ -815,6 +819,7 @@ tellus_rocket_silo.fixed_recipe = "planetaris-tellus-rocket-part"
 tellus_rocket_silo.localised_name = {"entity-name.rocket-silo"}
 tellus_rocket_silo.localised_description = {"entity-description.rocket-silo"}
 tellus_rocket_silo.placeable_by = {item = "rocket-silo", count = 1}
+tellus_rocket_silo.emissions_per_second = {pollen = 0.15}
 tellus_rocket_silo.energy_source = {
 			type = "fluid",
 			burns_fluid = true,

@@ -1,4 +1,21 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.14
+Date: 2026-10-10
+  Changes:
+    - 2.0 VERSION
+    - Corroded variants now emit pollen
+  Bugfixes:
+    - Fixed wasp spanwers not absorbing pollen
+    - Fixed agricultural towers not emitting pollen
+    - Fixed copied corroded variants losing modules and circuit connections
+    - Fixed pipette tool deleting corroded items by GreenTech-Solutions
+    - K2SO, fixed wasp biomass and rare ore from infected water recipes not being unlockable by GreenTech-Solutions
+---------------------------------------------------------------------------------------------------
+Version: 1.1.13
+Date: 2026-09-26
+  Bugfixes:
+    - Fixed fuel_category changing to fuel_categories by F0Rt04ka
+---------------------------------------------------------------------------------------------------
 Version: 1.1.12
 Date: 2026-09-26
   Changes:
