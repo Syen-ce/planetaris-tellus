@@ -1,5 +1,10 @@
 -- Code from the celestial wheather mod
 
+-- Celestial Weather, or one of its Factorio 2.1 continuations: they keep its graphics under the same paths
+local celestial_weather = (mods["celestial-weather"] and "celestial-weather")
+  or (mods["celestial-weather-additions-updated"] and "celestial-weather-additions-updated")
+  or (mods["celestial-weather-updated"] and "celestial-weather-updated")
+
 local cluster_particles = {
   type = "cluster",
   distance = 8,
@@ -55,7 +60,7 @@ local fog = {
   tick_factor = 0.000001,
 }
 
-if mods["celestial-weather"] and settings.startup["enable-tellus-weather"].value then
+if celestial_weather and settings.startup["enable-tellus-weather"].value then
 
 tellus_effects = {}
 
@@ -63,7 +68,7 @@ tellus_effects = {}
   local tellus_dust_particle = table.deepcopy(data.raw["trivial-smoke"]["aquilo-snow-smoke"])
   tellus_dust_particle.name = "tellus_dust_particle"
   tellus_dust_particle.color = {0.941, 0.576, 0.404}
-  tellus_dust_particle.animation.filename = "__celestial-weather__/graphics/entity/sand-particles.png",
+  tellus_dust_particle.animation.filename = "__" .. celestial_weather .. "__/graphics/entity/sand-particles.png",
   data:extend({tellus_dust_particle})
 
   local tellus_weather_d = table.deepcopy(cluster_particles)
@@ -76,7 +81,7 @@ tellus_effects = {}
   local tellus_bugs = table.deepcopy(data.raw["trivial-smoke"]["aquilo-snow-smoke"])
   tellus_bugs.name = "tellus-bugs"
   tellus_bugs.color = {0.2, 0.184, 0.176, 1}
-  tellus_bugs.animation.filename = "__celestial-weather__/graphics/entity/fire-particles.png"
+  tellus_bugs.animation.filename = "__" .. celestial_weather .. "__/graphics/entity/fire-particles.png"
   data:extend({tellus_bugs})
 
   local tellus_weather_bugs = table.deepcopy(cluster_particles)
@@ -94,7 +99,7 @@ tellus_effects = {}
   -- tellus_fog.color1 = {0.929, 0.812, 0.553, 0.5}
   -- tellus_fog.color2 = {1, 0.929, 0.722, 0.5}
   -- tellus_fog.tick_factor = 0.0003
-  -- tellus_fog.detail_noise_texture.filename = "__celestial-weather__/graphics/entity/dense-clouds.png"
+  -- tellus_fog.detail_noise_texture.filename = "__" .. celestial_weather .. "__/graphics/entity/dense-clouds.png"
 
 -- implement
 if #tellus_effects > 0 then
