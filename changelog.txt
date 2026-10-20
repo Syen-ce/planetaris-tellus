@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.16
+Date: 2026-10-20
+  Bugfixes:
+    - Fixed change of textures to noise_textures and image_textures for tile effects
+---------------------------------------------------------------------------------------------------
 Version: 1.1.15
 Date: 2026-10-10
   Changes:
@@ -48,7 +53,6 @@ Date: 2026-09-26
     - Changed roots tips and tricks page to make more clear the usage of root fillers
   Bugfixes:
     - Fixed belt stacking tech not working by EBTheHero
----------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.11
 Date: 2026-08-10
