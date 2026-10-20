@@ -1672,13 +1672,16 @@ data:extend({
     {
       shader_variation = "wetland-water",
       lightmap_alpha = 0, -- needed for water mask
-      textures =
+      noise_textures =
       {
         {
           filename = "__space-age__/graphics/terrain/gleba/watercaustics.png",
           width = 512,
           height = 512
         },
+      },
+      image_textures =
+      {
         {
           filename = "__planetaris-tellus__/graphics/terrain/tellus/wetland-cyan-slime-shader.png",
           width = 512 * 4,
@@ -1715,13 +1718,16 @@ data:extend({
     {
       shader_variation = "wetland-water",
       lightmap_alpha = 0, -- needed for water mask
-      textures =
+      noise_textures =
       {
         {
           filename = "__space-age__/graphics/terrain/gleba/watercaustics.png",
           width = 512,
           height = 512
         },
+      },
+      image_textures =
+      {
         {
           filename = "__planetaris-tellus__/graphics/terrain/tellus/wetland-green-tentacle-shader.png",
           width = 512 * 4,
@@ -1743,48 +1749,6 @@ data:extend({
       foam_color_multiplier = 1,
 
       dark_threshold = { 0.1, 0.1 },
-      reflection_threshold = { 1, 1 },
-      specular_threshold = { 0.19, 0.25 },
-
-      near_zoom = 1 / 16,
-      far_zoom = 1 / 16,
-    }
-  },
-  {
-    type = "tile-effect",
-    name = "wetland-blue-slime",
-    shader = "water",
-    water =
-    {
-      shader_variation = "wetland-water",
-      lightmap_alpha = 0, -- needed for water mask
-      textures =
-      {
-        {
-          filename = "__space-age__/graphics/terrain/gleba/watercaustics.png",
-          width = 512,
-          height = 512
-        },
-        {
-          filename = "__planetaris-tellus__/graphics/terrain/tellus/wetland-dead-skin-shader.png",
-          width = 512 * 4,
-          height = 512 * 2
-        }
-      },
-      texture_variations_columns = 1,
-      texture_variations_rows = 1,
-      secondary_texture_variations_columns = 4,
-      secondary_texture_variations_rows = 2,
-
-      animation_speed = 1.5,
-      animation_scale = { 1.5, 1.5 },
-      tick_scale = 6,
-
-      specular_lightness = { 11, 26, 5 },
-      foam_color = { 21, 4, 4 },
-      foam_color_multiplier = 1,
-
-      dark_threshold = { 0.6, 0.6 },
       reflection_threshold = { 1, 1 },
       specular_threshold = { 0.19, 0.25 },
 
