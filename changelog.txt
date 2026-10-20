@@ -1,6 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.16
 Date: 2026-10-20
+  Compatibility:
+    - Added support for Celestial Weathers 2.1 forks by GreenTech-Solutions
   Bugfixes:
     - Fixed change of textures to noise_textures and image_textures for tile effects
 ---------------------------------------------------------------------------------------------------
