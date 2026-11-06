@@ -42,7 +42,7 @@ Harvest and process tellus plants to start your factory. Chloroplasts to get fru
 
 ### If you are not a fan of spoiling
 
-Tellus have a collection of different settings to tune your gameplay if you are not a fan of spoiling or Gleba in general, you can still enjoy the experience of Tellus in a way that is fun to any player. Tellus not meant to be a easy planet but this setting can help you out:
+Tellus has a collection of different settings to tune your gameplay. If you are not a fan of spoiling or Gleba in general, you can still enjoy the experience of Tellus in a way that is fun for any player. Tellus is not meant to be an easy planet, but this setting can help you out:
 
 *   Relax mode: disables spoilage for 50% of Tellus items
 *   Tellus spoilable items will last 50% longer
