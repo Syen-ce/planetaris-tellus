@@ -40,6 +40,16 @@ Build the air purifier to clean pollen from the atmoshpere, insert water and it 
 
 Harvest and process tellus plants to start your factory. Chloroplasts to get fruits and chlorophyll to feed your machines. Myceliae to get mushroom caps and water, one of the most necesary materials on tellus. Harvests Mushells to get wood.
 
+### If you are not a fan of spoiling
+
+Tellus have a collection of different settings to tune your gameplay if you are not a fan of spoiling or Gleba in general, you can still enjoy the experience of Tellus in a way that is fun to any player. Tellus not meant to be a easy planet but this setting can help you out:
+
+*   Relax mode: disables spoilage for 50% of Tellus items
+*   Tellus spoilable items will last 50% longer
+*   Living machines will not receive damage while not working
+*   Weaker enemy spoilable items: Items that spoil into enemies will spawn one medium premature variants instead of multiple behemoth variants
+*   No enemy mode (If you created the world with no enemies): makes available somewhere else an item only obtainable through killing a enemy.
+
 <img style="width:auto;" alt="tellus-agriculture" src="https://github.com/user-attachments/assets/7a9a1671-5066-42a0-be2d-e2350cede0ba" />
 
 # Features
