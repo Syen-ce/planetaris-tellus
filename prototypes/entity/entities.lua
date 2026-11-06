@@ -228,8 +228,8 @@ data.extend({
       }
     },
 
-    fluid_wagon_connector_frame_count = 35,
-    fluid_wagon_connector_alignment_tolerance = 2.0 / 32.0,
+    wagon_connection_graphics = require("__base__/prototypes/entity/pump-wagon-connector-graphics"),
+    fluid_wagon_tank_valve_max_distance = 2.22,
 
     fluid_animation =
     {
@@ -309,6 +309,45 @@ data.extend({
         scale = 0.5,
         shift = util.by_pixel(-16, 0)
       }
+    },
+
+    base_lifting_sound =
+    {
+      sound =
+      {
+        filename = "__base__/sound/entity/pump/pump-base-lift-loop.ogg",
+        volume = 0.6,
+        advanced_volume_control =
+        {
+          fades = {fade_in = {curve_type = "S-curve", from = {control = 0.3, volume_percentage = 0.0}, to = {2.0, 100.0}}}
+        },
+        aggregation = {max_count = 1, remove = true, count_already_playing = true},
+      },
+    },
+
+    arm_orienting_sound =
+    {
+      sound =
+      {
+        filename = "__base__/sound/entity/pump/pump-arm-orient-loop.ogg",
+        volume = 0.8,
+        advanced_volume_control =
+        {
+          fades = {fade_in = {curve_type = "S-curve", from = {control = 0.3, volume_percentage = 0.0}, to = {2.0, 100.0}}}
+        },
+        aggregation = {max_count = 1, remove = true, count_already_playing = true},
+      },
+    },
+
+    clamp_sound =
+    {
+      filename = "__base__/sound/entity/pump/pump-clamp.ogg",
+      volume = 0.6,
+      advanced_volume_control =
+      {
+        fades = {fade_in = {curve_type = "S-curve", from = {control = 0.3, volume_percentage = 0.0}, to = {2.0, 100.0}}}
+      },
+      aggregation = {max_count = 1, remove = true, count_already_playing = true},
     },
 
     circuit_connector = circuit_connector_definitions["pump"],
@@ -1065,7 +1104,7 @@ data.extend({
       usage_priority = "secondary-input",
       drain = "0.4kW"
     },
-    fast_replaceable_group = "three-long-handed-inserter",
+    fast_replaceable_group = "long-handed-inserter",
     impact_category = "metal",
     open_sound = sounds.inserter_open,
     close_sound = sounds.inserter_close,
@@ -1176,7 +1215,7 @@ data.extend({
     rotation_speed = 0.09,
     filter_count = 5,
     icon_draw_specification = {scale = 0.5},
-    fast_replaceable_group = "inserter",
+    fast_replaceable_group = "long-handed-inserter",
     open_sound = sounds.inserter_open,
     close_sound = sounds.inserter_close,
     working_sound = sounds.inserter_fast,

@@ -1,4 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.17
+Date: 2026-11-06
+  Features:
+    - Added Relax mode setting, disables 50% of Tellus spoilable items.
+    - Added Enable text death and revive setting, allow death and revive messabes of living machines to appear
+  Balancing:
+    - Extended spoiling time for Holmium bulb and Carbolyte crust( 15 min -> 1 hour), Carbolyte and holmium bacteria ( 1 min -> 5 min), Chloroplast mash (3 min -> 5 min), Nauvian parasites (15 min -> 30 min), Unstable crystal (15 min -> 30 min), Parasite nest (10 min -> 15 min), Arigian bacteria (5 min -> 15 min)
+  Bugfixes:
+    - Fixed reviving floating text appearing in the wrong surface
+    - Fixed living machines not restoring red/green selected channels for input/outputs from 2.1 control behavior changes
+    - Fixed long stack and three long inserters appearing in the normal inserter section in the upgrade menu
+    - Fixed crash with enable easy spoilable enemies setting
+---------------------------------------------------------------------------------------------------
 Version: 1.1.16
 Date: 2026-10-20
   Compatibility:

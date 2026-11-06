@@ -1,4 +1,5 @@
 local NUTRIENTS_REQUIRED = 20
+local ALLOW_TEXT = settings.startup["tellus-allow-revive-text"].value
 
 -- Mapping of assemblers to corpse variants
 local assembler_to_corpse = {
@@ -46,6 +47,90 @@ local function on_configuration_changed(event)
         }
       end
     end
+  end
+end
+
+local function capture_control_behavior(entity)
+  local control = entity.get_or_create_control_behavior()
+  if not control then return nil end
+
+  local cb = {}
+  if control.circuit_enable_disable ~= nil then cb.circuit_enable_disable = control.circuit_enable_disable end
+  if control.circuit_condition then cb.circuit_condition = control.circuit_condition end
+  if control.connect_to_logistic_network ~= nil then cb.connect_to_logistic_network = control.connect_to_logistic_network end
+  if control.logistic_condition then cb.logistic_condition = control.logistic_condition end
+  if control.circuit_set_recipe ~= nil then cb.circuit_set_recipe = control.circuit_set_recipe end
+  if control.circuit_read_contents ~= nil then
+    cb.circuit_read_contents = control.circuit_read_contents
+    if control.circuit_read_contents == true and control.include_in_crafting ~= nil then
+      cb.include_in_crafting = control.include_in_crafting
+    end
+  end
+  if control.read_fuel ~= nil then cb.read_fuel = control.read_fuel end -- new in 2.1
+  if control.circuit_read_ingredients ~= nil then cb.circuit_read_ingredients = control.circuit_read_ingredients end
+  if control.circuit_read_recipe_finished ~= nil then
+    cb.circuit_read_recipe_finished = control.circuit_read_recipe_finished
+    if control.circuit_read_recipe_finished == true and control.circuit_recipe_finished_signal then
+      cb.circuit_recipe_finished_signal = control.circuit_recipe_finished_signal
+    end
+  end
+  if control.circuit_read_working ~= nil then
+    cb.circuit_read_working = control.circuit_read_working
+    if control.circuit_read_working == true and control.circuit_working_signal then
+      cb.circuit_working_signal = control.circuit_working_signal
+    end
+  end
+  local ok, val = pcall(function() return control.circuit_read_resources end)
+  if ok and val ~= nil then cb.circuit_read_resources = val end
+
+  local inn = control.input_networks
+  if inn then
+    cb.input_networks = { red = inn.red ~= false, green = inn.green ~= false }
+  end
+  local outn = control.output_networks
+  if outn then
+    cb.output_networks = { red = outn.red ~= false, green = outn.green ~= false }
+  end
+
+  return cb
+end
+
+local function apply_control_behavior(entity, cb)
+  if not cb then return end
+  local control = entity.get_or_create_control_behavior()
+  if not control then return end
+
+  if cb.circuit_enable_disable ~= nil then control.circuit_enable_disable = cb.circuit_enable_disable end
+  if cb.circuit_condition then control.circuit_condition = cb.circuit_condition end
+  if cb.connect_to_logistic_network ~= nil then control.connect_to_logistic_network = cb.connect_to_logistic_network end
+  if cb.logistic_condition then control.logistic_condition = cb.logistic_condition end
+  if cb.circuit_set_recipe ~= nil then control.circuit_set_recipe = cb.circuit_set_recipe end
+  if cb.circuit_read_contents ~= nil then
+    control.circuit_read_contents = cb.circuit_read_contents
+    if cb.circuit_read_contents == true and cb.include_in_crafting ~= nil then
+      control.include_in_crafting = cb.include_in_crafting
+    end
+  end
+  if cb.read_fuel ~= nil then control.read_fuel = cb.read_fuel end
+  if cb.circuit_read_ingredients ~= nil then control.circuit_read_ingredients = cb.circuit_read_ingredients end
+  if cb.circuit_read_recipe_finished ~= nil then
+    control.circuit_read_recipe_finished = cb.circuit_read_recipe_finished
+    if cb.circuit_read_recipe_finished == true and cb.circuit_recipe_finished_signal then
+      control.circuit_recipe_finished_signal = cb.circuit_recipe_finished_signal
+    end
+  end
+  if cb.circuit_read_working ~= nil then
+    control.circuit_read_working = cb.circuit_read_working
+    if cb.circuit_read_working == true and cb.circuit_working_signal then
+      control.circuit_working_signal = cb.circuit_working_signal
+    end
+  end
+
+  if cb.input_networks then
+    control.input_networks = { red = cb.input_networks.red, green = cb.input_networks.green }
+  end
+  if cb.output_networks then
+    control.output_networks = { red = cb.output_networks.red, green = cb.output_networks.green }
   end
 end
 
@@ -108,36 +193,7 @@ local function rebuild_assembler(corpse, data)
     end
 
         -- Restore control behavior
-    if data.control_behavior then
-      local control = new_assembler.get_or_create_control_behavior()
-      if control then
-        local cb = data.control_behavior
-        if cb.circuit_enable_disable ~= nil then control.circuit_enable_disable = cb.circuit_enable_disable end
-        if cb.circuit_condition then control.circuit_condition = cb.circuit_condition end
-        if cb.connect_to_logistic_network ~= nil then control.connect_to_logistic_network = cb.connect_to_logistic_network end
-        if cb.logistic_condition then control.logistic_condition = cb.logistic_condition end
-        if cb.circuit_set_recipe ~= nil then control.circuit_set_recipe = cb.circuit_set_recipe end
-        if cb.circuit_read_contents ~= nil then
-          control.circuit_read_contents = cb.circuit_read_contents
-          if cb.circuit_read_contents == true and cb.include_in_crafting ~= nil then
-            control.include_in_crafting = cb.include_in_crafting
-          end
-        end
-        if cb.circuit_read_ingredients ~= nil then control.circuit_read_ingredients = cb.circuit_read_ingredients end
-        if cb.circuit_read_recipe_finished ~= nil then
-          control.circuit_read_recipe_finished = cb.circuit_read_recipe_finished
-          if cb.circuit_read_recipe_finished == true and cb.circuit_recipe_finished_signal then
-            control.circuit_recipe_finished_signal = cb.circuit_recipe_finished_signal
-          end
-        end
-        if cb.circuit_read_working ~= nil then
-          control.circuit_read_working = cb.circuit_read_working
-          if cb.circuit_read_working == true and cb.circuit_working_signal then
-            control.circuit_working_signal = cb.circuit_working_signal
-          end
-        end
-      end
-    end
+    apply_control_behavior(new_assembler, data.control_behavior)
 
         -- Restore circuit connections
     if data.circuit_connections and #data.circuit_connections > 0 then
@@ -157,16 +213,17 @@ local function rebuild_assembler(corpse, data)
         end
       end
     end
-
-    for _, player in pairs(game.players) do
-      if player.physical_surface == surface then
-        player.create_local_flying_text{
-          text = {"assembler-reconstruction.assembler-rebuilt"},
-          position = position,
-          color = {r = 0, g = 1, b = 0},
-          time_to_live = 60,
-          speed = 1
-        }
+    if ALLOW_TEXT then
+      for _, player in pairs(game.players) do
+        if player.surface == surface then
+          player.create_local_flying_text{
+            text = {"assembler-reconstruction.assembler-rebuilt"},
+            position = position,
+            color = {r = 0, g = 1, b = 0},
+            time_to_live = 60,
+            speed = 1
+          }
+        end
       end
     end
 
@@ -197,36 +254,7 @@ local function create_ghost(entity)
   if not ghost or not ghost.valid or not corpse_data then return end
 
   -- Restore control behavior
-  if corpse_data.control_behavior then
-    local control = ghost.get_or_create_control_behavior()
-    if control then
-      local cb = corpse_data.control_behavior
-      if cb.circuit_enable_disable ~= nil then control.circuit_enable_disable = cb.circuit_enable_disable end
-      if cb.circuit_condition then control.circuit_condition = cb.circuit_condition end
-      if cb.connect_to_logistic_network ~= nil then control.connect_to_logistic_network = cb.connect_to_logistic_network end
-      if cb.logistic_condition then control.logistic_condition = cb.logistic_condition end
-      if cb.circuit_set_recipe ~= nil then control.circuit_set_recipe = cb.circuit_set_recipe end
-      if cb.circuit_read_contents ~= nil then
-        control.circuit_read_contents = cb.circuit_read_contents
-        if cb.circuit_read_contents == true and cb.include_in_crafting ~= nil then
-          control.include_in_crafting = cb.include_in_crafting
-        end
-      end
-      if cb.circuit_read_ingredients ~= nil then control.circuit_read_ingredients = cb.circuit_read_ingredients end
-      if cb.circuit_read_recipe_finished ~= nil then
-        control.circuit_read_recipe_finished = cb.circuit_read_recipe_finished
-        if cb.circuit_read_recipe_finished == true and cb.circuit_recipe_finished_signal then
-          control.circuit_recipe_finished_signal = cb.circuit_recipe_finished_signal
-        end
-      end
-      if cb.circuit_read_working ~= nil then
-        control.circuit_read_working = cb.circuit_read_working
-        if cb.circuit_read_working == true and cb.circuit_working_signal then
-          control.circuit_working_signal = cb.circuit_working_signal
-        end
-      end
-    end
-  end
+  apply_control_behavior(new_assembler, data.control_behavior)
 
   -- Restore circuit connections
   if corpse_data.circuit_connections and #corpse_data.circuit_connections > 0 then
@@ -315,37 +343,7 @@ local function on_entity_died(event)
       end
     end
 
-    local control_behavior = nil
-    local control = entity.get_or_create_control_behavior()
-    if control then
-      control_behavior = {}
-      if control.circuit_enable_disable ~= nil then control_behavior.circuit_enable_disable = control.circuit_enable_disable end
-      if control.circuit_condition then control_behavior.circuit_condition = control.circuit_condition end
-      if control.connect_to_logistic_network ~= nil then control_behavior.connect_to_logistic_network = control.connect_to_logistic_network end
-      if control.logistic_condition then control_behavior.logistic_condition = control.logistic_condition end
-      if control.circuit_set_recipe ~= nil then control_behavior.circuit_set_recipe = control.circuit_set_recipe end
-      if control.circuit_read_contents ~= nil then
-        control_behavior.circuit_read_contents = control.circuit_read_contents
-        if control.circuit_read_contents == true and control.include_in_crafting ~= nil then
-          control_behavior.include_in_crafting = control.include_in_crafting
-        end
-      end
-      if control.circuit_read_ingredients ~= nil then control_behavior.circuit_read_ingredients = control.circuit_read_ingredients end
-      if control.circuit_read_recipe_finished ~= nil then
-        control_behavior.circuit_read_recipe_finished = control.circuit_read_recipe_finished
-        if control.circuit_read_recipe_finished == true and control.circuit_recipe_finished_signal then
-          control_behavior.circuit_recipe_finished_signal = control.circuit_recipe_finished_signal
-        end
-      end
-      if control.circuit_read_working ~= nil then
-        control_behavior.circuit_read_working = control.circuit_read_working
-        if control.circuit_read_working == true and control.circuit_working_signal then
-          control_behavior.circuit_working_signal = control.circuit_working_signal
-        end
-      end
-      local ok, val = pcall(function() return control.circuit_read_resources end)
-      if ok and val ~= nil then control_behavior.circuit_read_resources = val end
-    end
+    local control_behavior = capture_control_behavior(entity)
 
     local circuit_connections = {}
     for _, wire_id in ipairs{ defines.wire_connector_id.circuit_red, defines.wire_connector_id.circuit_green } do
@@ -387,16 +385,17 @@ local function on_entity_died(event)
         module_inv_corpse.insert({ name = c.name, count = c.count, quality = c.quality })
       end
     end
-
-    for _, player in pairs(game.players) do
-      if player.physical_surface == surface then
-        player.create_local_flying_text{
-          text = {"assembler-reconstruction.assembler-destroyed", NUTRIENTS_REQUIRED},
-          position = position,
-          color = {r = 1, g = 0.5, b = 0},
-          time_to_live = 90,
-          speed = 1
-        }
+    if ALLOW_TEXT then
+      for _, player in pairs(game.players) do
+        if player.surface == surface then
+          player.create_local_flying_text{
+            text = {"assembler-reconstruction.assembler-destroyed", NUTRIENTS_REQUIRED},
+            position = position,
+            color = {r = 1, g = 0.5, b = 0},
+            time_to_live = 90,
+            speed = 1
+          }
+        end
       end
     end
   end

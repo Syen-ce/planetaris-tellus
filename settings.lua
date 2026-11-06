@@ -1,10 +1,17 @@
 data.extend({
 	{
 		type = "bool-setting",
+		name = "tellus-relax-mode",
+		setting_type = "startup",
+		default_value = false,
+		order = "a-b-a-a",
+	},
+	{
+		type = "bool-setting",
 		name = "tellus-easy-not-damage-while-stop",
 		setting_type = "startup",
 		default_value = false,
-		order = "a-b-a",
+		order = "a-b-a-b",
 	},
 	{
 		type = "bool-setting",
@@ -61,6 +68,13 @@ data.extend({
 		setting_type = "startup",
 		default_value = false,
 		order = "c-a",
+	},
+	{
+		type = "bool-setting",
+		name = "tellus-allow-revive-text",
+		setting_type = "startup",
+		default_value = true,
+		order = "d-a",
 	}
 })
 
