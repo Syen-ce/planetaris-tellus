@@ -163,6 +163,37 @@ function PlanetarisLib.add_science_pack(lab_name, pack_name)
     table.insert(lab.inputs, pack_name)
 end
 
+--- @param item_name string
+function PlanetarisLib.disable_spoiling(item_name)
+  local item = data.raw["item"][item_name]
+  if not item  then
+    PlanetarisLib.error("Item:" .. item_name .. " does not exis.")
+    return
+  end
+  if not item.spoil_ticks then
+    PlanetarisLib.error("Item:" .. item_name .. " is not spoilable.")
+    return
+  end
+  item.spoil_ticks = nil
+  item.spoil_to_trigger_result = nil
+  item.spoil_result = nil
+end
+
+--- @param item_name string
+--- @param spoil_ticks number 
+--- @param spoil_result string
+--- @param spoil_to_trigger_result table
+function PlanetarisLib.add_or_replace_spoiling(item_name, spoil_ticks, spoil_result, spoil_to_trigger_result)
+  local item = data.raw["item"][item_name]
+  if not item and item.spoil_ticks then
+    PlanetarisLib.error("Item:" .. item_name .. " does not exist")
+    return
+  end
+    item.spoil_ticks = spoil_ticks
+    item.spoil_to_trigger_result = spoil_to_trigger_result or nil
+    item.spoil_result = spoil_result or nil
+end
+
 ---------------------------------------------------------------------------
 ------------------------- Recipes
 ---------------------------------------------------------------------------

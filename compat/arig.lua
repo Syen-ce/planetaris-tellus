@@ -91,7 +91,7 @@ data.extend({
     stack_size = 50,
     default_import_location = "tellus",
     weight = 1 * kg,
-    spoil_ticks = 5 * minute,
+    spoil_ticks = 15 * minute,
     spoil_result = "spoilage",
   },
 

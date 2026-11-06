@@ -1,6 +1,3 @@
-
---------------------- Compat
-
 PlanetarisLib = require("PlanetarisLib")
 
 table.insert(data.raw.item.landfill.place_as_tile.tile_condition, "wetland-tellus-light-dead-skin")
@@ -261,8 +258,8 @@ if settings.startup["tellus-easy-spoiling-enemies"].value == true then
             }
         }
 
-    if data.raw["tool"]["planetaris-pathological-science-pack"] then
-        data.raw["tool"]["planetaris-pathological-science-pack"].spoil_to_trigger_result =
+    if data.raw["item"]["planetaris-pathological-science-pack"] then
+        data.raw["item"]["planetaris-pathological-science-pack"].spoil_to_trigger_result =
             {
             items_per_trigger = 1,
             trigger = two_medium_premature_wasp
@@ -425,3 +422,15 @@ data.raw.planet["tellus"].platform_surface_render_parameters.platform_backdrop =
     height = 1024
   }
 }
+
+
+if settings.startup["tellus-relax-mode"].value == true then
+  PlanetarisLib.disable_spoiling("planetaris-compost")
+  PlanetarisLib.disable_spoiling("planetaris-cactus-mash")
+  PlanetarisLib.disable_spoiling("planetaris-mycelia")
+  PlanetarisLib.disable_spoiling("planetaris-parasite-nest")
+  PlanetarisLib.disable_spoiling("planetaris-carbolyte-crust")
+  PlanetarisLib.disable_spoiling("planetaris-homiumnite-bulb")
+  PlanetarisLib.disable_spoiling("planetaris-cactus-mash")
+  PlanetarisLib.disable_spoiling("planetaris-unstable-crystallizer")
+end

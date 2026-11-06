@@ -176,7 +176,7 @@ data:extend({
     fuel_value = "1MJ",
     stack_size = 100,
     default_import_location = "tellus",
-    spoil_ticks = 3 * minute,
+    spoil_ticks = 5 * minute,
     spoil_result = "spoilage",
     weight = 0.5 * kg,
     capsule_action = item_effects.yumako_regen
@@ -560,7 +560,7 @@ data:extend({
     stack_size = 20,
     default_import_location = "tellus",
     weight = 5 * kg,
-    spoil_ticks = 15 * minute,
+    spoil_ticks = 30 * minute,
     spoil_to_trigger_result =
     {
       items_per_trigger = 1,
@@ -679,7 +679,7 @@ data:extend({
     stack_size = 20,
     default_import_location = "tellus",
     weight = 10 * kg,
-    spoil_ticks = 10 * minute,
+    spoil_ticks = 15 * minute,
     spoil_to_trigger_result =
     {
       items_per_trigger = 5,
@@ -856,7 +856,7 @@ data:extend({
     stack_size = 10,
     default_import_location = "tellus",
     weight = 10 * kg,
-    spoil_ticks = 15 * minute,
+    spoil_ticks = 1 * hour,
     spoil_result = "stone"
   },
   {
@@ -878,7 +878,7 @@ data:extend({
     stack_size = 50,
     default_import_location = "tellus",
     weight = 1 * kg,
-    spoil_ticks = 1 * minute,
+    spoil_ticks = 5 * minute,
     spoil_result = "stone"
   },
 
@@ -919,7 +919,7 @@ data:extend({
     stack_size = 10,
     default_import_location = "tellus",
     weight = 10 * kg,
-    spoil_ticks = 15 * minute,
+    spoil_ticks = 1 * hour,
     spoil_result = "stone"
   },
   {
@@ -941,7 +941,7 @@ data:extend({
     stack_size = 50,
     default_import_location = "tellus",
     weight = 1 * kg,
-    spoil_ticks = 1 * minute,
+    spoil_ticks = 5 * minute,
     spoil_result = "sulfur"
   },
 
