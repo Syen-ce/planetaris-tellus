@@ -254,7 +254,7 @@ local function create_ghost(entity)
   if not ghost or not ghost.valid or not corpse_data then return end
 
   -- Restore control behavior
-  apply_control_behavior(new_assembler, data.control_behavior)
+  apply_control_behavior(ghost, corpse_data.control_behavior)
 
   -- Restore circuit connections
   if corpse_data.circuit_connections and #corpse_data.circuit_connections > 0 then
