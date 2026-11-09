@@ -1,8 +1,6 @@
-if not mods["maraxsis"] then return end
+if not data.raw["planet"]["maraxsis"] then return end
 
 if mods["Better-Planets"] or mods["AsteroidBelt"] then return end
-
-local asteroid_util = require("__space-age__.prototypes.planet.asteroid-spawn-definitions")
 
 if settings.startup["adjust-maraxsis"].value == true then
     -- remove space connections

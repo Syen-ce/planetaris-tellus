@@ -10,7 +10,7 @@ table.insert(data.raw["technology"]["planet-discovery-tellus"].unit.ingredients,
 
 -- Update recipes
 
-table.insert(data.raw["recipe"]["planetaris-pathological-science-pack"].ingredients, {type = "item",  name = "planetaris-arigian-bacteria",  amount = 2})
+table.insert(data.raw["recipe"]["planetaris-pathological-science-pack"].ingredients, {type = "item",  name = "planetaris-arigian-bacteria",  amount = 1})
 
 data.extend({
   {
@@ -69,7 +69,7 @@ data.extend({
     weight = 10 * kg,
     fuel_categories = {"chemical"},
     fuel_value = "1MJ",
-    spoil_ticks = 15 * minute,
+    spoil_ticks = 30 * minute,
     spoil_result = "planetaris-arigian-bacteria",
   },
   {

@@ -97,7 +97,7 @@ table.insert(data.raw["technology"]["planet-discovery-tellus"].unit.ingredients,
 
 -- Update recipes
 
-table.insert(data.raw["recipe"]["planetaris-pathological-science-pack"].ingredients, {type = "item",  name = "planetaris-unstable-bacteria",  amount = 2})
+table.insert(data.raw["recipe"]["planetaris-pathological-science-pack"].ingredients, {type = "item",  name = "planetaris-unstable-bacteria",  amount = 1})
 
 -- Pathologics Tech
 
@@ -170,66 +170,6 @@ data.extend({
     default_import_location = "tellus",
     weight = 10 * kg,
     fuel_categories = {"chemical"},
-    spoil_ticks = 60 * minute,
-    spoil_to_trigger_result =
-    {
-      items_per_trigger = 25,
-      trigger =
-      {
-        {
-          type = "direct",
-          action_delivery =
-          {
-            type = "instant",
-            target_effects =
-            {
-              {
-                type = "create-entity",
-                entity_name = "medium-explosion"
-              },
-              {
-                type = "create-entity",
-                entity_name = "small-scorchmark-tintable",
-                check_buildability = true
-              },
-              {
-                type = "invoke-tile-trigger",
-                repeat_count = 1
-              },
-              {
-                type = "destroy-decoratives",
-                from_render_layer = "decorative",
-                to_render_layer = "object",
-                include_soft_decoratives = true,
-                include_decals = false,
-                invoke_decorative_trigger = true,
-                decoratives_with_trigger_only = false, 
-                radius = 1.25
-              }
-            }
-          }
-        },
-        {
-          type = "area",
-          radius = 1,
-          action_delivery =
-          {
-            type = "instant",
-            target_effects =
-            {
-              {
-                type = "damage",
-                damage = {amount = 170, type = "explosion"}
-              },
-              {
-                type = "create-entity",
-                entity_name = "explosion"
-              }
-            }
-          }
-        }
-      }
-    },
     fuel_value = "1MJ"
   },
   {

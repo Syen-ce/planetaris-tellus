@@ -1698,8 +1698,8 @@ data:extend({
     order = "i-p-b",
     ingredients = {
       {type = "item",  name = "planetaris-parasite-nest",      amount = 1},
-      {type = "item",  name = "planetaris-carbolyte-bacteria", amount = 2},
-      {type = "item",  name = "planetaris-fulgoran-bacteria",  amount = 2},
+      {type = "item",  name = "planetaris-carbolyte-bacteria", amount = 1},
+      {type = "item",  name = "planetaris-fulgoran-bacteria",  amount = 1},
       {type = "item", name = "nutrients", amount = 5}
     },
     results =
