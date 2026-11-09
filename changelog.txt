@@ -4,7 +4,7 @@ Date: 2026-11-09
   Changes:
     - Removed relax mode setting
   Balancing:
-    - Swaped relax mode to the default version, now previous spoiling time and effects are enabled by the hard mode setting
+    - Swapped relax mode to the default version, now previous spoiling time and effects are enabled by the hard mode setting
     - Extended pathological science pack spoiling time (45 min -> 1 hour) to match the agricultural science pack
     - Now pathological science pack need 1 bacteria to produce instead of 2
   Bugfixes:
