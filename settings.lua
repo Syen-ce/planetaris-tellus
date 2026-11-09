@@ -111,7 +111,7 @@ if mods["celestial-weather"] or mods["celestial-weather-updated"] or mods["celes
 	})
 end
 
-if data.raw["planet"]["maraxsis"] then
+if mods["maraxsis"] or mods["maraxsis-classic"] then
 	data.extend({
 		{
 		type = "bool-setting",
