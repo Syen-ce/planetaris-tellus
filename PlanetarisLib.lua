@@ -182,16 +182,26 @@ end
 --- @param item_name string
 --- @param spoil_ticks number 
 --- @param spoil_result string
---- @param spoil_to_trigger_result table
 function PlanetarisLib.add_or_replace_spoiling(item_name, spoil_ticks, spoil_result, spoil_to_trigger_result)
   local item = data.raw["item"][item_name]
   if not item and item.spoil_ticks then
     PlanetarisLib.error("Item:" .. item_name .. " does not exist")
     return
   end
-    item.spoil_ticks = spoil_ticks
+    item.spoil_ticks = spoil_ticks * minute
     item.spoil_to_trigger_result = spoil_to_trigger_result or nil
     item.spoil_result = spoil_result or nil
+end
+
+--- @param item_name string
+--- @param spoil_ticks_per_minute number 
+function PlanetarisLib.set_spoil_ticks(item_name, spoil_ticks_per_minute)
+  local item = data.raw["item"][item_name]
+  if not item and item.spoil_ticks then
+    PlanetarisLib.error("Item:" .. item_name .. " does not exist or not spoilable")
+    return
+  end
+  item.spoil_ticks = spoil_ticks_per_minute * minute
 end
 
 ---------------------------------------------------------------------------
@@ -221,8 +231,25 @@ function PlanetarisLib.add_or_replace_recipe_ingredient(recipe_name, old_ingredi
 	table.insert(recipe.ingredients, new_ingredient)
 end
 
---- Converts name of ingredient into another, keeps the rest of properties
---- @param recipe_name string
+function PlanetarisLib.set_ingredient_amount(recipe_name, ingredient_name, new_amount)
+	local recipe = data.raw.recipe[recipe_name]
+	if not recipe then
+		PlanetarisLib.error("Recipe " .. recipe_name .. " does not exist.")
+		return
+	end
+	if not recipe.ingredients then
+		PlanetarisLib.error("Recipe " .. recipe_name .. " has no ingredients.")
+		return
+	end
+	for _, ingredient in pairs(recipe.ingredients) do
+		if ingredient.name == ingredient_name then
+			ingredient.amount = new_amount
+			return
+	    end
+	end
+	PlanetarisLib.error("Recipe " .. recipe_name .. " does not have ingredient " .. ingredient_name .. ".")
+end
+
 --- @param old_ingredient_name string
 --- @param new_ingredient_name string
 function PlanetarisLib.convert_recipe_ingredient(recipe_name, old_ingredient_name, new_ingredient_name)

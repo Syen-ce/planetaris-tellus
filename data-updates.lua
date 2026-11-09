@@ -423,14 +423,76 @@ data.raw.planet["tellus"].platform_surface_render_parameters.platform_backdrop =
   }
 }
 
+if settings.startup["tellus-hard-mode"].value == true then
+  PlanetarisLib.set_ingredient_amount("planetaris-pathological-science-pack", "planetaris-carbolyte-bacteria", 2)
+  PlanetarisLib.set_ingredient_amount("planetaris-pathological-science-pack", "planetaris-fulgoran-bacteria", 2)
+  PlanetarisLib.set_ingredient_amount("planetaris-pathological-science-pack", "planetaris-arigian-bacteria", 2)
+  PlanetarisLib.set_ingredient_amount("planetaris-pathological-science-pack", "planetaris-unstable-bacteria", 2)
 
-if settings.startup["tellus-relax-mode"].value == true then
-  PlanetarisLib.disable_spoiling("planetaris-compost")
-  PlanetarisLib.disable_spoiling("planetaris-cactus-mash")
-  PlanetarisLib.disable_spoiling("planetaris-mycelia")
-  PlanetarisLib.disable_spoiling("planetaris-parasite-nest")
-  PlanetarisLib.disable_spoiling("planetaris-carbolyte-crust")
-  PlanetarisLib.disable_spoiling("planetaris-homiumnite-bulb")
-  PlanetarisLib.disable_spoiling("planetaris-cactus-mash")
-  PlanetarisLib.disable_spoiling("planetaris-unstable-crystallizer")
+  PlanetarisLib.set_spoil_ticks("planetaris-parasite-nest", 15)
+  PlanetarisLib.set_spoil_ticks("planetaris-pathological-science-pack", 45)
+  PlanetarisLib.set_spoil_ticks("planetaris-cactus-mash", 15)
+
+  PlanetarisLib.add_or_replace_spoiling("planetaris-compost", 120, "spoilage")
+  PlanetarisLib.add_or_replace_spoiling("planetaris-mycelia", 15, "spoilage")
+  PlanetarisLib.add_or_replace_spoiling("planetaris-carbolyte-crust", 60, "stone")
+  PlanetarisLib.add_or_replace_spoiling("planetaris-holmiumnite-bulb", 60, "stone")
+  PlanetarisLib.add_or_replace_spoiling("planetaris-unstable-crystallizer", 60, nil, {
+      items_per_trigger = 25,
+      trigger =
+      {
+        {
+          type = "direct",
+          action_delivery =
+          {
+            type = "instant",
+            target_effects =
+            {
+              {
+                type = "create-entity",
+                entity_name = "medium-explosion"
+              },
+              {
+                type = "create-entity",
+                entity_name = "small-scorchmark-tintable",
+                check_buildability = true
+              },
+              {
+                type = "invoke-tile-trigger",
+                repeat_count = 1
+              },
+              {
+                type = "destroy-decoratives",
+                from_render_layer = "decorative",
+                to_render_layer = "object",
+                include_soft_decoratives = true,
+                include_decals = false,
+                invoke_decorative_trigger = true,
+                decoratives_with_trigger_only = false, 
+                radius = 1.25
+              }
+            }
+          }
+        },
+        {
+          type = "area",
+          radius = 1,
+          action_delivery =
+          {
+            type = "instant",
+            target_effects =
+            {
+              {
+                type = "damage",
+                damage = {amount = 170, type = "explosion"}
+              },
+              {
+                type = "create-entity",
+                entity_name = "explosion"
+              }
+            }
+          }
+        }
+      }
+    })
 end

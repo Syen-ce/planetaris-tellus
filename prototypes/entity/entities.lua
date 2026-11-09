@@ -780,7 +780,7 @@ data.extend({
     },
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
-    --damaged_trigger_effect = hit_effects.entity(),
+    damaged_trigger_effect = hit_effects.entity(),
     fast_replaceable_group = nil,
     next_upgrade = nil,
     circuit_wire_max_distance = assembling_machine_circuit_wire_max_distance,
@@ -859,7 +859,8 @@ data.extend({
       type = "electric",
       usage_priority = "secondary-input",
       drain = "1MW",
-      emissions_per_minute = { spores = -20,
+      emissions_per_minute = { pollution = -20,
+                               spores = -20,
                                pollen = -20 }
     },
     fluid_boxes =

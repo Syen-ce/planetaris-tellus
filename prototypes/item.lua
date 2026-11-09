@@ -35,8 +35,6 @@ data:extend({
   drop_sound = space_age_item_sounds.agriculture_inventory_move,
   stack_size = 100,
   weight = 1 * kg,
-  spoil_ticks = 120 * minute,
-  spoil_result = "spoilage",
   default_import_location = "tellus",
   },
   {
@@ -244,8 +242,6 @@ data:extend({
     stack_size = 50,
     default_import_location = "tellus",
     weight = 1 * kg,
-    spoil_ticks = 15 * minute,
-    spoil_result = "spoilage"
   },
   {
     type = "item",
@@ -679,7 +675,7 @@ data:extend({
     stack_size = 20,
     default_import_location = "tellus",
     weight = 10 * kg,
-    spoil_ticks = 15 * minute,
+    spoil_ticks = 30 * minute,
     spoil_to_trigger_result =
     {
       items_per_trigger = 5,
@@ -856,8 +852,6 @@ data:extend({
     stack_size = 10,
     default_import_location = "tellus",
     weight = 10 * kg,
-    spoil_ticks = 1 * hour,
-    spoil_result = "stone"
   },
   {
     type = "item",
@@ -919,8 +913,6 @@ data:extend({
     stack_size = 10,
     default_import_location = "tellus",
     weight = 10 * kg,
-    spoil_ticks = 1 * hour,
-    spoil_result = "stone"
   },
   {
     type = "item",
@@ -987,7 +979,7 @@ data:extend({
     durability_description_key = "description.science-pack-remaining-amount-key",
     factoriopedia_durability_description_key = "description.factoriopedia-science-pack-remaining-amount-key",
     durability_description_value = "description.science-pack-remaining-amount-value",
-    spoil_ticks = 30 * minute,
+    spoil_ticks = 60 * minute,
     spoil_to_trigger_result =
     {
       items_per_trigger = 10,
