@@ -77,6 +77,17 @@ local function replace_entity(entity)
     return new_entity
 end
 
+-- A recreated ghost keeps the module and item requests and the tags of the ghost it replaces
+local function restore_ghost_requests(new_ghost, insert_plan, tags)
+    if not new_ghost or not new_ghost.valid then return end
+    if insert_plan and #insert_plan > 0 then
+        new_ghost.insert_plan = insert_plan
+    end
+    if tags then
+        new_ghost.tags = tags
+    end
+end
+
 -- Replace a ghost entity (for blueprint placement)
 local function replace_ghost(ghost)
     if not ghost or not ghost.valid then return end
@@ -91,6 +102,8 @@ local function replace_ghost(ghost)
     local direction = ghost.direction
     local player = ghost.last_user
     local quality = ghost.quality
+    local insert_plan = ghost.insert_plan
+    local tags = ghost.tags
     
     ghost.destroy({raise_destroy = false})
     
@@ -106,6 +119,7 @@ local function replace_ghost(ghost)
     if new_ghost and player then
         new_ghost.last_user = player
     end
+    restore_ghost_requests(new_ghost, insert_plan, tags)
     
     return new_ghost
 end
@@ -133,10 +147,12 @@ function replacement.on_built(event)
             local direction = event.entity.direction
             local player = event.entity.last_user
             local quality = event.entity.quality
+            local insert_plan = event.entity.insert_plan
+            local tags = event.entity.tags
             
             event.entity.destroy({raise_destroy = false})
             
-            surface.create_entity{
+            local new_ghost = surface.create_entity{
                 name = "entity-ghost",
                 position = position,
                 force = force,
@@ -145,6 +161,7 @@ function replacement.on_built(event)
                 quality = quality,
                 player = player
             }
+            restore_ghost_requests(new_ghost, insert_plan, tags)
         end
     end
 end
@@ -172,10 +189,12 @@ function replacement.on_entity_cloned(event)
             local direction = event.destination.direction
             local player = event.destination.last_user
             local quality = event.destination.quality
+            local insert_plan = event.destination.insert_plan
+            local tags = event.destination.tags
             
             event.destination.destroy({raise_destroy = false})
             
-            surface.create_entity{
+            local new_ghost = surface.create_entity{
                 name = "entity-ghost",
                 position = position,
                 force = force,
@@ -184,6 +203,7 @@ function replacement.on_entity_cloned(event)
                 quality = quality,
                 player = player
             }
+            restore_ghost_requests(new_ghost, insert_plan, tags)
         end
     end
 end
